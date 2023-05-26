@@ -29,9 +29,9 @@ def download_file(url, output_file):
 
 
 if __name__ == "__main__":
-    data_dict = {"tour_dem_ttw.csv": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/TOUR_DEM_TTW/?format=SDMX-CSV&compressed=true",
-                 "tour_dem_extotw.csv": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/TOUR_DEM_EXTOTW/?format=SDMX-CSV&compressed=true",
-                 "tour_dem_tnw.csv": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/TOUR_DEM_TNW/?format=SDMX-CSV&compressed=true",}
+    data_dict = {"raw_data\\tour_dem_ttw.csv": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/TOUR_DEM_TTW/?format=SDMX-CSV&compressed=true",
+                 "raw_data\\tour_dem_extotw.csv": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/TOUR_DEM_EXTOTW/?format=SDMX-CSV&compressed=true",
+                 "raw_data\\tour_dem_tnw.csv": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/TOUR_DEM_TNW/?format=SDMX-CSV&compressed=true",}
 
     for key, value in data_dict.items():
         download_file(value, key)
