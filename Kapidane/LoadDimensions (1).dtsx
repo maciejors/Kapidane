@@ -1,0 +1,1139 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/26/2023 2:46:45 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-2ISVH1V"
+  DTS:CreatorName="DESKTOP-2ISVH1V\macie"
+  DTS:DTSID="{01D4D430-D554-4173-ACF6-EC6C27714695}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5209.0"
+  DTS:LocaleID="6153"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{D746336E-7F64-44B9-996A-CA69342B8848}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[TripsFile]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{7DE33B9E-9387-48A3-839D-EE0F90A20D8D}"
+      DTS:ObjectName="TripsFile">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="6153"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\macie\Documents\kapidane\trips.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DATAFLOW"
+              DTS:DTSID="{2EC68F32-3134-4CF0-A4F4-7D2D67DD25DF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LAST UPDATE"
+              DTS:DTSID="{FA176A22-F4F2-486C-93D4-EF32AFDC97EE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="freq"
+              DTS:DTSID="{8CCC0254-8129-47DF-9400-F29C3CB2F89A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="c_dest"
+              DTS:DTSID="{08D9F35D-B3A1-48CD-BB2B-389439DA2E0D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="purpose"
+              DTS:DTSID="{6BD956C9-099E-4A3A-BC2F-2235C2D3943A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="duration"
+              DTS:DTSID="{88149741-8CAA-4900-B984-793E179D696E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="unit"
+              DTS:DTSID="{D2E3A75C-277F-4FE4-8699-E1A1915DB740}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="geo"
+              DTS:DTSID="{C42F36C1-30E7-45D4-9051-697F7B39290A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TIME_PERIOD"
+              DTS:DTSID="{96EE08AC-EED0-4B70-A29B-2FDA6704E673}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OBS_VALUE"
+              DTS:DTSID="{9F96011C-A5BE-4EE5-A06D-B7F22043D306}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OBS_FLAG"
+              DTS:DTSID="{E2B0A437-2EF3-48C4-B437-1FB78195E53B}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\LoadTripDetails"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{DB8246A9-05AB-4045-91CB-96F52E602FE2}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="LoadTripDetails"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\LoadTripDetails\Create TripDetailsKey"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Create TripDetailsKey"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\LoadTripDetails\Create TripDetailsKey.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoadTripDetails\Create TripDetailsKey.Inputs[Derived Column Input].Columns[TripPurpose]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TripPurpose"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\LoadTripDetails\Remove duplicate combinations.Outputs[Sort Output].Columns[TripPurpose]" />
+                    <inputColumn
+                      refId="Package\LoadTripDetails\Create TripDetailsKey.Inputs[Derived Column Input].Columns[TripDuration]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TripDuration"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\LoadTripDetails\Remove duplicate combinations.Outputs[Sort Output].Columns[TripDuration]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LoadTripDetails\Create TripDetailsKey.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\LoadTripDetails\Create TripDetailsKey.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadTripDetails\Create TripDetailsKey.Outputs[Derived Column Output].Columns[TripDetailsKey]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="15"
+                      lineageId="Package\LoadTripDetails\Create TripDetailsKey.Outputs[Derived Column Output].Columns[TripDetailsKey]"
+                      name="TripDetailsKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,15,1252)(#{Package\LoadTripDetails\Remove duplicate combinations.Outputs[Sort Output].Columns[TripPurpose]} + #{Package\LoadTripDetails\Remove duplicate combinations.Outputs[Sort Output].Columns[TripDuration]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,15,1252)(TripPurpose + TripDuration)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoadTripDetails\Create TripDetailsKey.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\LoadTripDetails\Create TripDetailsKey.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadTripDetails\Create TripDetailsKey.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LoadTripDetails\Create TripDetailsKey.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LoadTripDetails\Create TripDetailsKey.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LoadTripDetails\Create TripDetailsKey.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LoadTripDetails\Nights data"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="6153"
+              name="Nights data"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\LoadTripDetails\Nights data.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[TripsFile]"
+                  connectionManagerRefId="Package.ConnectionManagers[TripsFile]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\LoadTripDetails\Nights data.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadTripDetails\Nights data.Outputs[Flat File Source Output].Columns[TripPurpose]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoadTripDetails\Nights data.Outputs[Flat File Source Output].ExternalColumns[purpose]"
+                      length="50"
+                      lineageId="Package\LoadTripDetails\Nights data.Outputs[Flat File Source Output].Columns[TripPurpose]"
+                      name="TripPurpose"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LoadTripDetails\Nights data.Outputs[Flat File Source Output].Columns[TripDuration]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoadTripDetails\Nights data.Outputs[Flat File Source Output].ExternalColumns[duration]"
+                      length="50"
+                      lineageId="Package\LoadTripDetails\Nights data.Outputs[Flat File Source Output].Columns[TripDuration]"
+                      name="TripDuration"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\LoadTripDetails\Nights data.Outputs[Flat File Source Output].ExternalColumns[DATAFLOW]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DATAFLOW" />
+                    <externalMetadataColumn
+                      refId="Package\LoadTripDetails\Nights data.Outputs[Flat File Source Output].ExternalColumns[LAST UPDATE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LAST UPDATE" />
+                    <externalMetadataColumn
+                      refId="Package\LoadTripDetails\Nights data.Outputs[Flat File Source Output].ExternalColumns[freq]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="freq" />
+                    <externalMetadataColumn
+                      refId="Package\LoadTripDetails\Nights data.Outputs[Flat File Source Output].ExternalColumns[c_dest]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="c_dest" />
+                    <externalMetadataColumn
+                      refId="Package\LoadTripDetails\Nights data.Outputs[Flat File Source Output].ExternalColumns[purpose]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="purpose" />
+                    <externalMetadataColumn
+                      refId="Package\LoadTripDetails\Nights data.Outputs[Flat File Source Output].ExternalColumns[duration]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="duration" />
+                    <externalMetadataColumn
+                      refId="Package\LoadTripDetails\Nights data.Outputs[Flat File Source Output].ExternalColumns[unit]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="unit" />
+                    <externalMetadataColumn
+                      refId="Package\LoadTripDetails\Nights data.Outputs[Flat File Source Output].ExternalColumns[geo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="geo" />
+                    <externalMetadataColumn
+                      refId="Package\LoadTripDetails\Nights data.Outputs[Flat File Source Output].ExternalColumns[TIME_PERIOD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="TIME_PERIOD" />
+                    <externalMetadataColumn
+                      refId="Package\LoadTripDetails\Nights data.Outputs[Flat File Source Output].ExternalColumns[OBS_VALUE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="OBS_VALUE" />
+                    <externalMetadataColumn
+                      refId="Package\LoadTripDetails\Nights data.Outputs[Flat File Source Output].ExternalColumns[OBS_FLAG]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="OBS_FLAG" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\LoadTripDetails\Nights data.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadTripDetails\Nights data.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\LoadTripDetails\Nights data.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\LoadTripDetails\Nights data.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LoadTripDetails\Nights data.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LoadTripDetails\Nights data.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LoadTripDetails\Nights data.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LoadTripDetails\Remove aggregated categories"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Remove aggregated categories"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\LoadTripDetails\Remove aggregated categories.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoadTripDetails\Remove aggregated categories.Inputs[Conditional Split Input].Columns[TripPurpose]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TripPurpose"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\LoadTripDetails\Remove duplicate combinations.Outputs[Sort Output].Columns[TripPurpose]" />
+                    <inputColumn
+                      refId="Package\LoadTripDetails\Remove aggregated categories.Inputs[Conditional Split Input].Columns[TripDuration]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TripDuration"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\LoadTripDetails\Remove duplicate combinations.Outputs[Sort Output].Columns[TripDuration]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LoadTripDetails\Remove aggregated categories.Outputs[FilteredRows]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="FilteredRows"
+                  synchronousInputId="Package\LoadTripDetails\Remove aggregated categories.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\LoadTripDetails\Remove duplicate combinations.Outputs[Sort Output].Columns[TripPurpose]} != "PER_VFR" &amp;&amp; #{Package\LoadTripDetails\Remove duplicate combinations.Outputs[Sort Output].Columns[TripPurpose]} != "TOTAL" &amp;&amp; #{Package\LoadTripDetails\Remove duplicate combinations.Outputs[Sort Output].Columns[TripDuration]} != "N_GE1"</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">TripPurpose != "PER_VFR" &amp;&amp; TripPurpose != "TOTAL" &amp;&amp; TripDuration != "N_GE1"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoadTripDetails\Remove aggregated categories.Outputs[Default output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Default output"
+                  synchronousInputId="Package\LoadTripDetails\Remove aggregated categories.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoadTripDetails\Remove aggregated categories.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\LoadTripDetails\Remove aggregated categories.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadTripDetails\Remove aggregated categories.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LoadTripDetails\Remove aggregated categories.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LoadTripDetails\Remove aggregated categories.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LoadTripDetails\Remove aggregated categories.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LoadTripDetails\Remove duplicate combinations"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Remove duplicate combinations"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\LoadTripDetails\Remove duplicate combinations.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoadTripDetails\Remove duplicate combinations.Inputs[Sort Input].Columns[TripPurpose]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TripPurpose"
+                      lineageId="Package\LoadTripDetails\Union All.Outputs[Union All Output 1].Columns[TripPurpose]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadTripDetails\Remove duplicate combinations.Inputs[Sort Input].Columns[TripDuration]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TripDuration"
+                      lineageId="Package\LoadTripDetails\Union All.Outputs[Union All Output 1].Columns[TripDuration]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LoadTripDetails\Remove duplicate combinations.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadTripDetails\Remove duplicate combinations.Outputs[Sort Output].Columns[TripPurpose]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\LoadTripDetails\Remove duplicate combinations.Outputs[Sort Output].Columns[TripPurpose]"
+                      name="TripPurpose"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\LoadTripDetails\Union All.Outputs[Union All Output 1].Columns[TripPurpose]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LoadTripDetails\Remove duplicate combinations.Outputs[Sort Output].Columns[TripDuration]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\LoadTripDetails\Remove duplicate combinations.Outputs[Sort Output].Columns[TripDuration]"
+                      name="TripDuration"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\LoadTripDetails\Union All.Outputs[Union All Output 1].Columns[TripDuration]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LoadTripDetails\Trips data"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="6153"
+              name="Trips data"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\LoadTripDetails\Trips data.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[TripsFile]"
+                  connectionManagerRefId="Package.ConnectionManagers[TripsFile]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\LoadTripDetails\Trips data.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadTripDetails\Trips data.Outputs[Flat File Source Output].Columns[TripPurpose]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoadTripDetails\Trips data.Outputs[Flat File Source Output].ExternalColumns[purpose]"
+                      length="50"
+                      lineageId="Package\LoadTripDetails\Trips data.Outputs[Flat File Source Output].Columns[TripPurpose]"
+                      name="TripPurpose"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LoadTripDetails\Trips data.Outputs[Flat File Source Output].Columns[TripDuration]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoadTripDetails\Trips data.Outputs[Flat File Source Output].ExternalColumns[duration]"
+                      length="50"
+                      lineageId="Package\LoadTripDetails\Trips data.Outputs[Flat File Source Output].Columns[TripDuration]"
+                      name="TripDuration"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\LoadTripDetails\Trips data.Outputs[Flat File Source Output].ExternalColumns[DATAFLOW]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DATAFLOW" />
+                    <externalMetadataColumn
+                      refId="Package\LoadTripDetails\Trips data.Outputs[Flat File Source Output].ExternalColumns[LAST UPDATE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LAST UPDATE" />
+                    <externalMetadataColumn
+                      refId="Package\LoadTripDetails\Trips data.Outputs[Flat File Source Output].ExternalColumns[freq]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="freq" />
+                    <externalMetadataColumn
+                      refId="Package\LoadTripDetails\Trips data.Outputs[Flat File Source Output].ExternalColumns[c_dest]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="c_dest" />
+                    <externalMetadataColumn
+                      refId="Package\LoadTripDetails\Trips data.Outputs[Flat File Source Output].ExternalColumns[purpose]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="purpose" />
+                    <externalMetadataColumn
+                      refId="Package\LoadTripDetails\Trips data.Outputs[Flat File Source Output].ExternalColumns[duration]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="duration" />
+                    <externalMetadataColumn
+                      refId="Package\LoadTripDetails\Trips data.Outputs[Flat File Source Output].ExternalColumns[unit]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="unit" />
+                    <externalMetadataColumn
+                      refId="Package\LoadTripDetails\Trips data.Outputs[Flat File Source Output].ExternalColumns[geo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="geo" />
+                    <externalMetadataColumn
+                      refId="Package\LoadTripDetails\Trips data.Outputs[Flat File Source Output].ExternalColumns[TIME_PERIOD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="TIME_PERIOD" />
+                    <externalMetadataColumn
+                      refId="Package\LoadTripDetails\Trips data.Outputs[Flat File Source Output].ExternalColumns[OBS_VALUE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="OBS_VALUE" />
+                    <externalMetadataColumn
+                      refId="Package\LoadTripDetails\Trips data.Outputs[Flat File Source Output].ExternalColumns[OBS_FLAG]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="OBS_FLAG" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\LoadTripDetails\Trips data.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadTripDetails\Trips data.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\LoadTripDetails\Trips data.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\LoadTripDetails\Trips data.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LoadTripDetails\Trips data.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LoadTripDetails\Trips data.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LoadTripDetails\Trips data.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LoadTripDetails\Union All"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="Union All"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\LoadTripDetails\Union All.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoadTripDetails\Union All.Inputs[Union All Input 1].Columns[TripPurpose]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TripPurpose"
+                      lineageId="Package\LoadTripDetails\Trips data.Outputs[Flat File Source Output].Columns[TripPurpose]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadTripDetails\Union All.Outputs[Union All Output 1].Columns[TripPurpose]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadTripDetails\Union All.Inputs[Union All Input 1].Columns[TripDuration]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TripDuration"
+                      lineageId="Package\LoadTripDetails\Trips data.Outputs[Flat File Source Output].Columns[TripDuration]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadTripDetails\Union All.Outputs[Union All Output 1].Columns[TripDuration]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\LoadTripDetails\Union All.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoadTripDetails\Union All.Inputs[Union All Input 2].Columns[TripPurpose]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TripPurpose"
+                      lineageId="Package\LoadTripDetails\Nights data.Outputs[Flat File Source Output].Columns[TripPurpose]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadTripDetails\Union All.Outputs[Union All Output 1].Columns[TripPurpose]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadTripDetails\Union All.Inputs[Union All Input 2].Columns[TripDuration]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TripDuration"
+                      lineageId="Package\LoadTripDetails\Nights data.Outputs[Flat File Source Output].Columns[TripDuration]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadTripDetails\Union All.Outputs[Union All Output 1].Columns[TripDuration]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\LoadTripDetails\Union All.Inputs[Union All Input 3]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LoadTripDetails\Union All.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadTripDetails\Union All.Outputs[Union All Output 1].Columns[TripPurpose]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\LoadTripDetails\Union All.Outputs[Union All Output 1].Columns[TripPurpose]"
+                      name="TripPurpose" />
+                    <outputColumn
+                      refId="Package\LoadTripDetails\Union All.Outputs[Union All Output 1].Columns[TripDuration]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\LoadTripDetails\Union All.Outputs[Union All Output 1].Columns[TripDuration]"
+                      name="TripDuration" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\LoadTripDetails.Paths[FilteredRows]"
+              endId="Package\LoadTripDetails\Create TripDetailsKey.Inputs[Derived Column Input]"
+              name="FilteredRows"
+              startId="Package\LoadTripDetails\Remove aggregated categories.Outputs[FilteredRows]" />
+            <path
+              refId="Package\LoadTripDetails.Paths[Flat File Source Output]"
+              endId="Package\LoadTripDetails\Union All.Inputs[Union All Input 1]"
+              name="Flat File Source Output"
+              startId="Package\LoadTripDetails\Trips data.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\LoadTripDetails.Paths[Flat File Source Output1]"
+              endId="Package\LoadTripDetails\Union All.Inputs[Union All Input 2]"
+              name="Flat File Source Output"
+              startId="Package\LoadTripDetails\Nights data.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\LoadTripDetails.Paths[Sort Output]"
+              endId="Package\LoadTripDetails\Remove aggregated categories.Inputs[Conditional Split Input]"
+              name="Sort Output"
+              startId="Package\LoadTripDetails\Remove duplicate combinations.Outputs[Sort Output]" />
+            <path
+              refId="Package\LoadTripDetails.Paths[Union All Output 1]"
+              endId="Package\LoadTripDetails\Remove duplicate combinations.Inputs[Sort Input]"
+              name="Union All Output 1"
+              startId="Package\LoadTripDetails\Union All.Outputs[Union All Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\LoadTripDetails"
+          TopLeft="123.333326594697,78.8666661182377" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\LoadTripDetails">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\LoadTripDetails\Trips data"
+          TopLeft="104.999994263053,12.1333332489597" />
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\LoadTripDetails\Nights data"
+          TopLeft="274.999984974663,14.0666672753625" />
+        <NodeLayout
+          Size="120,41.6"
+          Id="Package\LoadTripDetails\Union All"
+          TopLeft="201.666655648086,84.0666660820777" />
+        <EdgeLayout
+          Id="Package\LoadTripDetails.Paths[Flat File Source Output]"
+          TopLeft="180.599994263053,53.7333332489597">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="62.3999947183668,30.333332833118"
+              Start="0,0"
+              End="62.3999947183668,22.833332833118">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.9605260196094" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.9605260196094"
+                    Point2="0,17.9605260196094"
+                    Point3="4,17.9605260196094" />
+                  <mssgle:LineSegment
+                    End="58.3999947183668,17.9605260196094" />
+                  <mssgle:CubicBezierSegment
+                    Point1="58.3999947183668,17.9605260196094"
+                    Point2="62.3999947183668,17.9605260196094"
+                    Point3="62.3999947183668,21.9605260196094" />
+                  <mssgle:LineSegment
+                    End="62.3999947183668,22.833332833118" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LoadTripDetails.Paths[Flat File Source Output1]"
+          TopLeft="350.599984974663,55.6666672753625">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-70.2666626599097,28.3999988067152"
+              Start="0,0"
+              End="-70.2666626599097,20.8999988067152">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.815788767134" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.815788767134"
+                    Point2="0,16.815788767134"
+                    Point3="-4,16.815788767134" />
+                  <mssgle:LineSegment
+                    End="-66.2666626599097,16.815788767134" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-66.2666626599097,16.815788767134"
+                    Point2="-70.2666626599097,16.815788767134"
+                    Point3="-70.2666626599097,20.815788767134" />
+                  <mssgle:LineSegment
+                    End="-70.2666626599097,20.8999988067152" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="225.6,41.6"
+          Id="Package\LoadTripDetails\Remove duplicate combinations"
+          TopLeft="151.666658379966,153.399998933275" />
+        <EdgeLayout
+          Id="Package\LoadTripDetails.Paths[Union All Output 1]"
+          TopLeft="263.066657014026,125.666666082078">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27.7333328511977"
+              Start="0,0"
+              End="0,20.2333328511977">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2333328511977" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\LoadTripDetails\Create TripDetailsKey"
+          TopLeft="189.166656331056,306.799997866551" />
+        <NodeLayout
+          Size="223.2,41.6"
+          Id="Package\LoadTripDetails\Remove aggregated categories"
+          TopLeft="154.166658243372,227.066665087673" />
+        <EdgeLayout
+          Id="Package\LoadTripDetails.Paths[Sort Output]"
+          TopLeft="265.116658311669,194.999998933275">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32.0666661543978"
+              Start="0,0"
+              End="0,24.5666661543978">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5666661543978" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LoadTripDetails.Paths[FilteredRows]"
+          TopLeft="265.666657287214,268.666665087673">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38.1333327788777"
+              Start="0,0"
+              End="0,30.6333327788777">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.6333327788777" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-28.687578125,10.4421546706888,57.37515625,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

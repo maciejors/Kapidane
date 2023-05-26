@@ -1,0 +1,565 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/26/2023 2:46:45 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-2ISVH1V"
+  DTS:CreatorName="DESKTOP-2ISVH1V\macie"
+  DTS:DTSID="{01DC0397-544E-40A4-80F5-B26A21F116C8}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5209.0"
+  DTS:LocaleID="6153"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{E79E9D8A-DA95-4F64-A858-48FD7EC3050B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[TripsFile]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{CC9974DC-5DFB-46C6-A8FE-3EA6EA9637DD}"
+      DTS:ObjectName="TripsFile">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="6153"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\macie\Documents\kapidane\trips.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DATAFLOW"
+              DTS:DTSID="{36C43700-4DC2-47E3-ABF0-63D177140C43}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LAST UPDATE"
+              DTS:DTSID="{AEBD2FA7-142D-4E95-81AC-F47AE6575D42}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="freq"
+              DTS:DTSID="{B8DF0E06-03B2-466E-9105-9AC3BA102674}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="c_dest"
+              DTS:DTSID="{D1B24815-EFD4-4397-8A2E-1CA30BD608B8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="purpose"
+              DTS:DTSID="{BDCD45BE-2ADB-4B81-9FD0-7DF7CB83B969}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="duration"
+              DTS:DTSID="{B32A0408-7731-4428-93AC-487F8077374A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="unit"
+              DTS:DTSID="{6C46B191-7C7C-4950-9156-54E3C7B2F70C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="geo"
+              DTS:DTSID="{37497CE6-2A1D-469E-9BC6-0C7B0481EC12}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TIME_PERIOD"
+              DTS:DTSID="{5708FCC0-7D83-4497-8470-80AB1BBAC33C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OBS_VALUE"
+              DTS:DTSID="{74A7487E-0652-4066-A13E-35640D486CE2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OBS_FLAG"
+              DTS:DTSID="{A56B852E-FB46-429E-9F96-A32C6C043E1D}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\LoadTripDetails"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{98601425-F537-4798-B281-060F9DAFE0D7}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="LoadTripDetails"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\LoadTripDetails\Flat File Source"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="6153"
+              name="Flat File Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\LoadTripDetails\Flat File Source.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[TripsFile]"
+                  connectionManagerRefId="Package.ConnectionManagers[TripsFile]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\LoadTripDetails\Flat File Source.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadTripDetails\Flat File Source.Outputs[Flat File Source Output].Columns[DATAFLOW]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoadTripDetails\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[DATAFLOW]"
+                      length="50"
+                      lineageId="Package\LoadTripDetails\Flat File Source.Outputs[Flat File Source Output].Columns[DATAFLOW]"
+                      name="DATAFLOW"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LoadTripDetails\Flat File Source.Outputs[Flat File Source Output].Columns[LAST UPDATE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoadTripDetails\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[LAST UPDATE]"
+                      length="50"
+                      lineageId="Package\LoadTripDetails\Flat File Source.Outputs[Flat File Source Output].Columns[LAST UPDATE]"
+                      name="LAST UPDATE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LoadTripDetails\Flat File Source.Outputs[Flat File Source Output].Columns[freq]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoadTripDetails\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[freq]"
+                      length="50"
+                      lineageId="Package\LoadTripDetails\Flat File Source.Outputs[Flat File Source Output].Columns[freq]"
+                      name="freq"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LoadTripDetails\Flat File Source.Outputs[Flat File Source Output].Columns[c_dest]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoadTripDetails\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[c_dest]"
+                      length="50"
+                      lineageId="Package\LoadTripDetails\Flat File Source.Outputs[Flat File Source Output].Columns[c_dest]"
+                      name="c_dest"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LoadTripDetails\Flat File Source.Outputs[Flat File Source Output].Columns[purpose]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoadTripDetails\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[purpose]"
+                      length="50"
+                      lineageId="Package\LoadTripDetails\Flat File Source.Outputs[Flat File Source Output].Columns[purpose]"
+                      name="purpose"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LoadTripDetails\Flat File Source.Outputs[Flat File Source Output].Columns[duration]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoadTripDetails\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[duration]"
+                      length="50"
+                      lineageId="Package\LoadTripDetails\Flat File Source.Outputs[Flat File Source Output].Columns[duration]"
+                      name="duration"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LoadTripDetails\Flat File Source.Outputs[Flat File Source Output].Columns[unit]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoadTripDetails\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[unit]"
+                      length="50"
+                      lineageId="Package\LoadTripDetails\Flat File Source.Outputs[Flat File Source Output].Columns[unit]"
+                      name="unit"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LoadTripDetails\Flat File Source.Outputs[Flat File Source Output].Columns[geo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoadTripDetails\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[geo]"
+                      length="50"
+                      lineageId="Package\LoadTripDetails\Flat File Source.Outputs[Flat File Source Output].Columns[geo]"
+                      name="geo"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LoadTripDetails\Flat File Source.Outputs[Flat File Source Output].Columns[TIME_PERIOD]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoadTripDetails\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TIME_PERIOD]"
+                      length="50"
+                      lineageId="Package\LoadTripDetails\Flat File Source.Outputs[Flat File Source Output].Columns[TIME_PERIOD]"
+                      name="TIME_PERIOD"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LoadTripDetails\Flat File Source.Outputs[Flat File Source Output].Columns[OBS_VALUE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoadTripDetails\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[OBS_VALUE]"
+                      length="50"
+                      lineageId="Package\LoadTripDetails\Flat File Source.Outputs[Flat File Source Output].Columns[OBS_VALUE]"
+                      name="OBS_VALUE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LoadTripDetails\Flat File Source.Outputs[Flat File Source Output].Columns[OBS_FLAG]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoadTripDetails\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[OBS_FLAG]"
+                      length="50"
+                      lineageId="Package\LoadTripDetails\Flat File Source.Outputs[Flat File Source Output].Columns[OBS_FLAG]"
+                      name="OBS_FLAG"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\LoadTripDetails\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[DATAFLOW]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DATAFLOW" />
+                    <externalMetadataColumn
+                      refId="Package\LoadTripDetails\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[LAST UPDATE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LAST UPDATE" />
+                    <externalMetadataColumn
+                      refId="Package\LoadTripDetails\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[freq]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="freq" />
+                    <externalMetadataColumn
+                      refId="Package\LoadTripDetails\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[c_dest]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="c_dest" />
+                    <externalMetadataColumn
+                      refId="Package\LoadTripDetails\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[purpose]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="purpose" />
+                    <externalMetadataColumn
+                      refId="Package\LoadTripDetails\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[duration]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="duration" />
+                    <externalMetadataColumn
+                      refId="Package\LoadTripDetails\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[unit]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="unit" />
+                    <externalMetadataColumn
+                      refId="Package\LoadTripDetails\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[geo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="geo" />
+                    <externalMetadataColumn
+                      refId="Package\LoadTripDetails\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[TIME_PERIOD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="TIME_PERIOD" />
+                    <externalMetadataColumn
+                      refId="Package\LoadTripDetails\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[OBS_VALUE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="OBS_VALUE" />
+                    <externalMetadataColumn
+                      refId="Package\LoadTripDetails\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[OBS_FLAG]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="OBS_FLAG" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\LoadTripDetails\Flat File Source.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadTripDetails\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\LoadTripDetails\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\LoadTripDetails\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LoadTripDetails\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LoadTripDetails\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LoadTripDetails\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\LoadTripDetails"
+          TopLeft="123.333326594697,78.8666661182377" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\LoadTripDetails">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\LoadTripDetails\Flat File Source"
+          TopLeft="109.166660702063,55.4666662809584" />
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
