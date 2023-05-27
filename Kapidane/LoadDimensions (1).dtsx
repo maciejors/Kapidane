@@ -11,11 +11,23 @@
   DTS:LocaleID="6153"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="12"
-  DTS:VersionGUID="{CAF73503-309F-401B-81FC-8C2B46DAA5B6}">
+  DTS:VersionBuild="21"
+  DTS:VersionGUID="{AD27B127-C271-436B-93C7-1F1A04C90AAC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.kapidane_dwh]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{D51F1501-A9C1-46C3-AC54-F476C304E9BF}"
+      DTS:ObjectName="localhost.kapidane_dwh">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=kapidane_dwh;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package-{D51F1501-A9C1-46C3-AC54-F476C304E9BF}localhost.kapidane_dwh;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[TripsFile]"
       DTS:CreationName="FLATFILE"
@@ -151,9 +163,9 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <ExecuteProcessData
-          Executable="C:\Users\sabin\AppData\Local\Programs\Python\Python311\python.exe"
+          Executable="C:\Users\macie\AppData\Local\Programs\Python\Python311\python.exe"
           Arguments="scripts\scraper.py"
-          WorkingDirectory="C:\Users\sabin\OneDrive - Politechnika Warszawska\studia\sem 6\Hurtownie Danych i Systemy BI\projekt" />
+          WorkingDirectory="C:\Users\macie\source\repos\Kapidane" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -171,6 +183,167 @@
           version="1">
           <components>
             <component
+              refId="Package\LoadTripDetails\Check if combination exists"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Check if combination exists"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Dim_TripDetails]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Dim_TripDetails]) [refTable]
+where [refTable].[TripDetailsKey] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="TripDetailsKey" dataType="DT_STR" length="15" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="TripPurpose" dataType="DT_STR" length="20" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="TripDuration" dataType="DT_STR" length="20" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\LoadTripDetails\Create TripDetailsKey.Outputs[Derived Column Output].Columns[TripDetailsKey]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\LoadTripDetails\Check if combination exists.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.kapidane_dwh]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.kapidane_dwh]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\LoadTripDetails\Check if combination exists.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoadTripDetails\Check if combination exists.Inputs[Lookup Input].Columns[TripDetailsKey]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="TripDetailsKey"
+                      lineageId="Package\LoadTripDetails\Create TripDetailsKey.Outputs[Derived Column Output].Columns[TripDetailsKey]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">TripDetailsKey</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LoadTripDetails\Check if combination exists.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\LoadTripDetails\Check if combination exists.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadTripDetails\Check if combination exists.Outputs[Lookup Match Output].Columns[ExistingTripDetailsKey]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="15"
+                      lineageId="Package\LoadTripDetails\Check if combination exists.Outputs[Lookup Match Output].Columns[ExistingTripDetailsKey]"
+                      name="ExistingTripDetailsKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">TripDetailsKey</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoadTripDetails\Check if combination exists.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\LoadTripDetails\Check if combination exists.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoadTripDetails\Check if combination exists.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\LoadTripDetails\Check if combination exists.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadTripDetails\Check if combination exists.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LoadTripDetails\Check if combination exists.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LoadTripDetails\Check if combination exists.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LoadTripDetails\Check if combination exists.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\LoadTripDetails\Create TripDetailsKey"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
@@ -184,21 +357,21 @@
                   name="Derived Column Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\LoadTripDetails\Create TripDetailsKey.Inputs[Derived Column Input].Columns[TripPurpose]"
+                      refId="Package\LoadTripDetails\Create TripDetailsKey.Inputs[Derived Column Input].Columns[TripPurposeCode]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
-                      cachedName="TripPurpose"
+                      cachedName="TripPurposeCode"
                       cachedSortKeyPosition="1"
-                      lineageId="Package\LoadTripDetails\Remove duplicate combinations.Outputs[Sort Output].Columns[TripPurpose]" />
+                      lineageId="Package\LoadTripDetails\Remove duplicate combinations.Outputs[Sort Output].Columns[TripPurposeCode]" />
                     <inputColumn
-                      refId="Package\LoadTripDetails\Create TripDetailsKey.Inputs[Derived Column Input].Columns[TripDuration]"
+                      refId="Package\LoadTripDetails\Create TripDetailsKey.Inputs[Derived Column Input].Columns[TripDurationCode]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
-                      cachedName="TripDuration"
+                      cachedName="TripDurationCode"
                       cachedSortKeyPosition="2"
-                      lineageId="Package\LoadTripDetails\Remove duplicate combinations.Outputs[Sort Output].Columns[TripDuration]" />
+                      lineageId="Package\LoadTripDetails\Remove duplicate combinations.Outputs[Sort Output].Columns[TripDurationCode]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -226,13 +399,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">(DT_STR,15,1252)(#{Package\LoadTripDetails\Remove duplicate combinations.Outputs[Sort Output].Columns[TripPurpose]} + #{Package\LoadTripDetails\Remove duplicate combinations.Outputs[Sort Output].Columns[TripDuration]})</property>
+                          name="Expression">(DT_STR,15,1252)(#{Package\LoadTripDetails\Remove duplicate combinations.Outputs[Sort Output].Columns[TripPurposeCode]} + #{Package\LoadTripDetails\Remove duplicate combinations.Outputs[Sort Output].Columns[TripDurationCode]})</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">(DT_STR,15,1252)(TripPurpose + TripDuration)</property>
+                          name="FriendlyExpression">(DT_STR,15,1252)(TripPurposeCode + TripDurationCode)</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -256,6 +429,507 @@
                       refId="Package\LoadTripDetails\Create TripDetailsKey.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\LoadTripDetails\Create TripDetailsKey.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LoadTripDetails\Insert new combinations to the dimension"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Insert new combinations to the dimension"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Dim_TripDetails]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\LoadTripDetails\Insert new combinations to the dimension.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.kapidane_dwh]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.kapidane_dwh]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\LoadTripDetails\Insert new combinations to the dimension.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoadTripDetails\Insert new combinations to the dimension.Inputs[OLE DB Destination Input].Columns[TripDetailsKey]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="TripDetailsKey"
+                      externalMetadataColumnId="Package\LoadTripDetails\Insert new combinations to the dimension.Inputs[OLE DB Destination Input].ExternalColumns[TripDetailsKey]"
+                      lineageId="Package\LoadTripDetails\Create TripDetailsKey.Outputs[Derived Column Output].Columns[TripDetailsKey]" />
+                    <inputColumn
+                      refId="Package\LoadTripDetails\Insert new combinations to the dimension.Inputs[OLE DB Destination Input].Columns[TripPurpose]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="22"
+                      cachedName="TripPurpose"
+                      externalMetadataColumnId="Package\LoadTripDetails\Insert new combinations to the dimension.Inputs[OLE DB Destination Input].ExternalColumns[TripPurpose]"
+                      lineageId="Package\LoadTripDetails\Map codes to names (TripPurpose).Outputs[Lookup Match Output].Columns[TripPurpose]" />
+                    <inputColumn
+                      refId="Package\LoadTripDetails\Insert new combinations to the dimension.Inputs[OLE DB Destination Input].Columns[TripDuration]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="18"
+                      cachedName="TripDuration"
+                      externalMetadataColumnId="Package\LoadTripDetails\Insert new combinations to the dimension.Inputs[OLE DB Destination Input].ExternalColumns[TripDuration]"
+                      lineageId="Package\LoadTripDetails\Map codes to names (TripDuration).Outputs[Lookup Match Output].Columns[TripDuration]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\LoadTripDetails\Insert new combinations to the dimension.Inputs[OLE DB Destination Input].ExternalColumns[TripDetailsKey]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="TripDetailsKey" />
+                    <externalMetadataColumn
+                      refId="Package\LoadTripDetails\Insert new combinations to the dimension.Inputs[OLE DB Destination Input].ExternalColumns[TripPurpose]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="TripPurpose" />
+                    <externalMetadataColumn
+                      refId="Package\LoadTripDetails\Insert new combinations to the dimension.Inputs[OLE DB Destination Input].ExternalColumns[TripDuration]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="TripDuration" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LoadTripDetails\Insert new combinations to the dimension.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\LoadTripDetails\Insert new combinations to the dimension.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadTripDetails\Insert new combinations to the dimension.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LoadTripDetails\Insert new combinations to the dimension.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LoadTripDetails\Insert new combinations to the dimension.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LoadTripDetails\Insert new combinations to the dimension.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LoadTripDetails\Map codes to names (TripDuration)"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Map codes to names (TripDuration)"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT map.TripDurationCode, TripDuration
+
+FROM
+
+(
+
+    SELECT 'N1-3', 'From 1 to 3 nights'
+
+    UNION ALL SELECT 'N_GE4', '4 nights or over'
+
+) map (TripDurationCode, TripDuration)</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT map.TripDurationCode, TripDuration
+
+FROM
+
+(
+
+    SELECT 'N1-3', 'From 1 to 3 nights'
+
+    UNION ALL SELECT 'N_GE4', '4 nights or over'
+
+) map (TripDurationCode, TripDuration)) [refTable]
+where [refTable].[TripDurationCode] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="TripDurationCode" dataType="DT_STR" length="5" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="TripDuration" dataType="DT_STR" length="18" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\LoadTripDetails\Remove duplicate combinations.Outputs[Sort Output].Columns[TripDurationCode]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\LoadTripDetails\Map codes to names (TripDuration).Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.kapidane_dwh]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.kapidane_dwh]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\LoadTripDetails\Map codes to names (TripDuration).Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoadTripDetails\Map codes to names (TripDuration).Inputs[Lookup Input].Columns[TripDurationCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TripDurationCode"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\LoadTripDetails\Remove duplicate combinations.Outputs[Sort Output].Columns[TripDurationCode]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">TripDurationCode</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LoadTripDetails\Map codes to names (TripDuration).Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\LoadTripDetails\Map codes to names (TripDuration).Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadTripDetails\Map codes to names (TripDuration).Outputs[Lookup Match Output].Columns[TripDuration]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="18"
+                      lineageId="Package\LoadTripDetails\Map codes to names (TripDuration).Outputs[Lookup Match Output].Columns[TripDuration]"
+                      name="TripDuration"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">TripDuration</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoadTripDetails\Map codes to names (TripDuration).Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\LoadTripDetails\Map codes to names (TripDuration).Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoadTripDetails\Map codes to names (TripDuration).Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\LoadTripDetails\Map codes to names (TripDuration).Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadTripDetails\Map codes to names (TripDuration).Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LoadTripDetails\Map codes to names (TripDuration).Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LoadTripDetails\Map codes to names (TripDuration).Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LoadTripDetails\Map codes to names (TripDuration).Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LoadTripDetails\Map codes to names (TripPurpose)"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Map codes to names (TripPurpose)"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT TripPurposeCode, TripPurpose
+FROM
+(
+    SELECT 'PER', 'Personal reasons'
+    UNION ALL SELECT 'PROF', 'Professional, business'
+) map (TripPurposeCode, TripPurpose)</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT TripPurposeCode, TripPurpose
+FROM
+(
+    SELECT 'PER', 'Personal reasons'
+    UNION ALL SELECT 'PROF', 'Professional, business'
+) map (TripPurposeCode, TripPurpose)) [refTable]
+where [refTable].[TripPurposeCode] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="TripPurposeCode" dataType="DT_STR" length="4" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="TripPurpose" dataType="DT_STR" length="22" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\LoadTripDetails\Remove duplicate combinations.Outputs[Sort Output].Columns[TripPurposeCode]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\LoadTripDetails\Map codes to names (TripPurpose).Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.kapidane_dwh]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.kapidane_dwh]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\LoadTripDetails\Map codes to names (TripPurpose).Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoadTripDetails\Map codes to names (TripPurpose).Inputs[Lookup Input].Columns[TripPurposeCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TripPurposeCode"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\LoadTripDetails\Remove duplicate combinations.Outputs[Sort Output].Columns[TripPurposeCode]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">TripPurposeCode</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LoadTripDetails\Map codes to names (TripPurpose).Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\LoadTripDetails\Map codes to names (TripPurpose).Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadTripDetails\Map codes to names (TripPurpose).Outputs[Lookup Match Output].Columns[TripPurpose]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="22"
+                      lineageId="Package\LoadTripDetails\Map codes to names (TripPurpose).Outputs[Lookup Match Output].Columns[TripPurpose]"
+                      name="TripPurpose"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">TripPurpose</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoadTripDetails\Map codes to names (TripPurpose).Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\LoadTripDetails\Map codes to names (TripPurpose).Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoadTripDetails\Map codes to names (TripPurpose).Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\LoadTripDetails\Map codes to names (TripPurpose).Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadTripDetails\Map codes to names (TripPurpose).Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LoadTripDetails\Map codes to names (TripPurpose).Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LoadTripDetails\Map codes to names (TripPurpose).Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LoadTripDetails\Map codes to names (TripPurpose).Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -295,15 +969,15 @@
                   name="Flat File Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\LoadTripDetails\Nights data.Outputs[Flat File Source Output].Columns[TripPurpose]"
+                      refId="Package\LoadTripDetails\Nights data.Outputs[Flat File Source Output].Columns[TripPurposeCode]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\LoadTripDetails\Nights data.Outputs[Flat File Source Output].ExternalColumns[purpose]"
                       length="50"
-                      lineageId="Package\LoadTripDetails\Nights data.Outputs[Flat File Source Output].Columns[TripPurpose]"
-                      name="TripPurpose"
+                      lineageId="Package\LoadTripDetails\Nights data.Outputs[Flat File Source Output].Columns[TripPurposeCode]"
+                      name="TripPurposeCode"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -317,15 +991,15 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\LoadTripDetails\Nights data.Outputs[Flat File Source Output].Columns[TripDuration]"
+                      refId="Package\LoadTripDetails\Nights data.Outputs[Flat File Source Output].Columns[TripDurationCode]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\LoadTripDetails\Nights data.Outputs[Flat File Source Output].ExternalColumns[duration]"
                       length="50"
-                      lineageId="Package\LoadTripDetails\Nights data.Outputs[Flat File Source Output].Columns[TripDuration]"
-                      name="TripDuration"
+                      lineageId="Package\LoadTripDetails\Nights data.Outputs[Flat File Source Output].Columns[TripDurationCode]"
+                      name="TripDurationCode"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -452,21 +1126,21 @@
                   name="Conditional Split Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\LoadTripDetails\Remove aggregated categories.Inputs[Conditional Split Input].Columns[TripPurpose]"
+                      refId="Package\LoadTripDetails\Remove aggregated categories.Inputs[Conditional Split Input].Columns[TripPurposeCode]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
-                      cachedName="TripPurpose"
+                      cachedName="TripPurposeCode"
                       cachedSortKeyPosition="1"
-                      lineageId="Package\LoadTripDetails\Remove duplicate combinations.Outputs[Sort Output].Columns[TripPurpose]" />
+                      lineageId="Package\LoadTripDetails\Remove duplicate combinations.Outputs[Sort Output].Columns[TripPurposeCode]" />
                     <inputColumn
-                      refId="Package\LoadTripDetails\Remove aggregated categories.Inputs[Conditional Split Input].Columns[TripDuration]"
+                      refId="Package\LoadTripDetails\Remove aggregated categories.Inputs[Conditional Split Input].Columns[TripDurationCode]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
-                      cachedName="TripDuration"
+                      cachedName="TripDurationCode"
                       cachedSortKeyPosition="2"
-                      lineageId="Package\LoadTripDetails\Remove duplicate combinations.Outputs[Sort Output].Columns[TripDuration]" />
+                      lineageId="Package\LoadTripDetails\Remove duplicate combinations.Outputs[Sort Output].Columns[TripDurationCode]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -486,13 +1160,13 @@
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">#{Package\LoadTripDetails\Remove duplicate combinations.Outputs[Sort Output].Columns[TripPurpose]} != "PER_VFR" &amp;&amp; #{Package\LoadTripDetails\Remove duplicate combinations.Outputs[Sort Output].Columns[TripPurpose]} != "TOTAL" &amp;&amp; #{Package\LoadTripDetails\Remove duplicate combinations.Outputs[Sort Output].Columns[TripDuration]} != "N_GE1"</property>
+                      name="Expression">#{Package\LoadTripDetails\Remove duplicate combinations.Outputs[Sort Output].Columns[TripPurposeCode]} != "PER_VFR" &amp;&amp; #{Package\LoadTripDetails\Remove duplicate combinations.Outputs[Sort Output].Columns[TripPurposeCode]} != "TOTAL" &amp;&amp; #{Package\LoadTripDetails\Remove duplicate combinations.Outputs[Sort Output].Columns[TripDurationCode]} != "N_GE1"</property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the friendly version of the expression. This expression version uses column names."
                       expressionType="Notify"
-                      name="FriendlyExpression">TripPurpose != "PER_VFR" &amp;&amp; TripPurpose != "TOTAL" &amp;&amp; TripDuration != "N_GE1"</property>
+                      name="FriendlyExpression">TripPurposeCode != "PER_VFR" &amp;&amp; TripPurposeCode != "TOTAL" &amp;&amp; TripDurationCode != "N_GE1"</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
@@ -562,12 +1236,12 @@
                   name="Sort Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\LoadTripDetails\Remove duplicate combinations.Inputs[Sort Input].Columns[TripPurpose]"
+                      refId="Package\LoadTripDetails\Remove duplicate combinations.Inputs[Sort Input].Columns[TripPurposeCode]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
-                      cachedName="TripPurpose"
-                      lineageId="Package\LoadTripDetails\Union All.Outputs[Union All Output 1].Columns[TripPurpose]">
+                      cachedName="TripPurposeCode"
+                      lineageId="Package\LoadTripDetails\Union All.Outputs[Union All Output 1].Columns[TripPurposeCode]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -580,12 +1254,12 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\LoadTripDetails\Remove duplicate combinations.Inputs[Sort Input].Columns[TripDuration]"
+                      refId="Package\LoadTripDetails\Remove duplicate combinations.Inputs[Sort Input].Columns[TripDurationCode]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
-                      cachedName="TripDuration"
-                      lineageId="Package\LoadTripDetails\Union All.Outputs[Union All Output 1].Columns[TripDuration]">
+                      cachedName="TripDurationCode"
+                      lineageId="Package\LoadTripDetails\Union All.Outputs[Union All Output 1].Columns[TripDurationCode]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -608,35 +1282,35 @@
                   name="Sort Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\LoadTripDetails\Remove duplicate combinations.Outputs[Sort Output].Columns[TripPurpose]"
+                      refId="Package\LoadTripDetails\Remove duplicate combinations.Outputs[Sort Output].Columns[TripPurposeCode]"
                       codePage="1252"
                       dataType="str"
                       length="50"
-                      lineageId="Package\LoadTripDetails\Remove duplicate combinations.Outputs[Sort Output].Columns[TripPurpose]"
-                      name="TripPurpose"
+                      lineageId="Package\LoadTripDetails\Remove duplicate combinations.Outputs[Sort Output].Columns[TripPurposeCode]"
+                      name="TripPurposeCode"
                       sortKeyPosition="1">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\LoadTripDetails\Union All.Outputs[Union All Output 1].Columns[TripPurpose]}</property>
+                          name="SortColumnId">#{Package\LoadTripDetails\Union All.Outputs[Union All Output 1].Columns[TripPurposeCode]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\LoadTripDetails\Remove duplicate combinations.Outputs[Sort Output].Columns[TripDuration]"
+                      refId="Package\LoadTripDetails\Remove duplicate combinations.Outputs[Sort Output].Columns[TripDurationCode]"
                       codePage="1252"
                       dataType="str"
                       length="50"
-                      lineageId="Package\LoadTripDetails\Remove duplicate combinations.Outputs[Sort Output].Columns[TripDuration]"
-                      name="TripDuration"
+                      lineageId="Package\LoadTripDetails\Remove duplicate combinations.Outputs[Sort Output].Columns[TripDurationCode]"
+                      name="TripDurationCode"
                       sortKeyPosition="2">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\LoadTripDetails\Union All.Outputs[Union All Output 1].Columns[TripDuration]}</property>
+                          name="SortColumnId">#{Package\LoadTripDetails\Union All.Outputs[Union All Output 1].Columns[TripDurationCode]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -676,15 +1350,15 @@
                   name="Flat File Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\LoadTripDetails\Trips data.Outputs[Flat File Source Output].Columns[TripPurpose]"
+                      refId="Package\LoadTripDetails\Trips data.Outputs[Flat File Source Output].Columns[TripPurposeCode]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\LoadTripDetails\Trips data.Outputs[Flat File Source Output].ExternalColumns[purpose]"
                       length="50"
-                      lineageId="Package\LoadTripDetails\Trips data.Outputs[Flat File Source Output].Columns[TripPurpose]"
-                      name="TripPurpose"
+                      lineageId="Package\LoadTripDetails\Trips data.Outputs[Flat File Source Output].Columns[TripPurposeCode]"
+                      name="TripPurposeCode"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -698,15 +1372,15 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\LoadTripDetails\Trips data.Outputs[Flat File Source Output].Columns[TripDuration]"
+                      refId="Package\LoadTripDetails\Trips data.Outputs[Flat File Source Output].Columns[TripDurationCode]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\LoadTripDetails\Trips data.Outputs[Flat File Source Output].ExternalColumns[duration]"
                       length="50"
-                      lineageId="Package\LoadTripDetails\Trips data.Outputs[Flat File Source Output].Columns[TripDuration]"
-                      name="TripDuration"
+                      lineageId="Package\LoadTripDetails\Trips data.Outputs[Flat File Source Output].Columns[TripDurationCode]"
+                      name="TripDurationCode"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -832,33 +1506,33 @@
                   name="Union All Input 1">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\LoadTripDetails\Union All.Inputs[Union All Input 1].Columns[TripPurpose]"
+                      refId="Package\LoadTripDetails\Union All.Inputs[Union All Input 1].Columns[TripPurposeCode]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
-                      cachedName="TripPurpose"
-                      lineageId="Package\LoadTripDetails\Trips data.Outputs[Flat File Source Output].Columns[TripPurpose]">
+                      cachedName="TripPurposeCode"
+                      lineageId="Package\LoadTripDetails\Trips data.Outputs[Flat File Source Output].Columns[TripPurposeCode]">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\LoadTripDetails\Union All.Outputs[Union All Output 1].Columns[TripPurpose]}</property>
+                          name="OutputColumnLineageID">#{Package\LoadTripDetails\Union All.Outputs[Union All Output 1].Columns[TripPurposeCode]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\LoadTripDetails\Union All.Inputs[Union All Input 1].Columns[TripDuration]"
+                      refId="Package\LoadTripDetails\Union All.Inputs[Union All Input 1].Columns[TripDurationCode]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
-                      cachedName="TripDuration"
-                      lineageId="Package\LoadTripDetails\Trips data.Outputs[Flat File Source Output].Columns[TripDuration]">
+                      cachedName="TripDurationCode"
+                      lineageId="Package\LoadTripDetails\Trips data.Outputs[Flat File Source Output].Columns[TripDurationCode]">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\LoadTripDetails\Union All.Outputs[Union All Output 1].Columns[TripDuration]}</property>
+                          name="OutputColumnLineageID">#{Package\LoadTripDetails\Union All.Outputs[Union All Output 1].Columns[TripDurationCode]}</property>
                       </properties>
                     </inputColumn>
                   </inputColumns>
@@ -870,33 +1544,33 @@
                   name="Union All Input 2">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\LoadTripDetails\Union All.Inputs[Union All Input 2].Columns[TripPurpose]"
+                      refId="Package\LoadTripDetails\Union All.Inputs[Union All Input 2].Columns[TripPurposeCode]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
-                      cachedName="TripPurpose"
-                      lineageId="Package\LoadTripDetails\Nights data.Outputs[Flat File Source Output].Columns[TripPurpose]">
+                      cachedName="TripPurposeCode"
+                      lineageId="Package\LoadTripDetails\Nights data.Outputs[Flat File Source Output].Columns[TripPurposeCode]">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\LoadTripDetails\Union All.Outputs[Union All Output 1].Columns[TripPurpose]}</property>
+                          name="OutputColumnLineageID">#{Package\LoadTripDetails\Union All.Outputs[Union All Output 1].Columns[TripPurposeCode]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\LoadTripDetails\Union All.Inputs[Union All Input 2].Columns[TripDuration]"
+                      refId="Package\LoadTripDetails\Union All.Inputs[Union All Input 2].Columns[TripDurationCode]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
-                      cachedName="TripDuration"
-                      lineageId="Package\LoadTripDetails\Nights data.Outputs[Flat File Source Output].Columns[TripDuration]">
+                      cachedName="TripDurationCode"
+                      lineageId="Package\LoadTripDetails\Nights data.Outputs[Flat File Source Output].Columns[TripDurationCode]">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\LoadTripDetails\Union All.Outputs[Union All Output 1].Columns[TripDuration]}</property>
+                          name="OutputColumnLineageID">#{Package\LoadTripDetails\Union All.Outputs[Union All Output 1].Columns[TripDurationCode]}</property>
                       </properties>
                     </inputColumn>
                   </inputColumns>
@@ -916,19 +1590,19 @@
                   name="Union All Output 1">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\LoadTripDetails\Union All.Outputs[Union All Output 1].Columns[TripPurpose]"
+                      refId="Package\LoadTripDetails\Union All.Outputs[Union All Output 1].Columns[TripPurposeCode]"
                       codePage="1252"
                       dataType="str"
                       length="50"
-                      lineageId="Package\LoadTripDetails\Union All.Outputs[Union All Output 1].Columns[TripPurpose]"
-                      name="TripPurpose" />
+                      lineageId="Package\LoadTripDetails\Union All.Outputs[Union All Output 1].Columns[TripPurposeCode]"
+                      name="TripPurposeCode" />
                     <outputColumn
-                      refId="Package\LoadTripDetails\Union All.Outputs[Union All Output 1].Columns[TripDuration]"
+                      refId="Package\LoadTripDetails\Union All.Outputs[Union All Output 1].Columns[TripDurationCode]"
                       codePage="1252"
                       dataType="str"
                       length="50"
-                      lineageId="Package\LoadTripDetails\Union All.Outputs[Union All Output 1].Columns[TripDuration]"
-                      name="TripDuration" />
+                      lineageId="Package\LoadTripDetails\Union All.Outputs[Union All Output 1].Columns[TripDurationCode]"
+                      name="TripDurationCode" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -936,6 +1610,11 @@
             </component>
           </components>
           <paths>
+            <path
+              refId="Package\LoadTripDetails.Paths[Derived Column Output]"
+              endId="Package\LoadTripDetails\Check if combination exists.Inputs[Lookup Input]"
+              name="Derived Column Output"
+              startId="Package\LoadTripDetails\Create TripDetailsKey.Outputs[Derived Column Output]" />
             <path
               refId="Package\LoadTripDetails.Paths[FilteredRows]"
               endId="Package\LoadTripDetails\Create TripDetailsKey.Inputs[Derived Column Input]"
@@ -952,6 +1631,21 @@
               name="Flat File Source Output"
               startId="Package\LoadTripDetails\Nights data.Outputs[Flat File Source Output]" />
             <path
+              refId="Package\LoadTripDetails.Paths[Lookup Match Output]"
+              endId="Package\LoadTripDetails\Map codes to names (TripDuration).Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\LoadTripDetails\Map codes to names (TripPurpose).Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\LoadTripDetails.Paths[Lookup Match Output1]"
+              endId="Package\LoadTripDetails\Insert new combinations to the dimension.Inputs[OLE DB Destination Input]"
+              name="Lookup Match Output"
+              startId="Package\LoadTripDetails\Map codes to names (TripDuration).Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\LoadTripDetails.Paths[Lookup No Match Output]"
+              endId="Package\LoadTripDetails\Map codes to names (TripPurpose).Inputs[Lookup Input]"
+              name="Lookup No Match Output"
+              startId="Package\LoadTripDetails\Check if combination exists.Outputs[Lookup No Match Output]" />
+            <path
               refId="Package\LoadTripDetails.Paths[Sort Output]"
               endId="Package\LoadTripDetails\Remove aggregated categories.Inputs[Conditional Split Input]"
               name="Sort Output"
@@ -966,6 +1660,16 @@
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{AD75118F-623C-4550-9E47-D80B20E0974E}"
+      DTS:From="Package\Execute Process Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\LoadTripDetails" />
+  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -977,15 +1681,37 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="151.333333333334,41.3333333333334"
-          Id="Package\LoadTripDetails"
-          TopLeft="123.333326594697,78.8666661182377" />
-        <NodeLayout
-          Size="181.333333333334,42.6666666666667"
+          Size="181.6,42.4"
           Id="Package\Execute Process Task"
-          TopLeft="5.5,5.5" />
+          TopLeft="96.333328370419,22.8333332127995" />
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\LoadTripDetails"
+          TopLeft="109.999993989865,129.999999095996" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="186.366661180142,65.2333332127995">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,64.7666658831967"
+              Start="0,0"
+              End="0,57.2666658831967">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.2666658831967" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -993,45 +1719,45 @@
     design-time-name="Package\LoadTripDetails">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="126.666666666667,42.6666666666667"
+          Size="124.8,41.6"
           Id="Package\LoadTripDetails\Trips data"
-          TopLeft="104.999994263053,12.1333332489597" />
+          TopLeft="127.499993033707,2.59999998191997" />
         <NodeLayout
-          Size="151.333333333334,41.3333333333334"
+          Size="135.2,41.6"
           Id="Package\LoadTripDetails\Nights data"
-          TopLeft="275.624984946723,16.0166671823793" />
+          TopLeft="268.958318644307,3.01666727277967" />
         <NodeLayout
-          Size="120,41.3333333333334"
+          Size="120,41.6"
           Id="Package\LoadTripDetails\Union All"
-          TopLeft="201.666655648086,84.0666660820777" />
+          TopLeft="200.833322360284,70.1999995118381" />
         <NodeLayout
-          Size="223.333333333334,41.3333333333334"
+          Size="223.2,41.6"
           Id="Package\LoadTripDetails\Remove aggregated categories"
-          TopLeft="154.166658243372,227.066665087673" />
+          TopLeft="154.166658243372,201.933331929114" />
         <NodeLayout
-          Size="152.666666666667,41.3333333333334"
+          Size="152.8,41.6"
           Id="Package\LoadTripDetails\Create TripDetailsKey"
-          TopLeft="189.166656331056,306.799997866551" />
+          TopLeft="187.499989755452,277.333331404792" />
         <NodeLayout
-          Size="225.333333333334,41.3333333333334"
+          Size="225.6,41.6"
           Id="Package\LoadTripDetails\Remove duplicate combinations"
-          TopLeft="151.666658379966,153.399998933275" />
+          TopLeft="151.666658379966,137.799999041755" />
         <EdgeLayout
           Id="Package\LoadTripDetails.Paths[Union All Output 1]"
-          TopLeft="263.066657014026,125.666666082078">
+          TopLeft="262.649990370125,111.799999511838">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,27.7333328511977"
+              EndConnector="0,25.9999995299173"
               Start="0,0"
-              End="0,20.2333328511977">
+              End="0,18.4999995299173">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.2333328511977" />
+                    End="0,18.4999995299173" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1042,18 +1768,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\LoadTripDetails.Paths[Sort Output]"
-          TopLeft="265.116658311669,194.999998933275">
+          TopLeft="265.116658311669,179.399999041755">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,32.0666661543978"
+              EndConnector="0,22.5333328873582"
               Start="0,0"
-              End="0,24.5666661543978">
+              End="0,15.0333328873582">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,24.5666661543978" />
+                    End="0,15.0333328873582" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1064,30 +1790,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\LoadTripDetails.Paths[Flat File Source Output1]"
-          TopLeft="351.29165161339,57.3500005157126">
+          TopLeft="336.558318644307,44.6166672727797">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-70.9583292986374,26.7166655663651"
+              EndConnector="-57.0583296173561,25.5833322390584"
               Start="0,0"
-              End="-70.9583292986374,19.2166655663651">
+              End="-57.0583296173561,18.0833322390584">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,11.8190782958741" />
+                    End="0,11.1480256678635" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,11.8190782958741"
-                    Point2="0,15.8190782958741"
-                    Point3="-4,15.8190782958741" />
+                    Point1="0,11.1480256678635"
+                    Point2="0,15.1480256678635"
+                    Point3="-4,15.1480256678635" />
                   <mssgle:LineSegment
-                    End="-66.9583292986374,15.8190782958741" />
+                    End="-53.0583296173561,15.1480256678635" />
                   <mssgle:CubicBezierSegment
-                    Point1="-66.9583292986374,15.8190782958741"
-                    Point2="-70.9583292986374,15.8190782958741"
-                    Point3="-70.9583292986374,19.8190782958741" />
+                    Point1="-53.0583296173561,15.1480256678635"
+                    Point2="-57.0583296173561,15.1480256678635"
+                    Point3="-57.0583296173561,19.1480256678635" />
                   <mssgle:LineSegment
-                    End="-70.9583292986374,19.2166655663651" />
+                    End="-57.0583296173561,18.0833322390584" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1098,30 +1824,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\LoadTripDetails.Paths[Flat File Source Output]"
-          TopLeft="168.333327596386,54.7999999156264">
+          TopLeft="189.899993033707,44.19999998192">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="74.666661385033,29.2666661664513"
+              EndConnector="52.2666626599101,25.9999995299181"
               Start="0,0"
-              End="74.666661385033,21.7666661664513">
+              End="52.2666626599101,18.4999995299181">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,13.3289470722409" />
+                    End="0,11.3947365637673" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,13.3289470722409"
-                    Point2="0,17.3289470722409"
-                    Point3="4,17.3289470722409" />
+                    Point1="0,11.3947365637673"
+                    Point2="0,15.3947365637673"
+                    Point3="4,15.3947365637673" />
                   <mssgle:LineSegment
-                    End="70.666661385033,17.3289470722409" />
+                    End="48.2666626599101,15.3947365637673" />
                   <mssgle:CubicBezierSegment
-                    Point1="70.666661385033,17.3289470722409"
-                    Point2="74.666661385033,17.3289470722409"
-                    Point3="74.666661385033,21.3289470722409" />
+                    Point1="48.2666626599101,15.3947365637673"
+                    Point2="52.2666626599101,15.3947365637673"
+                    Point3="52.2666626599101,19.3947365637673" />
                   <mssgle:LineSegment
-                    End="74.666661385033,21.7666661664513" />
+                    End="52.2666626599101,18.4999995299181" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1132,30 +1858,222 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\LoadTripDetails.Paths[FilteredRows]"
-          TopLeft="265.666657287214,268.666665087673">
+          TopLeft="264.833323999412,243.533331929114">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,38.1333327788777"
+              EndConnector="0,33.7999994756784"
               Start="0,0"
-              End="0,30.6333327788777">
+              End="0,26.2999994756784">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,30.6333327788777" />
+                    End="0,26.2999994756784" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-28.687578125,10.4421546706888,57.37515625,9.7490234375"
+              BoundingBox="-28.687578125,8.27548801908918,57.37515625,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="204,41.6"
+          Id="Package\LoadTripDetails\Check if combination exists"
+          TopLeft="161.66665783359,346.66666425599" />
+        <EdgeLayout
+          Id="Package\LoadTripDetails.Paths[Derived Column Output]"
+          TopLeft="263.783323794521,318.933331404792">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27.7333328511978"
+              Start="0,0"
+              End="0,20.2333328511978">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2333328511978" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="240.8,41.6"
+          Id="Package\LoadTripDetails\Map codes to names (TripPurpose)"
+          TopLeft="147.499991940955,425.533330374228" />
+        <EdgeLayout
+          Id="Package\LoadTripDetails.Paths[Lookup No Match Output]"
+          TopLeft="265.783324887273,388.26666425599">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.266666118238"
+              Start="0,0"
+              End="0,29.766666118238">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.766666118238" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.80638671875,9.078645559119,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="241.6,41.6"
+          Id="Package\LoadTripDetails\Map codes to names (TripDuration)"
+          TopLeft="574.166635295584,422.266664436791" />
+        <EdgeLayout
+          Id="Package\LoadTripDetails.Paths[Lookup Match Output]"
+          TopLeft="388.299991940955,444.699997405509">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="185.866643354629,0"
+              Start="0,0"
+              End="178.366643354629,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="178.366643354629,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="40.9919349585644,5,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="269.6,41.6"
+          Id="Package\LoadTripDetails\Insert new combinations to the dimension"
+          TopLeft="553.333303100535,329.33333104319" />
+        <EdgeLayout
+          Id="Package\LoadTripDetails.Paths[Lookup Match Output1]"
+          TopLeft="691.54996919806,422.266664436791">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,-51.3333333936002"
+              Start="0,0"
+              End="0,-43.8333333936002">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-43.8333333936002" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,-27.7213541968001,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\LoadTripDetails\Check if combination exists">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Dim_TripDetails]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\LoadTripDetails\Map codes to names (TripPurpose)">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\LoadTripDetails\Map codes to names (TripDuration)">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\LoadTripDetails\Insert new combinations to the dimension">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
