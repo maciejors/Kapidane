@@ -4,6 +4,7 @@ import gzip
 import csv
 import os
 
+
 def download_file(url, output_file):
     # Send a GET request to the API endpoint
     response = requests.get(url)
@@ -25,13 +26,59 @@ def download_file(url, output_file):
         os.remove(f'{output_file}.gz')
         print(f"File '{output_file}' downloaded and saved successfully.")
     else:
-        print(f"Failed to download the file. Status code: {response.status_code}")
+        print(
+            f"Failed to download the file. Status code: {response.status_code}")
+
+
+def download_country_data():
+    # World Bank API URL for WDI metadata
+    url = "https://api.worldbank.org/v2/sources/2/country/all/metadata?format=json&per_page=10000"
+
+    # Send GET request to the API
+    response = requests.get(url)
+
+    # Check if the request was successful
+    if response.status_code == 200:
+        # Extract the JSON data from the response
+        data = response.json()["source"][0]["concept"][0]["variable"]
+
+        # Extract the necessary information from the JSON data
+        headers = ["Country Code", "Country Name",
+                   "Income Group", "Region", "Country Long Name"]
+        rows = []
+        for country in data:
+            for item in country["metatype"]:
+                if item["id"] == "Region":
+                    region = item["value"]
+                elif item["id"] == "IncomeGroup":
+                    income_group = item["value"]
+                elif item["id"] == "2-alphacode":
+                    country_code = item["value"]
+                elif item["id"] == "ShortName":
+                    country_name = item["value"]
+                elif item["id"] == "LongName":
+                    country_long_name = item["value"]
+
+            rows.append([country_code, country_name,
+                        income_group, region, country_long_name])
+
+        # Write the extracted data to a CSV file
+        with open("countries.csv", "w", newline="",  encoding="utf-8") as csvfile:
+            writer = csv.writer(csvfile)
+            writer.writerow(headers)
+            writer.writerows(rows)
+
+        print("Metadata downloaded and saved as 'worldbank_metadata.csv'.")
+    else:
+        print("Failed to retrieve metadata. Please check your request.")
 
 
 if __name__ == "__main__":
     data_dict = {"raw_data\\trips.csv": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/TOUR_DEM_TTW/?format=SDMX-CSV&compressed=true",
                  "raw_data\\expenditures.csv": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/TOUR_DEM_EXTOTW/?format=SDMX-CSV&compressed=true",
-                 "raw_data\\nights.csv": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/TOUR_DEM_TNW/?format=SDMX-CSV&compressed=true",}
+                 "raw_data\\nights.csv": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/TOUR_DEM_TNW/?format=SDMX-CSV&compressed=true", }
 
     for key, value in data_dict.items():
         download_file(value, key)
+
+    download_country_data()
