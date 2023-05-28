@@ -11,11 +11,148 @@
   DTS:LocaleID="6153"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="21"
-  DTS:VersionGUID="{AD27B127-C271-436B-93C7-1F1A04C90AAC}">
+  DTS:VersionBuild="25"
+  DTS:VersionGUID="{BB9A0C28-672C-49A9-9A47-E8AD76EC2ADF}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ExpendituresFile]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{E39CA92D-F7DC-4F85-9E27-DF544949F0B8}"
+      DTS:ObjectName="ExpendituresFile">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="6153"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\macie\source\repos\Kapidane\raw_data\expenditures.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DATAFLOW"
+              DTS:DTSID="{BAC10E3C-FF2C-4D75-99BB-73E3C2CDDD22}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LAST UPDATE"
+              DTS:DTSID="{928C3037-2FCF-4362-AF96-A087FAFAB5B1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="freq"
+              DTS:DTSID="{F91A51E6-F9FC-43EA-B3CB-0D5125A97258}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="purpose"
+              DTS:DTSID="{D9096D0C-D34A-41B9-9583-4AA6FAFDF425}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="duration"
+              DTS:DTSID="{54D6F312-2D74-447E-99C1-FD83CB597078}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="c_dest"
+              DTS:DTSID="{B7EA68F9-30A4-4658-B379-9786A56EC0F1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="expend"
+              DTS:DTSID="{B743EA39-809E-4C08-84CE-261489B3A116}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="statinfo"
+              DTS:DTSID="{0D4AA956-A052-4650-9975-082E6E2D226B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="unit"
+              DTS:DTSID="{0A0DB1F0-4DC8-47CB-8393-132A71B3E0A2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="geo"
+              DTS:DTSID="{31FDB942-9A05-4F17-82A1-23B7ADB3CF0A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TIME_PERIOD"
+              DTS:DTSID="{EAFD212B-3524-46F4-A4E3-56406ED43F25}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OBS_VALUE"
+              DTS:DTSID="{FE29E84E-10AF-470B-AFC8-3602DA2E9951}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OBS_FLAG"
+              DTS:DTSID="{C55FF50D-FD89-41BC-B9E5-F3104EAD051A}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[localhost.kapidane_dwh]"
       DTS:CreationName="OLEDB"
@@ -26,6 +163,125 @@
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
           DTS:ConnectionString="Data Source=localhost;Initial Catalog=kapidane_dwh;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package-{D51F1501-A9C1-46C3-AC54-F476C304E9BF}localhost.kapidane_dwh;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[NightsFile]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{7C15D75A-84AE-4E49-AD9B-59AB6E74765B}"
+      DTS:ObjectName="NightsFile">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="6153"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\macie\source\repos\Kapidane\raw_data\nights.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DATAFLOW"
+              DTS:DTSID="{C60CCEDA-9FBA-4450-B621-03E4DADF6531}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LAST UPDATE"
+              DTS:DTSID="{7797A315-FBC0-4518-A765-C93DB0132A5E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="freq"
+              DTS:DTSID="{D0BF4C99-35A4-4019-A969-3A94D82D61AB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="c_dest"
+              DTS:DTSID="{AB71A7F9-C5E5-45A4-8BD6-B0C020035F06}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="purpose"
+              DTS:DTSID="{46E6693E-DD9F-4C26-8F21-90554BA7C6A1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="duration"
+              DTS:DTSID="{F42DEC0E-DF74-407E-877C-10534F09119E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="unit"
+              DTS:DTSID="{A06CB37B-3AEB-4114-9BD8-C9B68BCE3763}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="geo"
+              DTS:DTSID="{6B11AA9B-AC5F-4AB8-BD5A-A2D1227D4734}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TIME_PERIOD"
+              DTS:DTSID="{874858D0-E444-46AF-8EF6-81BA5C582749}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OBS_VALUE"
+              DTS:DTSID="{908686F0-A700-45AA-8375-AF347F8A751A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OBS_FLAG"
+              DTS:DTSID="{C2FD5323-6086-4287-A038-DA4F14DB05B2}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -166,6 +422,873 @@
           Executable="C:\Users\macie\AppData\Local\Programs\Python\Python311\python.exe"
           Arguments="scripts\scraper.py"
           WorkingDirectory="C:\Users\macie\source\repos\Kapidane" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\LoadExpenditureDetails"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{BA0FE353-95D1-462B-B604-D2EA12F24E00}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="LoadExpenditureDetails"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\LoadExpenditureDetails\Check if type exists"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Check if type exists"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Dim_ExpenditureDetails]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Dim_ExpenditureDetails]) [refTable]
+where [refTable].[ExpenditureDetailsKey] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ExpenditureDetailsKey" dataType="DT_STR" length="10" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="ExpenditureType" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\LoadExpenditureDetails\Remove duplicates.Outputs[Sort Output].Columns[ExpenditureCode]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\LoadExpenditureDetails\Check if type exists.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.kapidane_dwh]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.kapidane_dwh]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\LoadExpenditureDetails\Check if type exists.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoadExpenditureDetails\Check if type exists.Inputs[Lookup Input].Columns[ExpenditureCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ExpenditureCode"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\LoadExpenditureDetails\Remove duplicates.Outputs[Sort Output].Columns[ExpenditureCode]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">ExpenditureDetailsKey</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LoadExpenditureDetails\Check if type exists.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\LoadExpenditureDetails\Check if type exists.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadExpenditureDetails\Check if type exists.Outputs[Lookup Match Output].Columns[ExistingExpenditureDetailsKey]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="10"
+                      lineageId="Package\LoadExpenditureDetails\Check if type exists.Outputs[Lookup Match Output].Columns[ExistingExpenditureDetailsKey]"
+                      name="ExistingExpenditureDetailsKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">ExpenditureDetailsKey</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoadExpenditureDetails\Check if type exists.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\LoadExpenditureDetails\Check if type exists.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoadExpenditureDetails\Check if type exists.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\LoadExpenditureDetails\Check if type exists.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadExpenditureDetails\Check if type exists.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LoadExpenditureDetails\Check if type exists.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LoadExpenditureDetails\Check if type exists.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LoadExpenditureDetails\Check if type exists.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LoadExpenditureDetails\Expenditures data"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="6153"
+              name="Expenditures data"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\LoadExpenditureDetails\Expenditures data.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ExpendituresFile]"
+                  connectionManagerRefId="Package.ConnectionManagers[ExpendituresFile]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\LoadExpenditureDetails\Expenditures data.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadExpenditureDetails\Expenditures data.Outputs[Flat File Source Output].Columns[ExpenditureCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoadExpenditureDetails\Expenditures data.Outputs[Flat File Source Output].ExternalColumns[expend]"
+                      length="50"
+                      lineageId="Package\LoadExpenditureDetails\Expenditures data.Outputs[Flat File Source Output].Columns[ExpenditureCode]"
+                      name="ExpenditureCode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\LoadExpenditureDetails\Expenditures data.Outputs[Flat File Source Output].ExternalColumns[DATAFLOW]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DATAFLOW" />
+                    <externalMetadataColumn
+                      refId="Package\LoadExpenditureDetails\Expenditures data.Outputs[Flat File Source Output].ExternalColumns[LAST UPDATE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LAST UPDATE" />
+                    <externalMetadataColumn
+                      refId="Package\LoadExpenditureDetails\Expenditures data.Outputs[Flat File Source Output].ExternalColumns[freq]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="freq" />
+                    <externalMetadataColumn
+                      refId="Package\LoadExpenditureDetails\Expenditures data.Outputs[Flat File Source Output].ExternalColumns[c_dest]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="c_dest" />
+                    <externalMetadataColumn
+                      refId="Package\LoadExpenditureDetails\Expenditures data.Outputs[Flat File Source Output].ExternalColumns[purpose]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="purpose" />
+                    <externalMetadataColumn
+                      refId="Package\LoadExpenditureDetails\Expenditures data.Outputs[Flat File Source Output].ExternalColumns[duration]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="duration" />
+                    <externalMetadataColumn
+                      refId="Package\LoadExpenditureDetails\Expenditures data.Outputs[Flat File Source Output].ExternalColumns[unit]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="unit" />
+                    <externalMetadataColumn
+                      refId="Package\LoadExpenditureDetails\Expenditures data.Outputs[Flat File Source Output].ExternalColumns[geo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="geo" />
+                    <externalMetadataColumn
+                      refId="Package\LoadExpenditureDetails\Expenditures data.Outputs[Flat File Source Output].ExternalColumns[TIME_PERIOD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="TIME_PERIOD" />
+                    <externalMetadataColumn
+                      refId="Package\LoadExpenditureDetails\Expenditures data.Outputs[Flat File Source Output].ExternalColumns[OBS_VALUE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="OBS_VALUE" />
+                    <externalMetadataColumn
+                      refId="Package\LoadExpenditureDetails\Expenditures data.Outputs[Flat File Source Output].ExternalColumns[OBS_FLAG]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="OBS_FLAG" />
+                    <externalMetadataColumn
+                      refId="Package\LoadExpenditureDetails\Expenditures data.Outputs[Flat File Source Output].ExternalColumns[expend]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="expend" />
+                    <externalMetadataColumn
+                      refId="Package\LoadExpenditureDetails\Expenditures data.Outputs[Flat File Source Output].ExternalColumns[statinfo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="statinfo" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\LoadExpenditureDetails\Expenditures data.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadExpenditureDetails\Expenditures data.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\LoadExpenditureDetails\Expenditures data.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\LoadExpenditureDetails\Expenditures data.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LoadExpenditureDetails\Expenditures data.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LoadExpenditureDetails\Expenditures data.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LoadExpenditureDetails\Expenditures data.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LoadExpenditureDetails\Insert new types to the dimension"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Insert new types to the dimension"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Dim_ExpenditureDetails]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\LoadExpenditureDetails\Insert new types to the dimension.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.kapidane_dwh]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.kapidane_dwh]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\LoadExpenditureDetails\Insert new types to the dimension.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoadExpenditureDetails\Insert new types to the dimension.Inputs[OLE DB Destination Input].Columns[ExpenditureType]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="27"
+                      cachedName="ExpenditureType"
+                      externalMetadataColumnId="Package\LoadExpenditureDetails\Insert new types to the dimension.Inputs[OLE DB Destination Input].ExternalColumns[ExpenditureType]"
+                      lineageId="Package\LoadExpenditureDetails\Map codes to names.Outputs[Lookup Match Output].Columns[ExpenditureType]" />
+                    <inputColumn
+                      refId="Package\LoadExpenditureDetails\Insert new types to the dimension.Inputs[OLE DB Destination Input].Columns[ExpenditureCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ExpenditureCode"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\LoadExpenditureDetails\Insert new types to the dimension.Inputs[OLE DB Destination Input].ExternalColumns[ExpenditureDetailsKey]"
+                      lineageId="Package\LoadExpenditureDetails\Remove duplicates.Outputs[Sort Output].Columns[ExpenditureCode]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\LoadExpenditureDetails\Insert new types to the dimension.Inputs[OLE DB Destination Input].ExternalColumns[ExpenditureDetailsKey]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="ExpenditureDetailsKey" />
+                    <externalMetadataColumn
+                      refId="Package\LoadExpenditureDetails\Insert new types to the dimension.Inputs[OLE DB Destination Input].ExternalColumns[ExpenditureType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ExpenditureType" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LoadExpenditureDetails\Insert new types to the dimension.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\LoadExpenditureDetails\Insert new types to the dimension.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadExpenditureDetails\Insert new types to the dimension.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LoadExpenditureDetails\Insert new types to the dimension.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LoadExpenditureDetails\Insert new types to the dimension.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LoadExpenditureDetails\Insert new types to the dimension.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LoadExpenditureDetails\Map codes to names"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Map codes to names"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT ExpenditureCode, ExpenditureType
+
+FROM
+
+(
+
+    SELECT 'TRA', 'Transport'
+
+    UNION ALL SELECT 'REST', 'Restaurants/cafes'
+
+    UNION ALL SELECT 'ACCOM', 'Accomodation'
+
+    UNION ALL SELECT 'DUR', 'Durables and valuable goods'
+
+    UNION ALL SELECT 'PACK_ARR', 'Package arrangement'
+
+    UNION ALL SELECT 'TRP_OTH', 'Other expenditure'
+
+) map (ExpenditureCode, ExpenditureType)</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT ExpenditureCode, ExpenditureType
+
+FROM
+
+(
+
+    SELECT 'TRA', 'Transport'
+
+    UNION ALL SELECT 'REST', 'Restaurants/cafes'
+
+    UNION ALL SELECT 'ACCOM', 'Accomodation'
+
+    UNION ALL SELECT 'DUR', 'Durables and valuable goods'
+
+    UNION ALL SELECT 'PACK_ARR', 'Package arrangement'
+
+    UNION ALL SELECT 'TRP_OTH', 'Other expenditure'
+
+) map (ExpenditureCode, ExpenditureType)) [refTable]
+where [refTable].[ExpenditureCode] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ExpenditureCode" dataType="DT_STR" length="8" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="ExpenditureType" dataType="DT_STR" length="27" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\LoadExpenditureDetails\Remove duplicates.Outputs[Sort Output].Columns[ExpenditureCode]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\LoadExpenditureDetails\Map codes to names.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.kapidane_dwh]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.kapidane_dwh]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\LoadExpenditureDetails\Map codes to names.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoadExpenditureDetails\Map codes to names.Inputs[Lookup Input].Columns[ExpenditureCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ExpenditureCode"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\LoadExpenditureDetails\Remove duplicates.Outputs[Sort Output].Columns[ExpenditureCode]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">ExpenditureCode</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LoadExpenditureDetails\Map codes to names.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\LoadExpenditureDetails\Map codes to names.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadExpenditureDetails\Map codes to names.Outputs[Lookup Match Output].Columns[ExpenditureType]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="27"
+                      lineageId="Package\LoadExpenditureDetails\Map codes to names.Outputs[Lookup Match Output].Columns[ExpenditureType]"
+                      name="ExpenditureType"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">ExpenditureType</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoadExpenditureDetails\Map codes to names.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\LoadExpenditureDetails\Map codes to names.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoadExpenditureDetails\Map codes to names.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\LoadExpenditureDetails\Map codes to names.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadExpenditureDetails\Map codes to names.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LoadExpenditureDetails\Map codes to names.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LoadExpenditureDetails\Map codes to names.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LoadExpenditureDetails\Map codes to names.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LoadExpenditureDetails\Remove aggregated types"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Remove aggregated types"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\LoadExpenditureDetails\Remove aggregated types.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoadExpenditureDetails\Remove aggregated types.Inputs[Conditional Split Input].Columns[ExpenditureCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ExpenditureCode"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\LoadExpenditureDetails\Remove duplicates.Outputs[Sort Output].Columns[ExpenditureCode]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LoadExpenditureDetails\Remove aggregated types.Outputs[FilteredRows]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="FilteredRows"
+                  synchronousInputId="Package\LoadExpenditureDetails\Remove aggregated types.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\LoadExpenditureDetails\Remove duplicates.Outputs[Sort Output].Columns[ExpenditureCode]} != "TOTXDUR"</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">ExpenditureCode != "TOTXDUR"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoadExpenditureDetails\Remove aggregated types.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\LoadExpenditureDetails\Remove aggregated types.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoadExpenditureDetails\Remove aggregated types.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\LoadExpenditureDetails\Remove aggregated types.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadExpenditureDetails\Remove aggregated types.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LoadExpenditureDetails\Remove aggregated types.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LoadExpenditureDetails\Remove aggregated types.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LoadExpenditureDetails\Remove aggregated types.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LoadExpenditureDetails\Remove duplicates"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Remove duplicates"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\LoadExpenditureDetails\Remove duplicates.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoadExpenditureDetails\Remove duplicates.Inputs[Sort Input].Columns[ExpenditureCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ExpenditureCode"
+                      lineageId="Package\LoadExpenditureDetails\Expenditures data.Outputs[Flat File Source Output].Columns[ExpenditureCode]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LoadExpenditureDetails\Remove duplicates.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadExpenditureDetails\Remove duplicates.Outputs[Sort Output].Columns[ExpenditureCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\LoadExpenditureDetails\Remove duplicates.Outputs[Sort Output].Columns[ExpenditureCode]"
+                      name="ExpenditureCode"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\LoadExpenditureDetails\Expenditures data.Outputs[Flat File Source Output].Columns[ExpenditureCode]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\LoadExpenditureDetails.Paths[FilteredRows]"
+              endId="Package\LoadExpenditureDetails\Check if type exists.Inputs[Lookup Input]"
+              name="FilteredRows"
+              startId="Package\LoadExpenditureDetails\Remove aggregated types.Outputs[FilteredRows]" />
+            <path
+              refId="Package\LoadExpenditureDetails.Paths[Flat File Source Output]"
+              endId="Package\LoadExpenditureDetails\Remove duplicates.Inputs[Sort Input]"
+              name="Flat File Source Output"
+              startId="Package\LoadExpenditureDetails\Expenditures data.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\LoadExpenditureDetails.Paths[Lookup Match Output]"
+              endId="Package\LoadExpenditureDetails\Insert new types to the dimension.Inputs[OLE DB Destination Input]"
+              name="Lookup Match Output"
+              startId="Package\LoadExpenditureDetails\Map codes to names.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\LoadExpenditureDetails.Paths[Lookup No Match Output]"
+              endId="Package\LoadExpenditureDetails\Map codes to names.Inputs[Lookup Input]"
+              name="Lookup No Match Output"
+              startId="Package\LoadExpenditureDetails\Check if type exists.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\LoadExpenditureDetails.Paths[Sort Output]"
+              endId="Package\LoadExpenditureDetails\Remove aggregated types.Inputs[Conditional Split Input]"
+              name="Sort Output"
+              startId="Package\LoadExpenditureDetails\Remove duplicates.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -429,6 +1552,193 @@ where [refTable].[TripDetailsKey] = ?</property>
                       refId="Package\LoadTripDetails\Create TripDetailsKey.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\LoadTripDetails\Create TripDetailsKey.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LoadTripDetails\Expenditures data"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="6153"
+              name="Expenditures data"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\LoadTripDetails\Expenditures data.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ExpendituresFile]"
+                  connectionManagerRefId="Package.ConnectionManagers[ExpendituresFile]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\LoadTripDetails\Expenditures data.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadTripDetails\Expenditures data.Outputs[Flat File Source Output].Columns[TripPurposeCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoadTripDetails\Expenditures data.Outputs[Flat File Source Output].ExternalColumns[purpose]"
+                      length="50"
+                      lineageId="Package\LoadTripDetails\Expenditures data.Outputs[Flat File Source Output].Columns[TripPurposeCode]"
+                      name="TripPurposeCode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LoadTripDetails\Expenditures data.Outputs[Flat File Source Output].Columns[TripDurationCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoadTripDetails\Expenditures data.Outputs[Flat File Source Output].ExternalColumns[duration]"
+                      length="50"
+                      lineageId="Package\LoadTripDetails\Expenditures data.Outputs[Flat File Source Output].Columns[TripDurationCode]"
+                      name="TripDurationCode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\LoadTripDetails\Expenditures data.Outputs[Flat File Source Output].ExternalColumns[DATAFLOW]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DATAFLOW" />
+                    <externalMetadataColumn
+                      refId="Package\LoadTripDetails\Expenditures data.Outputs[Flat File Source Output].ExternalColumns[LAST UPDATE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LAST UPDATE" />
+                    <externalMetadataColumn
+                      refId="Package\LoadTripDetails\Expenditures data.Outputs[Flat File Source Output].ExternalColumns[freq]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="freq" />
+                    <externalMetadataColumn
+                      refId="Package\LoadTripDetails\Expenditures data.Outputs[Flat File Source Output].ExternalColumns[c_dest]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="c_dest" />
+                    <externalMetadataColumn
+                      refId="Package\LoadTripDetails\Expenditures data.Outputs[Flat File Source Output].ExternalColumns[purpose]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="purpose" />
+                    <externalMetadataColumn
+                      refId="Package\LoadTripDetails\Expenditures data.Outputs[Flat File Source Output].ExternalColumns[duration]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="duration" />
+                    <externalMetadataColumn
+                      refId="Package\LoadTripDetails\Expenditures data.Outputs[Flat File Source Output].ExternalColumns[unit]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="unit" />
+                    <externalMetadataColumn
+                      refId="Package\LoadTripDetails\Expenditures data.Outputs[Flat File Source Output].ExternalColumns[geo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="geo" />
+                    <externalMetadataColumn
+                      refId="Package\LoadTripDetails\Expenditures data.Outputs[Flat File Source Output].ExternalColumns[TIME_PERIOD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="TIME_PERIOD" />
+                    <externalMetadataColumn
+                      refId="Package\LoadTripDetails\Expenditures data.Outputs[Flat File Source Output].ExternalColumns[OBS_VALUE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="OBS_VALUE" />
+                    <externalMetadataColumn
+                      refId="Package\LoadTripDetails\Expenditures data.Outputs[Flat File Source Output].ExternalColumns[OBS_FLAG]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="OBS_FLAG" />
+                    <externalMetadataColumn
+                      refId="Package\LoadTripDetails\Expenditures data.Outputs[Flat File Source Output].ExternalColumns[expend]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="expend" />
+                    <externalMetadataColumn
+                      refId="Package\LoadTripDetails\Expenditures data.Outputs[Flat File Source Output].ExternalColumns[statinfo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="statinfo" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\LoadTripDetails\Expenditures data.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadTripDetails\Expenditures data.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\LoadTripDetails\Expenditures data.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\LoadTripDetails\Expenditures data.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LoadTripDetails\Expenditures data.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LoadTripDetails\Expenditures data.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LoadTripDetails\Expenditures data.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -959,8 +2269,8 @@ where [refTable].[TripPurposeCode] = ?</property>
               <connections>
                 <connection
                   refId="Package\LoadTripDetails\Nights data.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[TripsFile]"
-                  connectionManagerRefId="Package.ConnectionManagers[TripsFile]"
+                  connectionManagerID="Package.ConnectionManagers[NightsFile]"
+                  connectionManagerRefId="Package.ConnectionManagers[NightsFile]"
                   name="FlatFileConnection" />
               </connections>
               <outputs>
@@ -1578,9 +2888,47 @@ where [refTable].[TripPurposeCode] = ?</property>
                 </input>
                 <input
                   refId="Package\LoadTripDetails\Union All.Inputs[Union All Input 3]"
-                  dangling="true"
                   hasSideEffects="true"
                   name="Union All Input 3">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoadTripDetails\Union All.Inputs[Union All Input 3].Columns[TripPurposeCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TripPurposeCode"
+                      lineageId="Package\LoadTripDetails\Expenditures data.Outputs[Flat File Source Output].Columns[TripPurposeCode]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadTripDetails\Union All.Outputs[Union All Output 1].Columns[TripPurposeCode]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoadTripDetails\Union All.Inputs[Union All Input 3].Columns[TripDurationCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TripDurationCode"
+                      lineageId="Package\LoadTripDetails\Expenditures data.Outputs[Flat File Source Output].Columns[TripDurationCode]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\LoadTripDetails\Union All.Outputs[Union All Output 1].Columns[TripDurationCode]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\LoadTripDetails\Union All.Inputs[Union All Input 4]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 4">
                   <externalMetadataColumns />
                 </input>
               </inputs>
@@ -1630,6 +2978,11 @@ where [refTable].[TripPurposeCode] = ?</property>
               endId="Package\LoadTripDetails\Union All.Inputs[Union All Input 2]"
               name="Flat File Source Output"
               startId="Package\LoadTripDetails\Nights data.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\LoadTripDetails.Paths[Flat File Source Output2]"
+              endId="Package\LoadTripDetails\Union All.Inputs[Union All Input 3]"
+              name="Flat File Source Output"
+              startId="Package\LoadTripDetails\Expenditures data.Outputs[Flat File Source Output]" />
             <path
               refId="Package\LoadTripDetails.Paths[Lookup Match Output]"
               endId="Package\LoadTripDetails\Map codes to names (TripDuration).Inputs[Lookup Input]"
@@ -1712,6 +3065,10 @@ where [refTable].[TripPurposeCode] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="188.8,41.6"
+          Id="Package\LoadExpenditureDetails"
+          TopLeft="425.833310066827,137.799999041756" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -1721,32 +3078,48 @@ where [refTable].[TripPurposeCode] = ?</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="124.8,41.6"
-          Id="Package\LoadTripDetails\Trips data"
-          TopLeft="127.499993033707,2.59999998191997" />
-        <NodeLayout
           Size="135.2,41.6"
           Id="Package\LoadTripDetails\Nights data"
-          TopLeft="268.958318644307,3.01666727277967" />
-        <NodeLayout
-          Size="120,41.6"
-          Id="Package\LoadTripDetails\Union All"
-          TopLeft="200.833322360284,70.1999995118381" />
+          TopLeft="193.124989454324,9.95000055789947" />
         <NodeLayout
           Size="223.2,41.6"
           Id="Package\LoadTripDetails\Remove aggregated categories"
-          TopLeft="154.166658243372,201.933331929114" />
-        <NodeLayout
-          Size="152.8,41.6"
-          Id="Package\LoadTripDetails\Create TripDetailsKey"
-          TopLeft="187.499989755452,277.333331404792" />
+          TopLeft="154.166658243372,214.933331838714" />
         <NodeLayout
           Size="225.6,41.6"
           Id="Package\LoadTripDetails\Remove duplicate combinations"
-          TopLeft="151.666658379966,137.799999041755" />
+          TopLeft="151.666658379966,150.799998951355" />
+        <NodeLayout
+          Size="124.8,41.6"
+          Id="Package\LoadTripDetails\Trips data"
+          TopLeft="49.9999972681201,12.9999999095997" />
+        <NodeLayout
+          Size="120,41.6"
+          Id="Package\LoadTripDetails\Union All"
+          TopLeft="200.833322360284,83.1999994214378" />
+        <NodeLayout
+          Size="241.6,41.6"
+          Id="Package\LoadTripDetails\Map codes to names (TripDuration)"
+          TopLeft="574.166635295584,435.26666434639" />
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\LoadTripDetails\Create TripDetailsKey"
+          TopLeft="187.499989755452,290.333331314391" />
+        <NodeLayout
+          Size="269.6,41.6"
+          Id="Package\LoadTripDetails\Insert new combinations to the dimension"
+          TopLeft="553.333303100535,342.333330952789" />
+        <NodeLayout
+          Size="204,41.6"
+          Id="Package\LoadTripDetails\Check if combination exists"
+          TopLeft="161.66665783359,359.666664165589" />
+        <NodeLayout
+          Size="240.8,41.6"
+          Id="Package\LoadTripDetails\Map codes to names (TripPurpose)"
+          TopLeft="147.499991940955,438.533330283827" />
         <EdgeLayout
           Id="Package\LoadTripDetails.Paths[Union All Output 1]"
-          TopLeft="262.649990370125,111.799999511838">
+          TopLeft="262.649990370125,124.799999421438">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1768,18 +3141,18 @@ where [refTable].[TripPurposeCode] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\LoadTripDetails.Paths[Sort Output]"
-          TopLeft="265.116658311669,179.399999041755">
+          TopLeft="265.116658311669,192.399998951355">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,22.5333328873582"
+              EndConnector="0,22.533332887359"
               Start="0,0"
-              End="0,15.0333328873582">
+              End="0,15.033332887359">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,15.0333328873582" />
+                    End="0,15.033332887359" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1788,131 +3161,9 @@ where [refTable].[TripPurposeCode] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\LoadTripDetails.Paths[Flat File Source Output1]"
-          TopLeft="336.558318644307,44.6166672727797">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-57.0583296173561,25.5833322390584"
-              Start="0,0"
-              End="-57.0583296173561,18.0833322390584">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,11.1480256678635" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,11.1480256678635"
-                    Point2="0,15.1480256678635"
-                    Point3="-4,15.1480256678635" />
-                  <mssgle:LineSegment
-                    End="-53.0583296173561,15.1480256678635" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-53.0583296173561,15.1480256678635"
-                    Point2="-57.0583296173561,15.1480256678635"
-                    Point3="-57.0583296173561,19.1480256678635" />
-                  <mssgle:LineSegment
-                    End="-57.0583296173561,18.0833322390584" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\LoadTripDetails.Paths[Flat File Source Output]"
-          TopLeft="189.899993033707,44.19999998192">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="52.2666626599101,25.9999995299181"
-              Start="0,0"
-              End="52.2666626599101,18.4999995299181">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,11.3947365637673" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,11.3947365637673"
-                    Point2="0,15.3947365637673"
-                    Point3="4,15.3947365637673" />
-                  <mssgle:LineSegment
-                    End="48.2666626599101,15.3947365637673" />
-                  <mssgle:CubicBezierSegment
-                    Point1="48.2666626599101,15.3947365637673"
-                    Point2="52.2666626599101,15.3947365637673"
-                    Point3="52.2666626599101,19.3947365637673" />
-                  <mssgle:LineSegment
-                    End="52.2666626599101,18.4999995299181" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\LoadTripDetails.Paths[FilteredRows]"
-          TopLeft="264.833323999412,243.533331929114">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,33.7999994756784"
-              Start="0,0"
-              End="0,26.2999994756784">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.2999994756784" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-28.687578125,8.27548801908918,57.37515625,9.7490234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="204,41.6"
-          Id="Package\LoadTripDetails\Check if combination exists"
-          TopLeft="161.66665783359,346.66666425599" />
-        <EdgeLayout
-          Id="Package\LoadTripDetails.Paths[Derived Column Output]"
-          TopLeft="263.783323794521,318.933331404792">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,27.7333328511978"
-              Start="0,0"
-              End="0,20.2333328511978">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.2333328511978" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="240.8,41.6"
-          Id="Package\LoadTripDetails\Map codes to names (TripPurpose)"
-          TopLeft="147.499991940955,425.533330374228" />
         <EdgeLayout
           Id="Package\LoadTripDetails.Paths[Lookup No Match Output]"
-          TopLeft="265.783324887273,388.26666425599">
+          TopLeft="265.783324887273,401.266664165589">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1934,41 +3185,9 @@ where [refTable].[TripPurposeCode] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="241.6,41.6"
-          Id="Package\LoadTripDetails\Map codes to names (TripDuration)"
-          TopLeft="574.166635295584,422.266664436791" />
-        <EdgeLayout
-          Id="Package\LoadTripDetails.Paths[Lookup Match Output]"
-          TopLeft="388.299991940955,444.699997405509">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="185.866643354629,0"
-              Start="0,0"
-              End="178.366643354629,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="178.366643354629,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="40.9919349585644,5,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="269.6,41.6"
-          Id="Package\LoadTripDetails\Insert new combinations to the dimension"
-          TopLeft="553.333303100535,329.33333104319" />
         <EdgeLayout
           Id="Package\LoadTripDetails.Paths[Lookup Match Output1]"
-          TopLeft="691.54996919806,422.266664436791">
+          TopLeft="691.54996919806,435.26666434639">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1990,16 +3209,216 @@ where [refTable].[TripPurposeCode] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LoadTripDetails.Paths[Lookup Match Output]"
+          TopLeft="388.299991940955,457.699997315108">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="185.866643354629,0"
+              Start="0,0"
+              End="178.366643354629,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="178.366643354629,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="40.9919349585645,5,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LoadTripDetails.Paths[Flat File Source Output1]"
+          TopLeft="260.779155907304,51.5500005578995">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31.6499988635383"
+              Start="0,0"
+              End="0,24.1499988635383">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.1499988635383" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LoadTripDetails.Paths[Flat File Source Output]"
+          TopLeft="112.39999726812,54.5999999095997">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="120.433325092164,28.5999995118381"
+              Start="0,0"
+              End="120.433325092164,21.0999995118381">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.652173594677" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.652173594677"
+                    Point2="0,18.652173594677"
+                    Point3="4,18.652173594677" />
+                  <mssgle:LineSegment
+                    End="116.433325092164,18.652173594677" />
+                  <mssgle:CubicBezierSegment
+                    Point1="116.433325092164,18.652173594677"
+                    Point2="120.433325092164,18.652173594677"
+                    Point3="120.433325092164,22.652173594677" />
+                  <mssgle:LineSegment
+                    End="120.433325092164,21.0999995118381" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LoadTripDetails.Paths[FilteredRows]"
+          TopLeft="264.833323999412,256.533331838714">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.7999994756779"
+              Start="0,0"
+              End="0,26.2999994756779">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.2999994756779" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-28.687578125,8.27548801908895,57.37515625,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LoadTripDetails.Paths[Derived Column Output]"
+          TopLeft="263.783323794521,331.933331314391">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27.7333328511978"
+              Start="0,0"
+              End="0,20.2333328511978">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2333328511978" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="148,41.6"
+          Id="Package\LoadTripDetails\Expenditures data"
+          TopLeft="348.33331430124,11.466667293443" />
+        <EdgeLayout
+          Id="Package\LoadTripDetails.Paths[Flat File Source Output2]"
+          TopLeft="422.33331430124,53.066667293443">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-133.499991940956,30.1333321279948"
+              Start="0,0"
+              End="-133.499991940956,22.6333321279948">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.6521731269531" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.6521731269531"
+                    Point2="0,19.6521731269531"
+                    Point3="-4,19.6521731269531" />
+                  <mssgle:LineSegment
+                    End="-129.499991940956,19.6521731269531" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-129.499991940956,19.6521731269531"
+                    Point2="-133.499991940956,19.6521731269531"
+                    Point3="-133.499991940956,23.6521731269531" />
+                  <mssgle:LineSegment
+                    End="-133.499991940956,22.6333321279948" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\LoadTripDetails\Map codes to names (TripDuration)">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\LoadTripDetails\Insert new combinations to the dimension">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\LoadTripDetails\Check if combination exists">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -2009,7 +3428,7 @@ where [refTable].[TripPurposeCode] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2022,12 +3441,183 @@ where [refTable].[TripPurposeCode] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
           type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\LoadExpenditureDetails">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="148,41.6"
+          Id="Package\LoadExpenditureDetails\Expenditures data"
+          TopLeft="195.606046730671,10.6075765850572" />
+        <NodeLayout
+          Size="167.2,41.6"
+          Id="Package\LoadExpenditureDetails\Remove duplicates"
+          TopLeft="187.272724482146,79.0909079123627" />
+        <EdgeLayout
+          Id="Package\LoadExpenditureDetails.Paths[Flat File Source Output]"
+          TopLeft="270.239385606409,52.2075765850572">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,26.8833313273055"
+              Start="0,0"
+              End="0,19.3833313273055">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.3833313273055" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="200,41.6"
+          Id="Package\LoadExpenditureDetails\Remove aggregated types"
+          TopLeft="175.454542840069,149.090906869281" />
+        <EdgeLayout
+          Id="Package\LoadExpenditureDetails.Paths[Sort Output]"
+          TopLeft="273.163633661107,120.690907912363">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28.3999989569188"
+              Start="0,0"
+              End="0,20.8999989569188">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.8999989569188" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="168,41.6"
+          Id="Package\LoadExpenditureDetails\Check if type exists"
+          TopLeft="188.181815377691,226.363632990555" />
+        <EdgeLayout
+          Id="Package\LoadExpenditureDetails.Paths[FilteredRows]"
+          TopLeft="273.81817910888,190.690906869281">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,35.672726121274"
+              Start="0,0"
+              End="0,28.172726121274">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.172726121274" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-28.687578125,9.21185134188698,57.37515625,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="174.4,41.6"
+          Id="Package\LoadExpenditureDetails\Map codes to names"
+          TopLeft="184.545451795513,303.636359111829" />
+        <EdgeLayout
+          Id="Package\LoadExpenditureDetails.Paths[Lookup No Match Output]"
+          TopLeft="271.963633586602,267.963632990555">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,35.672726121274"
+              Start="0,0"
+              End="0,28.172726121274">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.172726121274" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.80638671875,8.28167556063701,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="232.8,41.6"
+          Id="Package\LoadExpenditureDetails\Insert new types to the dimension"
+          TopLeft="159.09090672027,389.090903293003" />
+        <EdgeLayout
+          Id="Package\LoadExpenditureDetails.Paths[Lookup Match Output]"
+          TopLeft="273.618179257891,345.236359111829">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43.8545441811733"
+              Start="0,0"
+              End="0,36.3545441811733">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.3545441811733" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,12.3725845905867,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\LoadExpenditureDetails\Check if type exists">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Dim_ExpenditureDetails]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
@@ -2040,7 +3630,7 @@ where [refTable].[TripPurposeCode] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\LoadTripDetails\Map codes to names (TripDuration)">
+    design-time-name="Package\LoadExpenditureDetails\Map codes to names">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -2063,7 +3653,7 @@ where [refTable].[TripPurposeCode] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\LoadTripDetails\Insert new combinations to the dimension">
+    design-time-name="Package\LoadExpenditureDetails\Insert new types to the dimension">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
