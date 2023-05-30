@@ -63,7 +63,7 @@ def download_country_data():
                         income_group, region, country_long_name])
 
         # Write the extracted data to a CSV file
-        with open("countries.csv", "w", newline="",  encoding="utf-8") as csvfile:
+        with open("raw_data\\countries.csv", "w", newline="",  encoding="utf-8") as csvfile:
             writer = csv.writer(csvfile)
             writer.writerow(headers)
             writer.writerows(rows)
