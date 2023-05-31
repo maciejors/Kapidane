@@ -47,6 +47,11 @@ def download_country_data():
                    "Income Group", "Region", "Country Long Name"]
         rows = []
         for country in data:
+            region = ""
+            income_group = ""
+            country_code = ""
+            country_name = ""
+            country_long_name = ""
             for item in country["metatype"]:
                 if item["id"] == "Region":
                     region = item["value"]
