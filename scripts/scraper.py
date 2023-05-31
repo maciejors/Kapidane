@@ -73,7 +73,7 @@ def download_country_data():
             writer.writerow(headers)
             writer.writerows(rows)
 
-        print("Metadata downloaded and saved as 'worldbank_metadata.csv'.")
+        print("Metadata downloaded and saved as 'countries.csv'.")
     else:
         print("Failed to retrieve metadata. Please check your request.")
 
