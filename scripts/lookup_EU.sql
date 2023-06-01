@@ -1,4 +1,4 @@
-INSERT INTO Dim_EU (countrycode, countryname, memberfrom, memberuntil) VALUES
+INSERT INTO Lookup_EU (countrycode, countryname, memberfrom, memberuntil) VALUES
 ('AT', 'Austria', '1995-01-01', NULL),
 ('BE', 'Belgium', '1957-01-01', NULL),
 ('BG', 'Bulgaria', '2007-01-01', NULL),
