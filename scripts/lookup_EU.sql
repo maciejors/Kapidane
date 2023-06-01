@@ -1,4 +1,4 @@
-INSERT INTO Lookup_EU (countrycode, countryname, memberfrom, memberuntil) VALUES
+INSERT INTO Lookup_EU (countrycode, countryname) VALUES
 ('AT', 'Austria'),
 ('BE', 'Belgium'),
 ('BG', 'Bulgaria'),
@@ -25,5 +25,4 @@ INSERT INTO Lookup_EU (countrycode, countryname, memberfrom, memberuntil) VALUES
 ('SK', 'Slovakia'),
 ('SI', 'Slovenia'),
 ('ES', 'Spain'),
-('SE', 'Sweden'),
-('GB', 'United Kingdom');
+('SE', 'Sweden');
