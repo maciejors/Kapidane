@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="5/28/2023 8:18:39 PM"
@@ -11,9 +11,2836 @@
   DTS:LocaleID="6153"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionGUID="{1375F17B-E7E9-4BB9-87D7-9B1F5FDF4157}">
+  DTS:VersionBuild="49"
+  DTS:VersionGUID="{22E3DB14-8B29-40C9-A373-2D77475096EC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.kapidane_dwh]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{B5356E18-D42C-45B3-AEC3-C92E38778AE9}"
+      DTS:ObjectName="localhost.kapidane_dwh">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=kapidane_dwh;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{B5356E18-D42C-45B3-AEC3-C92E38778AE9}localhost.kapidane_dwh;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[NightsFile]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{7C15D75A-84AE-4E49-AD9B-59AB6E74765B}"
+      DTS:ObjectName="NightsFile">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="6153"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\macie\source\repos\Kapidane\raw_data\nights.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DATAFLOW"
+              DTS:DTSID="{C60CCEDA-9FBA-4450-B621-03E4DADF6531}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LAST UPDATE"
+              DTS:DTSID="{7797A315-FBC0-4518-A765-C93DB0132A5E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="freq"
+              DTS:DTSID="{D0BF4C99-35A4-4019-A969-3A94D82D61AB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="c_dest"
+              DTS:DTSID="{AB71A7F9-C5E5-45A4-8BD6-B0C020035F06}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="purpose"
+              DTS:DTSID="{46E6693E-DD9F-4C26-8F21-90554BA7C6A1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="duration"
+              DTS:DTSID="{F42DEC0E-DF74-407E-877C-10534F09119E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="unit"
+              DTS:DTSID="{A06CB37B-3AEB-4114-9BD8-C9B68BCE3763}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="geo"
+              DTS:DTSID="{6B11AA9B-AC5F-4AB8-BD5A-A2D1227D4734}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TIME_PERIOD"
+              DTS:DTSID="{874858D0-E444-46AF-8EF6-81BA5C582749}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OBS_VALUE"
+              DTS:DTSID="{908686F0-A700-45AA-8375-AF347F8A751A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OBS_FLAG"
+              DTS:DTSID="{C2FD5323-6086-4287-A038-DA4F14DB05B2}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[TripsFile]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{7DE33B9E-9387-48A3-839D-EE0F90A20D8D}"
+      DTS:ObjectName="TripsFile">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="6153"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\macie\Documents\kapidane\trips.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DATAFLOW"
+              DTS:DTSID="{2EC68F32-3134-4CF0-A4F4-7D2D67DD25DF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LAST UPDATE"
+              DTS:DTSID="{FA176A22-F4F2-486C-93D4-EF32AFDC97EE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="freq"
+              DTS:DTSID="{8CCC0254-8129-47DF-9400-F29C3CB2F89A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="c_dest"
+              DTS:DTSID="{08D9F35D-B3A1-48CD-BB2B-389439DA2E0D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="purpose"
+              DTS:DTSID="{6BD956C9-099E-4A3A-BC2F-2235C2D3943A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="duration"
+              DTS:DTSID="{88149741-8CAA-4900-B984-793E179D696E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="unit"
+              DTS:DTSID="{D2E3A75C-277F-4FE4-8699-E1A1915DB740}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="geo"
+              DTS:DTSID="{C42F36C1-30E7-45D4-9051-697F7B39290A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TIME_PERIOD"
+              DTS:DTSID="{96EE08AC-EED0-4B70-A29B-2FDA6704E673}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OBS_VALUE"
+              DTS:DTSID="{9F96011C-A5BE-4EE5-A06D-B7F22043D306}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OBS_FLAG"
+              DTS:DTSID="{E2B0A437-2EF3-48C4-B437-1FB78195E53B}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
   <DTS:Variables />
-  <DTS:Executables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Load TripNights data into pre-load layer"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{64492C7C-E451-4D69-88ED-62D9F5DB7FCA}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load TripNights data into pre-load layer"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load TripNights data into pre-load layer\Create TripDetailsKey"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Create TripDetailsKey"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load TripNights data into pre-load layer\Create TripDetailsKey.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Create TripDetailsKey.Inputs[Derived Column Input].Columns[TripPurposeCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TripPurposeCode"
+                      cachedSortKeyPosition="4"
+                      lineageId="Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output].Columns[TripPurposeCode]" />
+                    <inputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Create TripDetailsKey.Inputs[Derived Column Input].Columns[TripDurationCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TripDurationCode"
+                      cachedSortKeyPosition="5"
+                      lineageId="Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output].Columns[TripDurationCode]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load TripNights data into pre-load layer\Create TripDetailsKey.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Load TripNights data into pre-load layer\Create TripDetailsKey.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Create TripDetailsKey.Outputs[Derived Column Output].Columns[TripDetailsKey]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="15"
+                      lineageId="Package\Load TripNights data into pre-load layer\Create TripDetailsKey.Outputs[Derived Column Output].Columns[TripDetailsKey]"
+                      name="TripDetailsKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,15,1252)(#{Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output].Columns[TripPurposeCode]} + #{Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output].Columns[TripDurationCode]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,15,1252)(TripPurposeCode + TripDurationCode)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load TripNights data into pre-load layer\Create TripDetailsKey.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Load TripNights data into pre-load layer\Create TripDetailsKey.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Create TripDetailsKey.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load TripNights data into pre-load layer\Create TripDetailsKey.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Create TripDetailsKey.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load TripNights data into pre-load layer\Create TripDetailsKey.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load TripNights data into pre-load layer\Insert rows into pre-load table"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Insert rows into pre-load table"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Fact_TripsNights_PreLoad]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load TripNights data into pre-load layer\Insert rows into pre-load table.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.kapidane_dwh]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.kapidane_dwh]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load TripNights data into pre-load layer\Insert rows into pre-load table.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Insert rows into pre-load table.Inputs[OLE DB Destination Input].Columns[TripDetailsKey]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="TripDetailsKey"
+                      externalMetadataColumnId="Package\Load TripNights data into pre-load layer\Insert rows into pre-load table.Inputs[OLE DB Destination Input].ExternalColumns[TripDetailsKey]"
+                      lineageId="Package\Load TripNights data into pre-load layer\Create TripDetailsKey.Outputs[Derived Column Output].Columns[TripDetailsKey]" />
+                    <inputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Insert rows into pre-load table.Inputs[OLE DB Destination Input].Columns[OriginCountryKey]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="OriginCountryKey"
+                      externalMetadataColumnId="Package\Load TripNights data into pre-load layer\Insert rows into pre-load table.Inputs[OLE DB Destination Input].ExternalColumns[OriginCountryKey]"
+                      lineageId="Package\Load TripNights data into pre-load layer\Map column types to output table types.Outputs[Derived Column Output].Columns[OriginCountryKey]" />
+                    <inputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Insert rows into pre-load table.Inputs[OLE DB Destination Input].Columns[DestinationCountryKey]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="DestinationCountryKey"
+                      externalMetadataColumnId="Package\Load TripNights data into pre-load layer\Insert rows into pre-load table.Inputs[OLE DB Destination Input].ExternalColumns[DestinationCountryKey]"
+                      lineageId="Package\Load TripNights data into pre-load layer\Map column types to output table types.Outputs[Derived Column Output].Columns[DestinationCountryKey]" />
+                    <inputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Insert rows into pre-load table.Inputs[OLE DB Destination Input].Columns[TripsCount]"
+                      cachedDataType="i4"
+                      cachedName="TripsCount"
+                      externalMetadataColumnId="Package\Load TripNights data into pre-load layer\Insert rows into pre-load table.Inputs[OLE DB Destination Input].ExternalColumns[TripsCount]"
+                      lineageId="Package\Load TripNights data into pre-load layer\Map column types to output table types.Outputs[Derived Column Output].Columns[TripsCount]" />
+                    <inputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Insert rows into pre-load table.Inputs[OLE DB Destination Input].Columns[NightsSpentCount]"
+                      cachedDataType="i8"
+                      cachedName="NightsSpentCount"
+                      externalMetadataColumnId="Package\Load TripNights data into pre-load layer\Insert rows into pre-load table.Inputs[OLE DB Destination Input].ExternalColumns[NightsSpentCount]"
+                      lineageId="Package\Load TripNights data into pre-load layer\Map column types to output table types.Outputs[Derived Column Output].Columns[NightsSpentCount]" />
+                    <inputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Insert rows into pre-load table.Inputs[OLE DB Destination Input].Columns[YearKey]"
+                      cachedDataType="i4"
+                      cachedName="YearKey"
+                      externalMetadataColumnId="Package\Load TripNights data into pre-load layer\Insert rows into pre-load table.Inputs[OLE DB Destination Input].ExternalColumns[YearKey]"
+                      lineageId="Package\Load TripNights data into pre-load layer\Map column types to output table types.Outputs[Derived Column Output].Columns[YearKey]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load TripNights data into pre-load layer\Insert rows into pre-load table.Inputs[OLE DB Destination Input].ExternalColumns[YearKey]"
+                      dataType="i4"
+                      name="YearKey" />
+                    <externalMetadataColumn
+                      refId="Package\Load TripNights data into pre-load layer\Insert rows into pre-load table.Inputs[OLE DB Destination Input].ExternalColumns[TripDetailsKey]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="TripDetailsKey" />
+                    <externalMetadataColumn
+                      refId="Package\Load TripNights data into pre-load layer\Insert rows into pre-load table.Inputs[OLE DB Destination Input].ExternalColumns[OriginCountryKey]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="OriginCountryKey" />
+                    <externalMetadataColumn
+                      refId="Package\Load TripNights data into pre-load layer\Insert rows into pre-load table.Inputs[OLE DB Destination Input].ExternalColumns[DestinationCountryKey]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="DestinationCountryKey" />
+                    <externalMetadataColumn
+                      refId="Package\Load TripNights data into pre-load layer\Insert rows into pre-load table.Inputs[OLE DB Destination Input].ExternalColumns[TripsCount]"
+                      dataType="i4"
+                      name="TripsCount" />
+                    <externalMetadataColumn
+                      refId="Package\Load TripNights data into pre-load layer\Insert rows into pre-load table.Inputs[OLE DB Destination Input].ExternalColumns[NightsSpentCount]"
+                      dataType="i8"
+                      name="NightsSpentCount" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load TripNights data into pre-load layer\Insert rows into pre-load table.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load TripNights data into pre-load layer\Insert rows into pre-load table.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Insert rows into pre-load table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load TripNights data into pre-load layer\Insert rows into pre-load table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Insert rows into pre-load table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load TripNights data into pre-load layer\Insert rows into pre-load table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load TripNights data into pre-load layer\Map column types to output table types"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Map column types to output table types"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load TripNights data into pre-load layer\Map column types to output table types.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Map column types to output table types.Inputs[Derived Column Input].Columns[OriginCountryKeyRaw]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="OriginCountryKeyRaw"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output].Columns[OriginCountryKeyRaw]" />
+                    <inputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Map column types to output table types.Inputs[Derived Column Input].Columns[DestinationCountryKeyRaw]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DestinationCountryKeyRaw"
+                      cachedSortKeyPosition="3"
+                      lineageId="Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output].Columns[DestinationCountryKeyRaw]" />
+                    <inputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Map column types to output table types.Inputs[Derived Column Input].Columns[YearKeyRaw]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="YearKeyRaw"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output].Columns[YearKeyRaw]" />
+                    <inputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Map column types to output table types.Inputs[Derived Column Input].Columns[TripsCountRaw]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TripsCountRaw"
+                      lineageId="Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output].Columns[TripsCountRaw]" />
+                    <inputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Map column types to output table types.Inputs[Derived Column Input].Columns[NightsSpentCountRaw]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="NightsSpentCountRaw"
+                      lineageId="Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output].Columns[NightsSpentCountRaw]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load TripNights data into pre-load layer\Map column types to output table types.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Load TripNights data into pre-load layer\Map column types to output table types.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Map column types to output table types.Outputs[Derived Column Output].Columns[OriginCountryKey]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="2"
+                      lineageId="Package\Load TripNights data into pre-load layer\Map column types to output table types.Outputs[Derived Column Output].Columns[OriginCountryKey]"
+                      name="OriginCountryKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,2,1252)#{Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output].Columns[OriginCountryKeyRaw]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,2,1252)OriginCountryKeyRaw</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Map column types to output table types.Outputs[Derived Column Output].Columns[DestinationCountryKey]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="2"
+                      lineageId="Package\Load TripNights data into pre-load layer\Map column types to output table types.Outputs[Derived Column Output].Columns[DestinationCountryKey]"
+                      name="DestinationCountryKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,2,1252)#{Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output].Columns[DestinationCountryKeyRaw]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,2,1252)DestinationCountryKeyRaw</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Map column types to output table types.Outputs[Derived Column Output].Columns[YearKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load TripNights data into pre-load layer\Map column types to output table types.Outputs[Derived Column Output].Columns[YearKey]"
+                      name="YearKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_I4)#{Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output].Columns[YearKeyRaw]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_I4)YearKeyRaw</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Map column types to output table types.Outputs[Derived Column Output].Columns[TripsCount]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load TripNights data into pre-load layer\Map column types to output table types.Outputs[Derived Column Output].Columns[TripsCount]"
+                      name="TripsCount"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_I4)#{Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output].Columns[TripsCountRaw]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_I4)TripsCountRaw</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Map column types to output table types.Outputs[Derived Column Output].Columns[NightsSpentCount]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load TripNights data into pre-load layer\Map column types to output table types.Outputs[Derived Column Output].Columns[NightsSpentCount]"
+                      name="NightsSpentCount"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_I8)#{Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output].Columns[NightsSpentCountRaw]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_I8)NightsSpentCountRaw</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load TripNights data into pre-load layer\Map column types to output table types.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Load TripNights data into pre-load layer\Map column types to output table types.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Map column types to output table types.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load TripNights data into pre-load layer\Map column types to output table types.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Map column types to output table types.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load TripNights data into pre-load layer\Map column types to output table types.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load TripNights data into pre-load layer\Merge Join"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+              name="Merge Join"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of join to perform."
+                  name="JoinType"
+                  typeConverter="JoinType">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of columns in the ordering key."
+                  name="NumKeyColumns">5</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the null values are treated as equal values."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates the requested maximum buffers per input before blocking."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Load TripNights data into pre-load layer\Merge Join.Inputs[Merge Join Left Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Left Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Merge Join.Inputs[Merge Join Left Input].Columns[TripPurposeCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TripPurposeCode"
+                      cachedSortKeyPosition="4"
+                      lineageId="Package\Load TripNights data into pre-load layer\Sort trips data.Outputs[Sort Output].Columns[TripPurposeCode]" />
+                    <inputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Merge Join.Inputs[Merge Join Left Input].Columns[TripDurationCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TripDurationCode"
+                      cachedSortKeyPosition="5"
+                      lineageId="Package\Load TripNights data into pre-load layer\Sort trips data.Outputs[Sort Output].Columns[TripDurationCode]" />
+                    <inputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Merge Join.Inputs[Merge Join Left Input].Columns[OriginCountryKeyRaw]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="OriginCountryKeyRaw"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\Load TripNights data into pre-load layer\Sort trips data.Outputs[Sort Output].Columns[OriginCountryKeyRaw]" />
+                    <inputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Merge Join.Inputs[Merge Join Left Input].Columns[DestinationCountryKeyRaw]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DestinationCountryKeyRaw"
+                      cachedSortKeyPosition="3"
+                      lineageId="Package\Load TripNights data into pre-load layer\Sort trips data.Outputs[Sort Output].Columns[DestinationCountryKeyRaw]" />
+                    <inputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Merge Join.Inputs[Merge Join Left Input].Columns[YearKeyRaw]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="YearKeyRaw"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Load TripNights data into pre-load layer\Sort trips data.Outputs[Sort Output].Columns[YearKeyRaw]" />
+                    <inputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Merge Join.Inputs[Merge Join Left Input].Columns[TripsCountRaw]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TripsCountRaw"
+                      lineageId="Package\Load TripNights data into pre-load layer\Sort trips data.Outputs[Sort Output].Columns[TripsCountRaw]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Load TripNights data into pre-load layer\Merge Join.Inputs[Merge Join Right Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Right Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Merge Join.Inputs[Merge Join Right Input].Columns[TripPurposeCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TripPurposeCode"
+                      cachedSortKeyPosition="4"
+                      lineageId="Package\Load TripNights data into pre-load layer\Sort nights data.Outputs[Sort Output].Columns[TripPurposeCode]" />
+                    <inputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Merge Join.Inputs[Merge Join Right Input].Columns[TripDurationCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TripDurationCode"
+                      cachedSortKeyPosition="5"
+                      lineageId="Package\Load TripNights data into pre-load layer\Sort nights data.Outputs[Sort Output].Columns[TripDurationCode]" />
+                    <inputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Merge Join.Inputs[Merge Join Right Input].Columns[OriginCountryKeyRaw]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="OriginCountryKeyRaw"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\Load TripNights data into pre-load layer\Sort nights data.Outputs[Sort Output].Columns[OriginCountryKeyRaw]" />
+                    <inputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Merge Join.Inputs[Merge Join Right Input].Columns[DestinationCountryKeyRaw]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DestinationCountryKeyRaw"
+                      cachedSortKeyPosition="3"
+                      lineageId="Package\Load TripNights data into pre-load layer\Sort nights data.Outputs[Sort Output].Columns[DestinationCountryKeyRaw]" />
+                    <inputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Merge Join.Inputs[Merge Join Right Input].Columns[YearKeyRaw]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="YearKeyRaw"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Load TripNights data into pre-load layer\Sort nights data.Outputs[Sort Output].Columns[YearKeyRaw]" />
+                    <inputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Merge Join.Inputs[Merge Join Right Input].Columns[NightsSpentCountRaw]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="NightsSpentCountRaw"
+                      lineageId="Package\Load TripNights data into pre-load layer\Sort nights data.Outputs[Sort Output].Columns[NightsSpentCountRaw]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output]"
+                  isSorted="true"
+                  name="Merge Join Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output].Columns[TripPurposeCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output].Columns[TripPurposeCode]"
+                      name="TripPurposeCode"
+                      sortKeyPosition="4">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Load TripNights data into pre-load layer\Merge Join.Inputs[Merge Join Left Input].Columns[TripPurposeCode]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output].Columns[TripDurationCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output].Columns[TripDurationCode]"
+                      name="TripDurationCode"
+                      sortKeyPosition="5">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Load TripNights data into pre-load layer\Merge Join.Inputs[Merge Join Left Input].Columns[TripDurationCode]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output].Columns[OriginCountryKeyRaw]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output].Columns[OriginCountryKeyRaw]"
+                      name="OriginCountryKeyRaw"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Load TripNights data into pre-load layer\Merge Join.Inputs[Merge Join Left Input].Columns[OriginCountryKeyRaw]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output].Columns[DestinationCountryKeyRaw]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output].Columns[DestinationCountryKeyRaw]"
+                      name="DestinationCountryKeyRaw"
+                      sortKeyPosition="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Load TripNights data into pre-load layer\Merge Join.Inputs[Merge Join Left Input].Columns[DestinationCountryKeyRaw]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output].Columns[TripsCountRaw]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output].Columns[TripsCountRaw]"
+                      name="TripsCountRaw">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Load TripNights data into pre-load layer\Merge Join.Inputs[Merge Join Left Input].Columns[TripsCountRaw]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output].Columns[YearKeyRaw]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output].Columns[YearKeyRaw]"
+                      name="YearKeyRaw"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Load TripNights data into pre-load layer\Merge Join.Inputs[Merge Join Left Input].Columns[YearKeyRaw]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output].Columns[NightsSpentCountRaw]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output].Columns[NightsSpentCountRaw]"
+                      name="NightsSpentCountRaw">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Load TripNights data into pre-load layer\Merge Join.Inputs[Merge Join Right Input].Columns[NightsSpentCountRaw]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load TripNights data into pre-load layer\Nights data"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="6153"
+              name="Nights data"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load TripNights data into pre-load layer\Nights data.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[NightsFile]"
+                  connectionManagerRefId="Package.ConnectionManagers[NightsFile]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load TripNights data into pre-load layer\Nights data.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Nights data.Outputs[Flat File Source Output].Columns[TripPurposeCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load TripNights data into pre-load layer\Nights data.Outputs[Flat File Source Output].ExternalColumns[purpose]"
+                      length="50"
+                      lineageId="Package\Load TripNights data into pre-load layer\Nights data.Outputs[Flat File Source Output].Columns[TripPurposeCode]"
+                      name="TripPurposeCode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Nights data.Outputs[Flat File Source Output].Columns[TripDurationCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load TripNights data into pre-load layer\Nights data.Outputs[Flat File Source Output].ExternalColumns[duration]"
+                      length="50"
+                      lineageId="Package\Load TripNights data into pre-load layer\Nights data.Outputs[Flat File Source Output].Columns[TripDurationCode]"
+                      name="TripDurationCode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Nights data.Outputs[Flat File Source Output].Columns[OriginCountryKeyRaw]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load TripNights data into pre-load layer\Nights data.Outputs[Flat File Source Output].ExternalColumns[c_dest]"
+                      length="50"
+                      lineageId="Package\Load TripNights data into pre-load layer\Nights data.Outputs[Flat File Source Output].Columns[OriginCountryKeyRaw]"
+                      name="OriginCountryKeyRaw"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Nights data.Outputs[Flat File Source Output].Columns[DestinationCountryKeyRaw]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load TripNights data into pre-load layer\Nights data.Outputs[Flat File Source Output].ExternalColumns[geo]"
+                      length="50"
+                      lineageId="Package\Load TripNights data into pre-load layer\Nights data.Outputs[Flat File Source Output].Columns[DestinationCountryKeyRaw]"
+                      name="DestinationCountryKeyRaw"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Nights data.Outputs[Flat File Source Output].Columns[NightsSpentCountRaw]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load TripNights data into pre-load layer\Nights data.Outputs[Flat File Source Output].ExternalColumns[OBS_VALUE]"
+                      length="50"
+                      lineageId="Package\Load TripNights data into pre-load layer\Nights data.Outputs[Flat File Source Output].Columns[NightsSpentCountRaw]"
+                      name="NightsSpentCountRaw"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Nights data.Outputs[Flat File Source Output].Columns[YearKeyRaw]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load TripNights data into pre-load layer\Nights data.Outputs[Flat File Source Output].ExternalColumns[TIME_PERIOD]"
+                      length="50"
+                      lineageId="Package\Load TripNights data into pre-load layer\Nights data.Outputs[Flat File Source Output].Columns[YearKeyRaw]"
+                      name="YearKeyRaw"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load TripNights data into pre-load layer\Nights data.Outputs[Flat File Source Output].ExternalColumns[DATAFLOW]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DATAFLOW" />
+                    <externalMetadataColumn
+                      refId="Package\Load TripNights data into pre-load layer\Nights data.Outputs[Flat File Source Output].ExternalColumns[LAST UPDATE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LAST UPDATE" />
+                    <externalMetadataColumn
+                      refId="Package\Load TripNights data into pre-load layer\Nights data.Outputs[Flat File Source Output].ExternalColumns[freq]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="freq" />
+                    <externalMetadataColumn
+                      refId="Package\Load TripNights data into pre-load layer\Nights data.Outputs[Flat File Source Output].ExternalColumns[c_dest]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="c_dest" />
+                    <externalMetadataColumn
+                      refId="Package\Load TripNights data into pre-load layer\Nights data.Outputs[Flat File Source Output].ExternalColumns[purpose]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="purpose" />
+                    <externalMetadataColumn
+                      refId="Package\Load TripNights data into pre-load layer\Nights data.Outputs[Flat File Source Output].ExternalColumns[duration]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="duration" />
+                    <externalMetadataColumn
+                      refId="Package\Load TripNights data into pre-load layer\Nights data.Outputs[Flat File Source Output].ExternalColumns[unit]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="unit" />
+                    <externalMetadataColumn
+                      refId="Package\Load TripNights data into pre-load layer\Nights data.Outputs[Flat File Source Output].ExternalColumns[geo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="geo" />
+                    <externalMetadataColumn
+                      refId="Package\Load TripNights data into pre-load layer\Nights data.Outputs[Flat File Source Output].ExternalColumns[TIME_PERIOD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="TIME_PERIOD" />
+                    <externalMetadataColumn
+                      refId="Package\Load TripNights data into pre-load layer\Nights data.Outputs[Flat File Source Output].ExternalColumns[OBS_VALUE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="OBS_VALUE" />
+                    <externalMetadataColumn
+                      refId="Package\Load TripNights data into pre-load layer\Nights data.Outputs[Flat File Source Output].ExternalColumns[OBS_FLAG]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="OBS_FLAG" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load TripNights data into pre-load layer\Nights data.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Nights data.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Load TripNights data into pre-load layer\Nights data.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Nights data.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load TripNights data into pre-load layer\Nights data.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Nights data.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load TripNights data into pre-load layer\Nights data.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load TripNights data into pre-load layer\Remove aggregated countries"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Remove aggregated countries"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load TripNights data into pre-load layer\Remove aggregated countries.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Remove aggregated countries.Inputs[Conditional Split Input].Columns[OriginCountryKeyRaw]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="OriginCountryKeyRaw"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output].Columns[OriginCountryKeyRaw]" />
+                    <inputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Remove aggregated countries.Inputs[Conditional Split Input].Columns[DestinationCountryKeyRaw]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DestinationCountryKeyRaw"
+                      cachedSortKeyPosition="3"
+                      lineageId="Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output].Columns[DestinationCountryKeyRaw]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load TripNights data into pre-load layer\Remove aggregated countries.Outputs[FilteredRows]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="FilteredRows"
+                  synchronousInputId="Package\Load TripNights data into pre-load layer\Remove aggregated countries.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">[LEN](#{Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output].Columns[OriginCountryKeyRaw]}) == 2 &amp;&amp; #{Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output].Columns[OriginCountryKeyRaw]} != "EA" &amp;&amp; [LEN](#{Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output].Columns[DestinationCountryKeyRaw]}) == 2</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">LEN(OriginCountryKeyRaw) == 2 &amp;&amp; OriginCountryKeyRaw != "EA" &amp;&amp; LEN(DestinationCountryKeyRaw) == 2</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load TripNights data into pre-load layer\Remove aggregated countries.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\Load TripNights data into pre-load layer\Remove aggregated countries.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load TripNights data into pre-load layer\Remove aggregated countries.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\Load TripNights data into pre-load layer\Remove aggregated countries.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Remove aggregated countries.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load TripNights data into pre-load layer\Remove aggregated countries.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Remove aggregated countries.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load TripNights data into pre-load layer\Remove aggregated countries.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load TripNights data into pre-load layer\Remove aggregated trip details"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Remove aggregated trip details"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load TripNights data into pre-load layer\Remove aggregated trip details.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Remove aggregated trip details.Inputs[Conditional Split Input].Columns[TripPurposeCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TripPurposeCode"
+                      cachedSortKeyPosition="4"
+                      lineageId="Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output].Columns[TripPurposeCode]" />
+                    <inputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Remove aggregated trip details.Inputs[Conditional Split Input].Columns[TripDurationCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TripDurationCode"
+                      cachedSortKeyPosition="5"
+                      lineageId="Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output].Columns[TripDurationCode]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load TripNights data into pre-load layer\Remove aggregated trip details.Outputs[FilteredRows]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="FilteredRows"
+                  synchronousInputId="Package\Load TripNights data into pre-load layer\Remove aggregated trip details.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output].Columns[TripPurposeCode]} != "PER_VFR" &amp;&amp; #{Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output].Columns[TripPurposeCode]} != "TOTAL" &amp;&amp; #{Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output].Columns[TripDurationCode]} != "N_GE1"</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">TripPurposeCode != "PER_VFR" &amp;&amp; TripPurposeCode != "TOTAL" &amp;&amp; TripDurationCode != "N_GE1"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load TripNights data into pre-load layer\Remove aggregated trip details.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\Load TripNights data into pre-load layer\Remove aggregated trip details.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load TripNights data into pre-load layer\Remove aggregated trip details.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\Load TripNights data into pre-load layer\Remove aggregated trip details.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Remove aggregated trip details.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load TripNights data into pre-load layer\Remove aggregated trip details.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Remove aggregated trip details.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load TripNights data into pre-load layer\Remove aggregated trip details.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load TripNights data into pre-load layer\Remove columns with NULL values"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Remove columns with NULL values"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load TripNights data into pre-load layer\Remove columns with NULL values.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Remove columns with NULL values.Inputs[Conditional Split Input].Columns[TripsCountRaw]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TripsCountRaw"
+                      lineageId="Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output].Columns[TripsCountRaw]" />
+                    <inputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Remove columns with NULL values.Inputs[Conditional Split Input].Columns[NightsSpentCountRaw]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="NightsSpentCountRaw"
+                      lineageId="Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output].Columns[NightsSpentCountRaw]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load TripNights data into pre-load layer\Remove columns with NULL values.Outputs[FilteredRows]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="FilteredRows"
+                  synchronousInputId="Package\Load TripNights data into pre-load layer\Remove columns with NULL values.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">![ISNULL](#{Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output].Columns[TripsCountRaw]}) &amp;&amp; ![ISNULL](#{Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output].Columns[NightsSpentCountRaw]}) &amp;&amp; #{Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output].Columns[TripsCountRaw]} != "" &amp;&amp; #{Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output].Columns[NightsSpentCountRaw]} != ""</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">!ISNULL(TripsCountRaw) &amp;&amp; !ISNULL(NightsSpentCountRaw) &amp;&amp; TripsCountRaw != "" &amp;&amp; NightsSpentCountRaw != ""</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load TripNights data into pre-load layer\Remove columns with NULL values.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\Load TripNights data into pre-load layer\Remove columns with NULL values.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load TripNights data into pre-load layer\Remove columns with NULL values.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\Load TripNights data into pre-load layer\Remove columns with NULL values.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Remove columns with NULL values.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load TripNights data into pre-load layer\Remove columns with NULL values.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Remove columns with NULL values.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load TripNights data into pre-load layer\Remove columns with NULL values.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load TripNights data into pre-load layer\Sort nights data"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort nights data"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Load TripNights data into pre-load layer\Sort nights data.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Sort nights data.Inputs[Sort Input].Columns[TripPurposeCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TripPurposeCode"
+                      lineageId="Package\Load TripNights data into pre-load layer\Nights data.Outputs[Flat File Source Output].Columns[TripPurposeCode]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Sort nights data.Inputs[Sort Input].Columns[TripDurationCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TripDurationCode"
+                      lineageId="Package\Load TripNights data into pre-load layer\Nights data.Outputs[Flat File Source Output].Columns[TripDurationCode]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">5</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Sort nights data.Inputs[Sort Input].Columns[OriginCountryKeyRaw]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="OriginCountryKeyRaw"
+                      lineageId="Package\Load TripNights data into pre-load layer\Nights data.Outputs[Flat File Source Output].Columns[OriginCountryKeyRaw]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Sort nights data.Inputs[Sort Input].Columns[DestinationCountryKeyRaw]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DestinationCountryKeyRaw"
+                      lineageId="Package\Load TripNights data into pre-load layer\Nights data.Outputs[Flat File Source Output].Columns[DestinationCountryKeyRaw]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">3</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Sort nights data.Inputs[Sort Input].Columns[NightsSpentCountRaw]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="NightsSpentCountRaw"
+                      lineageId="Package\Load TripNights data into pre-load layer\Nights data.Outputs[Flat File Source Output].Columns[NightsSpentCountRaw]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Sort nights data.Inputs[Sort Input].Columns[YearKeyRaw]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="YearKeyRaw"
+                      lineageId="Package\Load TripNights data into pre-load layer\Nights data.Outputs[Flat File Source Output].Columns[YearKeyRaw]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load TripNights data into pre-load layer\Sort nights data.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Sort nights data.Outputs[Sort Output].Columns[TripPurposeCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Load TripNights data into pre-load layer\Sort nights data.Outputs[Sort Output].Columns[TripPurposeCode]"
+                      name="TripPurposeCode"
+                      sortKeyPosition="4">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Load TripNights data into pre-load layer\Nights data.Outputs[Flat File Source Output].Columns[TripPurposeCode]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Sort nights data.Outputs[Sort Output].Columns[TripDurationCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Load TripNights data into pre-load layer\Sort nights data.Outputs[Sort Output].Columns[TripDurationCode]"
+                      name="TripDurationCode"
+                      sortKeyPosition="5">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Load TripNights data into pre-load layer\Nights data.Outputs[Flat File Source Output].Columns[TripDurationCode]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Sort nights data.Outputs[Sort Output].Columns[OriginCountryKeyRaw]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Load TripNights data into pre-load layer\Sort nights data.Outputs[Sort Output].Columns[OriginCountryKeyRaw]"
+                      name="OriginCountryKeyRaw"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Load TripNights data into pre-load layer\Nights data.Outputs[Flat File Source Output].Columns[OriginCountryKeyRaw]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Sort nights data.Outputs[Sort Output].Columns[DestinationCountryKeyRaw]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Load TripNights data into pre-load layer\Sort nights data.Outputs[Sort Output].Columns[DestinationCountryKeyRaw]"
+                      name="DestinationCountryKeyRaw"
+                      sortKeyPosition="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Load TripNights data into pre-load layer\Nights data.Outputs[Flat File Source Output].Columns[DestinationCountryKeyRaw]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Sort nights data.Outputs[Sort Output].Columns[NightsSpentCountRaw]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Load TripNights data into pre-load layer\Sort nights data.Outputs[Sort Output].Columns[NightsSpentCountRaw]"
+                      name="NightsSpentCountRaw">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Load TripNights data into pre-load layer\Nights data.Outputs[Flat File Source Output].Columns[NightsSpentCountRaw]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Sort nights data.Outputs[Sort Output].Columns[YearKeyRaw]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Load TripNights data into pre-load layer\Sort nights data.Outputs[Sort Output].Columns[YearKeyRaw]"
+                      name="YearKeyRaw"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Load TripNights data into pre-load layer\Nights data.Outputs[Flat File Source Output].Columns[YearKeyRaw]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load TripNights data into pre-load layer\Sort trips data"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort trips data"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Load TripNights data into pre-load layer\Sort trips data.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Sort trips data.Inputs[Sort Input].Columns[TripPurposeCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TripPurposeCode"
+                      lineageId="Package\Load TripNights data into pre-load layer\Trips data.Outputs[Flat File Source Output].Columns[TripPurposeCode]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Sort trips data.Inputs[Sort Input].Columns[TripDurationCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TripDurationCode"
+                      lineageId="Package\Load TripNights data into pre-load layer\Trips data.Outputs[Flat File Source Output].Columns[TripDurationCode]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">5</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Sort trips data.Inputs[Sort Input].Columns[OriginCountryKeyRaw]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="OriginCountryKeyRaw"
+                      lineageId="Package\Load TripNights data into pre-load layer\Trips data.Outputs[Flat File Source Output].Columns[OriginCountryKeyRaw]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Sort trips data.Inputs[Sort Input].Columns[DestinationCountryKeyRaw]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DestinationCountryKeyRaw"
+                      lineageId="Package\Load TripNights data into pre-load layer\Trips data.Outputs[Flat File Source Output].Columns[DestinationCountryKeyRaw]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">3</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Sort trips data.Inputs[Sort Input].Columns[TripsCountRaw]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TripsCountRaw"
+                      lineageId="Package\Load TripNights data into pre-load layer\Trips data.Outputs[Flat File Source Output].Columns[TripsCountRaw]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Sort trips data.Inputs[Sort Input].Columns[YearKeyRaw]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="YearKeyRaw"
+                      lineageId="Package\Load TripNights data into pre-load layer\Trips data.Outputs[Flat File Source Output].Columns[YearKeyRaw]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load TripNights data into pre-load layer\Sort trips data.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Sort trips data.Outputs[Sort Output].Columns[TripPurposeCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Load TripNights data into pre-load layer\Sort trips data.Outputs[Sort Output].Columns[TripPurposeCode]"
+                      name="TripPurposeCode"
+                      sortKeyPosition="4">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Load TripNights data into pre-load layer\Trips data.Outputs[Flat File Source Output].Columns[TripPurposeCode]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Sort trips data.Outputs[Sort Output].Columns[TripDurationCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Load TripNights data into pre-load layer\Sort trips data.Outputs[Sort Output].Columns[TripDurationCode]"
+                      name="TripDurationCode"
+                      sortKeyPosition="5">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Load TripNights data into pre-load layer\Trips data.Outputs[Flat File Source Output].Columns[TripDurationCode]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Sort trips data.Outputs[Sort Output].Columns[OriginCountryKeyRaw]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Load TripNights data into pre-load layer\Sort trips data.Outputs[Sort Output].Columns[OriginCountryKeyRaw]"
+                      name="OriginCountryKeyRaw"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Load TripNights data into pre-load layer\Trips data.Outputs[Flat File Source Output].Columns[OriginCountryKeyRaw]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Sort trips data.Outputs[Sort Output].Columns[DestinationCountryKeyRaw]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Load TripNights data into pre-load layer\Sort trips data.Outputs[Sort Output].Columns[DestinationCountryKeyRaw]"
+                      name="DestinationCountryKeyRaw"
+                      sortKeyPosition="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Load TripNights data into pre-load layer\Trips data.Outputs[Flat File Source Output].Columns[DestinationCountryKeyRaw]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Sort trips data.Outputs[Sort Output].Columns[TripsCountRaw]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Load TripNights data into pre-load layer\Sort trips data.Outputs[Sort Output].Columns[TripsCountRaw]"
+                      name="TripsCountRaw">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Load TripNights data into pre-load layer\Trips data.Outputs[Flat File Source Output].Columns[TripsCountRaw]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Sort trips data.Outputs[Sort Output].Columns[YearKeyRaw]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Load TripNights data into pre-load layer\Sort trips data.Outputs[Sort Output].Columns[YearKeyRaw]"
+                      name="YearKeyRaw"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Load TripNights data into pre-load layer\Trips data.Outputs[Flat File Source Output].Columns[YearKeyRaw]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load TripNights data into pre-load layer\Trips data"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="6153"
+              name="Trips data"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load TripNights data into pre-load layer\Trips data.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[TripsFile]"
+                  connectionManagerRefId="Package.ConnectionManagers[TripsFile]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load TripNights data into pre-load layer\Trips data.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Trips data.Outputs[Flat File Source Output].Columns[TripPurposeCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load TripNights data into pre-load layer\Trips data.Outputs[Flat File Source Output].ExternalColumns[purpose]"
+                      length="50"
+                      lineageId="Package\Load TripNights data into pre-load layer\Trips data.Outputs[Flat File Source Output].Columns[TripPurposeCode]"
+                      name="TripPurposeCode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Trips data.Outputs[Flat File Source Output].Columns[TripDurationCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load TripNights data into pre-load layer\Trips data.Outputs[Flat File Source Output].ExternalColumns[duration]"
+                      length="50"
+                      lineageId="Package\Load TripNights data into pre-load layer\Trips data.Outputs[Flat File Source Output].Columns[TripDurationCode]"
+                      name="TripDurationCode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Trips data.Outputs[Flat File Source Output].Columns[OriginCountryKeyRaw]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load TripNights data into pre-load layer\Trips data.Outputs[Flat File Source Output].ExternalColumns[c_dest]"
+                      length="50"
+                      lineageId="Package\Load TripNights data into pre-load layer\Trips data.Outputs[Flat File Source Output].Columns[OriginCountryKeyRaw]"
+                      name="OriginCountryKeyRaw"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Trips data.Outputs[Flat File Source Output].Columns[DestinationCountryKeyRaw]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load TripNights data into pre-load layer\Trips data.Outputs[Flat File Source Output].ExternalColumns[geo]"
+                      length="50"
+                      lineageId="Package\Load TripNights data into pre-load layer\Trips data.Outputs[Flat File Source Output].Columns[DestinationCountryKeyRaw]"
+                      name="DestinationCountryKeyRaw"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Trips data.Outputs[Flat File Source Output].Columns[TripsCountRaw]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load TripNights data into pre-load layer\Trips data.Outputs[Flat File Source Output].ExternalColumns[OBS_VALUE]"
+                      length="50"
+                      lineageId="Package\Load TripNights data into pre-load layer\Trips data.Outputs[Flat File Source Output].Columns[TripsCountRaw]"
+                      name="TripsCountRaw"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Trips data.Outputs[Flat File Source Output].Columns[YearKeyRaw]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load TripNights data into pre-load layer\Trips data.Outputs[Flat File Source Output].ExternalColumns[TIME_PERIOD]"
+                      length="50"
+                      lineageId="Package\Load TripNights data into pre-load layer\Trips data.Outputs[Flat File Source Output].Columns[YearKeyRaw]"
+                      name="YearKeyRaw"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load TripNights data into pre-load layer\Trips data.Outputs[Flat File Source Output].ExternalColumns[DATAFLOW]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DATAFLOW" />
+                    <externalMetadataColumn
+                      refId="Package\Load TripNights data into pre-load layer\Trips data.Outputs[Flat File Source Output].ExternalColumns[LAST UPDATE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LAST UPDATE" />
+                    <externalMetadataColumn
+                      refId="Package\Load TripNights data into pre-load layer\Trips data.Outputs[Flat File Source Output].ExternalColumns[freq]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="freq" />
+                    <externalMetadataColumn
+                      refId="Package\Load TripNights data into pre-load layer\Trips data.Outputs[Flat File Source Output].ExternalColumns[c_dest]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="c_dest" />
+                    <externalMetadataColumn
+                      refId="Package\Load TripNights data into pre-load layer\Trips data.Outputs[Flat File Source Output].ExternalColumns[purpose]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="purpose" />
+                    <externalMetadataColumn
+                      refId="Package\Load TripNights data into pre-load layer\Trips data.Outputs[Flat File Source Output].ExternalColumns[duration]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="duration" />
+                    <externalMetadataColumn
+                      refId="Package\Load TripNights data into pre-load layer\Trips data.Outputs[Flat File Source Output].ExternalColumns[unit]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="unit" />
+                    <externalMetadataColumn
+                      refId="Package\Load TripNights data into pre-load layer\Trips data.Outputs[Flat File Source Output].ExternalColumns[geo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="geo" />
+                    <externalMetadataColumn
+                      refId="Package\Load TripNights data into pre-load layer\Trips data.Outputs[Flat File Source Output].ExternalColumns[TIME_PERIOD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="TIME_PERIOD" />
+                    <externalMetadataColumn
+                      refId="Package\Load TripNights data into pre-load layer\Trips data.Outputs[Flat File Source Output].ExternalColumns[OBS_VALUE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="OBS_VALUE" />
+                    <externalMetadataColumn
+                      refId="Package\Load TripNights data into pre-load layer\Trips data.Outputs[Flat File Source Output].ExternalColumns[OBS_FLAG]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="OBS_FLAG" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load TripNights data into pre-load layer\Trips data.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Trips data.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Load TripNights data into pre-load layer\Trips data.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Trips data.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load TripNights data into pre-load layer\Trips data.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load TripNights data into pre-load layer\Trips data.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load TripNights data into pre-load layer\Trips data.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load TripNights data into pre-load layer.Paths[Derived Column Output]"
+              endId="Package\Load TripNights data into pre-load layer\Map column types to output table types.Inputs[Derived Column Input]"
+              name="Derived Column Output"
+              startId="Package\Load TripNights data into pre-load layer\Create TripDetailsKey.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Load TripNights data into pre-load layer.Paths[Derived Column Output1]"
+              endId="Package\Load TripNights data into pre-load layer\Insert rows into pre-load table.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\Load TripNights data into pre-load layer\Map column types to output table types.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Load TripNights data into pre-load layer.Paths[FilteredRows]"
+              endId="Package\Load TripNights data into pre-load layer\Remove aggregated countries.Inputs[Conditional Split Input]"
+              name="FilteredRows"
+              startId="Package\Load TripNights data into pre-load layer\Remove aggregated trip details.Outputs[FilteredRows]" />
+            <path
+              refId="Package\Load TripNights data into pre-load layer.Paths[FilteredRows1]"
+              endId="Package\Load TripNights data into pre-load layer\Remove columns with NULL values.Inputs[Conditional Split Input]"
+              name="FilteredRows"
+              startId="Package\Load TripNights data into pre-load layer\Remove aggregated countries.Outputs[FilteredRows]" />
+            <path
+              refId="Package\Load TripNights data into pre-load layer.Paths[FilteredRows2]"
+              endId="Package\Load TripNights data into pre-load layer\Create TripDetailsKey.Inputs[Derived Column Input]"
+              name="FilteredRows"
+              startId="Package\Load TripNights data into pre-load layer\Remove columns with NULL values.Outputs[FilteredRows]" />
+            <path
+              refId="Package\Load TripNights data into pre-load layer.Paths[Flat File Source Output]"
+              endId="Package\Load TripNights data into pre-load layer\Sort nights data.Inputs[Sort Input]"
+              name="Flat File Source Output"
+              startId="Package\Load TripNights data into pre-load layer\Nights data.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\Load TripNights data into pre-load layer.Paths[Flat File Source Output1]"
+              endId="Package\Load TripNights data into pre-load layer\Sort trips data.Inputs[Sort Input]"
+              name="Flat File Source Output"
+              startId="Package\Load TripNights data into pre-load layer\Trips data.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\Load TripNights data into pre-load layer.Paths[Merge Join Output]"
+              endId="Package\Load TripNights data into pre-load layer\Remove aggregated trip details.Inputs[Conditional Split Input]"
+              name="Merge Join Output"
+              startId="Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\Load TripNights data into pre-load layer.Paths[Sort Output]"
+              endId="Package\Load TripNights data into pre-load layer\Merge Join.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\Load TripNights data into pre-load layer\Sort trips data.Outputs[Sort Output]" />
+            <path
+              refId="Package\Load TripNights data into pre-load layer.Paths[Sort Output1]"
+              endId="Package\Load TripNights data into pre-load layer\Merge Join.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\Load TripNights data into pre-load layer\Sort nights data.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Merge TripsNights facts"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{4C9DEE7C-BE18-42A3-ACC6-68AB7697607E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Merge TripsNights facts"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B5356E18-D42C-45B3-AEC3-C92E38778AE9}"
+          SQLTask:SqlStatementSource="MERGE Fact_TripsNights AS DST &#xA;USING Fact_TripsNights_PreLoad AS SRC &#xA;ON (&#xA;&#x9;SRC.YearKey = DST.YearKey AND &#xA;&#x9;SRC.TripDetailsKey = DST.TripDetailsKey AND &#xA;&#x9;SRC.OriginCountryKey = DST.OriginCountryKey AND &#xA;&#x9;SRC.DestinationCountryKey = DST.DestinationCountryKey&#xA;) &#xA;WHEN NOT MATCHED THEN INSERT (&#xA;&#x9;[YearKey]&#xA;&#x9;,[TripDetailsKey]&#xA;&#x9;,[OriginCountryKey]&#xA;&#x9;,[DestinationCountryKey]&#xA;&#x9;,[TripsCount]&#xA;&#x9;,[NightsSpentCount]&#xA;)&#xA;VALUES (&#xA;&#x9;SRC.[YearKey]&#xA;&#x9;,SRC.[TripDetailsKey]&#xA;&#x9;,SRC.[OriginCountryKey]&#xA;&#x9;,SRC.[DestinationCountryKey]&#xA;&#x9;,SRC.[TripsCount]&#xA;&#x9;,SRC.[NightsSpentCount]&#xA;)&#xA;WHEN MATCHED THEN UPDATE SET&#xA;&#x9;DST.[YearKey] = SRC.[YearKey]&#xA;&#x9;,DST.[TripDetailsKey] = SRC.[TripDetailsKey]&#xA;&#x9;,DST.[OriginCountryKey] = SRC.[OriginCountryKey]&#xA;&#x9;,DST.[DestinationCountryKey] = SRC.[DestinationCountryKey]&#xA;&#x9;,DST.[TripsCount] = SRC.[TripsCount]&#xA;&#x9;,DST.[NightsSpentCount] = SRC.[NightsSpentCount];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate pre-load tables"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{9A592614-E801-4086-8531-E7449FC56F8B}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate pre-load tables"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B5356E18-D42C-45B3-AEC3-C92E38778AE9}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [Fact_TripsNights_PreLoad]&#xA;TRUNCATE TABLE [Fact_Expenditures_PreLoad]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{F9CF8D62-D718-48A1-8094-4C7216A54689}"
+      DTS:From="Package\Truncate pre-load tables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Load TripNights data into pre-load layer" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{27F385B5-CA18-4D4E-885E-13EC5081B423}"
+      DTS:From="Package\Load TripNights data into pre-load layer"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Merge TripsNights facts" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="260.8,41.6"
+          Id="Package\Load TripNights data into pre-load layer"
+          TopLeft="19.9999989072485,136.933332381116" />
+        <NodeLayout
+          Size="188,41.6"
+          Id="Package\Merge TripsNights facts"
+          TopLeft="54.1666637071306,212.333331856794" />
+        <NodeLayout
+          Size="194.4,41.6"
+          Id="Package\Truncate pre-load tables"
+          TopLeft="212.499988389512,48.5333329958386" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="309.699988389512,90.1333329958386">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-159.299989482263,46.7999993852774"
+              Start="0,0"
+              End="-159.299989482263,39.2999993852774">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.3999996926387" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.3999996926387"
+                    Point2="0,23.3999996926387"
+                    Point3="-4,23.3999996926387" />
+                  <mssgle:LineSegment
+                    End="-155.299989482263,23.3999996926387" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-155.299989482263,23.3999996926387"
+                    Point2="-159.299989482263,23.3999996926387"
+                    Point3="-159.299989482263,27.3999996926387" />
+                  <mssgle:LineSegment
+                    End="-159.299989482263,39.2999993852774" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="149.28333130719,178.533332381116">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.7999994756778"
+              Start="0,0"
+              End="0,26.2999994756778">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.2999994756778" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Load TripNights data into pre-load layer">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="124.8,41.6"
+          Id="Package\Load TripNights data into pre-load layer\Trips data"
+          TopLeft="102.499997677903,22.5166662835413" />
+        <NodeLayout
+          Size="258.4,41.6"
+          Id="Package\Load TripNights data into pre-load layer\Map column types to output table types"
+          TopLeft="146.666658653154,555.933330157267" />
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\Load TripNights data into pre-load layer\Merge Join"
+          TopLeft="203.33332222369,185.466665376955" />
+        <NodeLayout
+          Size="242.4,41.6"
+          Id="Package\Load TripNights data into pre-load layer\Remove columns with NULL values"
+          TopLeft="154.999991531174,410.199998860955" />
+        <NodeLayout
+          Size="143.2,41.6"
+          Id="Package\Load TripNights data into pre-load layer\Sort trips data"
+          TopLeft="93.3333282338249,99.2666662990387" />
+        <NodeLayout
+          Size="215.2,41.6"
+          Id="Package\Load TripNights data into pre-load layer\Insert rows into pre-load table"
+          TopLeft="170.833323999412,625.799997306069" />
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\Load TripNights data into pre-load layer\Sort nights data"
+          TopLeft="307.499983198942,99.2666662990387" />
+        <NodeLayout
+          Size="135.2,41.6"
+          Id="Package\Load TripNights data into pre-load layer\Nights data"
+          TopLeft="314.791652751673,24.0666669499212" />
+        <NodeLayout
+          Size="217.6,41.6"
+          Id="Package\Load TripNights data into pre-load layer\Remove aggregated countries"
+          TopLeft="164.999990984798,334.266665593915" />
+        <NodeLayout
+          Size="180,41.6"
+          Id="Package\Load TripNights data into pre-load layer\Create TripDetailsKey"
+          TopLeft="184.999989892046,485.666664418711" />
+        <NodeLayout
+          Size="222.4,41.6"
+          Id="Package\Load TripNights data into pre-load layer\Remove aggregated trip details"
+          TopLeft="159.999991257986,259.133332399196" />
+        <EdgeLayout
+          Id="Package\Load TripNights data into pre-load layer.Paths[Sort Output1]"
+          TopLeft="383.099983198942,140.866666299039">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-94.699994308585,44.5999990779159"
+              Start="0,0"
+              End="-94.699994308585,37.0999990779159">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.4336579900819" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.4336579900819"
+                    Point2="0,26.4336579900819"
+                    Point3="-4,26.4336579900819" />
+                  <mssgle:LineSegment
+                    End="-90.699994308585,26.4336579900819" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-90.699994308585,26.4336579900819"
+                    Point2="-94.699994308585,26.4336579900819"
+                    Point3="-94.699994308585,30.4336579900819" />
+                  <mssgle:LineSegment
+                    End="-94.699994308585,37.0999990779159" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-77.6194698105425,31.4336579900819,60.5389453125,11.2431640625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load TripNights data into pre-load layer.Paths[Sort Output]"
+          TopLeft="164.933328233825,140.866666299039">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="82.9333273231987,44.5999990779159"
+              Start="0,0"
+              End="82.9333273231987,37.0999990779159">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.4336579900819" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.4336579900819"
+                    Point2="0,26.4336579900819"
+                    Point3="4,26.4336579900819" />
+                  <mssgle:LineSegment
+                    End="78.9333273231987,26.4336579900819" />
+                  <mssgle:CubicBezierSegment
+                    Point1="78.9333273231987,26.4336579900819"
+                    Point2="82.9333273231987,26.4336579900819"
+                    Point3="82.9333273231987,30.4336579900819" />
+                  <mssgle:LineSegment
+                    End="82.9333273231987,37.0999990779159" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="11.1971910053493,31.4336579900819,60.5389453125,11.2431640625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load TripNights data into pre-load layer.Paths[Merge Join Output]"
+          TopLeft="269.666656740838,227.066665376955">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32.0666670222414"
+              Start="0,0"
+              End="0,24.5666670222414">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5666670222414" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-30.26947265625,6.6617514798707,60.5389453125,11.2431640625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load TripNights data into pre-load layer.Paths[Flat File Source Output1]"
+          TopLeft="164.916662955864,64.1166662835413">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,35.1500000154974"
+              Start="0,0"
+              End="0,27.6500000154974">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.6500000154974" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-30.26947265625,8.2034179764987,60.5389453125,11.2431640625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load TripNights data into pre-load layer.Paths[Flat File Source Output]"
+          TopLeft="382.745817975307,65.6666669499212">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.5999993491175"
+              Start="0,0"
+              End="0,26.0999993491175">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.0999993491175" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-30.26947265625,7.42841764330875,60.5389453125,11.2431640625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load TripNights data into pre-load layer.Paths[FilteredRows]"
+          TopLeft="272.499991121392,300.733332399196">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.533333194719"
+              Start="0,0"
+              End="0,26.033333194719">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.033333194719" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-61.09673828125,7.21197909735949,122.1934765625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load TripNights data into pre-load layer.Paths[FilteredRows1]"
+          TopLeft="274.999991257986,375.866665593915">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34.33333326704"
+              Start="0,0"
+              End="0,26.83333326704">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.83333326704" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-61.09673828125,7.61197913352001,122.1934765625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load TripNights data into pre-load layer.Paths[FilteredRows2]"
+          TopLeft="275.59999071161,451.799998860955">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.8666655577557"
+              Start="0,0"
+              End="0,26.3666655577557">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.3666655577557" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-58.36673828125,7.37864527887783,116.7334765625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load TripNights data into pre-load layer.Paths[Derived Column Output]"
+          TopLeft="275.4333242726,527.266664418711">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28.666665738556"
+              Start="0,0"
+              End="0,21.166665738556">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.166665738556" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-25.19765625,4.97151646302802,50.3953125,11.2236328125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load TripNights data into pre-load layer.Paths[Derived Column Output1]"
+          TopLeft="277.149991326283,597.533330157267">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28.2666671488018"
+              Start="0,0"
+              End="0,20.7666671488018">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.7666671488018" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-25.19765625,4.77151716815092,50.3953125,11.2236328125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load TripNights data into pre-load layer\Insert rows into pre-load table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
