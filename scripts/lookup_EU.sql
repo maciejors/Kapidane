@@ -5,7 +5,7 @@ INSERT INTO Dim_EU (countrycode, countryname, memberfrom, memberuntil) VALUES
 ('HR', 'Croatia', '2013-07-01', NULL),
 ('CY', 'Cyprus', '2004-05-01', NULL),
 ('CZ', 'Czech Republic', '2004-05-01', NULL),
-('DK', 'Denmark', '1973-01-01', '1985-12-31'),
+('DK', 'Denmark', '1973-01-01', NULL),
 ('EE', 'Estonia', '2004-05-01', NULL),
 ('FI', 'Finland', '1995-01-01', NULL),
 ('FR', 'France', '1957-01-01', NULL),
@@ -25,5 +25,5 @@ INSERT INTO Dim_EU (countrycode, countryname, memberfrom, memberuntil) VALUES
 ('SK', 'Slovakia', '2004-05-01', NULL),
 ('SI', 'Slovenia', '2004-05-01', NULL),
 ('ES', 'Spain', '1986-01-01', NULL),
-('SE', 'Sweden', '1995-01-01', '2019-01-31'),
+('SE', 'Sweden', '1995-01-01', NULL),
 ('GB', 'United Kingdom', '1973-01-01', '2020-01-31');
