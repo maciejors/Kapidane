@@ -1,3 +1,6 @@
+USE [kapidane_dwh]
+GO
+
 DECLARE @StartYear INT = 2012;
 DECLARE @NumberOfYears INT = 100;
 

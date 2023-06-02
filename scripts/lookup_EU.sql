@@ -1,3 +1,6 @@
+USE [kapidane_dwh]
+GO
+
 INSERT INTO Lookup_EU (countrycode, countryname) VALUES
 ('AT', 'Austria'),
 ('BE', 'Belgium'),
