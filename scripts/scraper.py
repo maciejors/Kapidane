@@ -1,4 +1,4 @@
-# write a script to scrape the  compressed data from the website in csv format compressed in gz folder using api
+# a script to scrape the  compressed data from the website in csv format compressed in gz folder using api
 import requests
 import gzip
 import csv
@@ -69,7 +69,7 @@ def download_country_data():
 
         # Write the extracted data to a CSV file
         with open("raw_data\\countries.csv", "w", newline="",  encoding="utf-8") as csvfile:
-            writer = csv.writer(csvfile)
+            writer = csv.writer(csvfile, delimiter=";")
             writer.writerow(headers)
             writer.writerows(rows)
 
