@@ -11,8 +11,8 @@
   DTS:LocaleID="6153"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="81"
-  DTS:VersionGUID="{36AF13CA-11DF-454E-88B7-6026CBA4D6D8}">
+  DTS:VersionBuild="82"
+  DTS:VersionGUID="{02F6238A-F1A5-40DA-8F23-E7880270FDBC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1545,7 +1545,7 @@ where [refTable].[ExpenditureCode] = ?</property>
                       refId="Package\LoadGeography\Change Country Codes.Inputs[Derived Column Input].Columns[Country Code]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="50"
+                      cachedLength="2"
                       cachedName="Country Code"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
@@ -1656,7 +1656,7 @@ where [refTable].[CountryCode] = ?</property>
                 <property
                   dataType="System.String"
                   description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="CountryCode" dataType="DT_STR" length="2" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CountryName" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="CountryCode" dataType="DT_STR" length="2" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CountryName" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
@@ -1688,7 +1688,7 @@ where [refTable].[CountryCode] = ?</property>
                       refId="Package\LoadGeography\Check if Country is in EU.Inputs[Lookup Input].Columns[Country Code]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="50"
+                      cachedLength="2"
                       cachedName="Country Code"
                       lineageId="Package\LoadGeography\Geography data.Outputs[OLE DB Source Output].Columns[Country Code]">
                       <properties>
@@ -1965,7 +1965,7 @@ where [refTable].[CountryCode] = ?</property>
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\LoadGeography\Geography data.Outputs[OLE DB Source Output].ExternalColumns[Country_Code]"
-                      length="50"
+                      length="2"
                       lineageId="Package\LoadGeography\Geography data.Outputs[OLE DB Source Output].Columns[Country Code]"
                       name="Country Code"
                       truncationRowDisposition="FailComponent" />
@@ -2009,7 +2009,7 @@ where [refTable].[CountryCode] = ?</property>
                       refId="Package\LoadGeography\Geography data.Outputs[OLE DB Source Output].ExternalColumns[Country_Code]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
+                      length="2"
                       name="Country_Code" />
                     <externalMetadataColumn
                       refId="Package\LoadGeography\Geography data.Outputs[OLE DB Source Output].ExternalColumns[Country_Name]"
@@ -2046,7 +2046,7 @@ where [refTable].[CountryCode] = ?</property>
                       refId="Package\LoadGeography\Geography data.Outputs[OLE DB Source Error Output].Columns[Country_Code]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
+                      length="2"
                       lineageId="Package\LoadGeography\Geography data.Outputs[OLE DB Source Error Output].Columns[Country_Code]"
                       name="Country_Code" />
                     <outputColumn
@@ -2182,14 +2182,6 @@ where [refTable].[CountryCode] = ?</property>
                       externalMetadataColumnId="Package\LoadGeography\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ValidFromDate]"
                       lineageId="Package\LoadGeography\Set default ValidFromDate.Outputs[Derived Column Output].Columns[ValidFromDate]" />
                     <inputColumn
-                      refId="Package\LoadGeography\Insert Destination.Inputs[OLE DB Destination Input].Columns[Country Code]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Country Code"
-                      externalMetadataColumnId="Package\LoadGeography\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[CountryKey]"
-                      lineageId="Package\LoadGeography\Union All 1.Outputs[Union All Output 1].Columns[Country Code]" />
-                    <inputColumn
                       refId="Package\LoadGeography\Insert Destination.Inputs[OLE DB Destination Input].Columns[Country Name]"
                       cachedCodepage="1252"
                       cachedDataType="str"
@@ -2213,6 +2205,14 @@ where [refTable].[CountryCode] = ?</property>
                       cachedName="Is MemberStateEU"
                       externalMetadataColumnId="Package\LoadGeography\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[IsMemberStateEU]"
                       lineageId="Package\LoadGeography\Union All 1.Outputs[Union All Output 1].Columns[Is MemberStateEU]" />
+                    <inputColumn
+                      refId="Package\LoadGeography\Insert Destination.Inputs[OLE DB Destination Input].Columns[Country Code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Country Code"
+                      externalMetadataColumnId="Package\LoadGeography\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[CountryCode]"
+                      lineageId="Package\LoadGeography\Union All 1.Outputs[Union All Output 1].Columns[Country Code]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -2234,9 +2234,7 @@ where [refTable].[CountryCode] = ?</property>
                       name="IsCurrent" />
                     <externalMetadataColumn
                       refId="Package\LoadGeography\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[CountryKey]"
-                      codePage="1252"
-                      dataType="str"
-                      length="2"
+                      dataType="i8"
                       name="CountryKey" />
                     <externalMetadataColumn
                       refId="Package\LoadGeography\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[CountryName]"
@@ -2260,6 +2258,12 @@ where [refTable].[CountryCode] = ?</property>
                       refId="Package\LoadGeography\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ValidToDate]"
                       dataType="dbDate"
                       name="ValidToDate" />
+                    <externalMetadataColumn
+                      refId="Package\LoadGeography\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[CountryCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="CountryCode" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -2306,7 +2310,7 @@ where [refTable].[CountryCode] = ?</property>
                   description="The SQL command to be executed."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[Dim_Geography] SET [IsCurrent] = ? WHERE [CountryKey] = ? AND [IsCurrent] = 'Current'</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[Dim_Geography] SET [IsCurrent] = ? WHERE [CountryCode] = ? AND [IsCurrent] = 'Current'</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -2428,6 +2432,13 @@ where [refTable].[CountryCode] = ?</property>
                       cachedLength="50"
                       cachedName="Region"
                       lineageId="Package\LoadGeography\Geography data.Outputs[OLE DB Source Output].Columns[Region]" />
+                    <inputColumn
+                      refId="Package\LoadGeography\Remove aggregated group of countries.Inputs[Conditional Split Input].Columns[Country Code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="Country Code"
+                      lineageId="Package\LoadGeography\Geography data.Outputs[OLE DB Source Output].Columns[Country Code]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -2447,13 +2458,13 @@ where [refTable].[CountryCode] = ?</property>
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">![ISNULL](#{Package\LoadGeography\Geography data.Outputs[OLE DB Source Output].Columns[Region]})</property>
+                      name="Expression">![ISNULL](#{Package\LoadGeography\Geography data.Outputs[OLE DB Source Output].Columns[Region]}) &amp;&amp; ![ISNULL](#{Package\LoadGeography\Geography data.Outputs[OLE DB Source Output].Columns[Country Code]})</property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the friendly version of the expression. This expression version uses column names."
                       expressionType="Notify"
-                      name="FriendlyExpression">!ISNULL(Region)</property>
+                      name="FriendlyExpression">!ISNULL(Region) &amp;&amp; !ISNULL([Country Code])</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
@@ -2818,7 +2829,7 @@ where [refTable].[CountryCode] = ?</property>
                       refId="Package\LoadGeography\Union All.Inputs[Union All Input 3].Columns[Country Code]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="50"
+                      cachedLength="2"
                       cachedName="Country Code"
                       lineageId="Package\LoadGeography\Geography data.Outputs[OLE DB Source Output].Columns[Country Code]">
                       <properties>
@@ -2901,7 +2912,7 @@ where [refTable].[CountryCode] = ?</property>
                       refId="Package\LoadGeography\Union All.Inputs[Union All Input 1].Columns[Country Code]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="50"
+                      cachedLength="2"
                       cachedName="Country Code"
                       lineageId="Package\LoadGeography\Geography data.Outputs[OLE DB Source Output].Columns[Country Code]">
                       <properties>
@@ -5346,17 +5357,21 @@ where [refTable].[TripPurposeCode] = ?</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="209.6,42.4"
-          Id="Package\LoadGeography\Slowly Changing Dimension"
-          TopLeft="280.541666073725,492.216663993398" />
+          Size="258.4,41.6"
+          Id="Package\LoadGeography\Remove aggregated group of countries"
+          TopLeft="268.333318672247,90.9999993671974" />
         <NodeLayout
-          Size="120,41.6"
-          Id="Package\LoadGeography\Union All"
-          TopLeft="327.874999224933,419.883330449129" />
+          Size="152.8,41.6"
+          Id="Package\LoadGeography\Geography data"
+          TopLeft="318.166661561363,25.266666571233" />
         <NodeLayout
           Size="196,42.4"
           Id="Package\LoadGeography\Check if Country is in EU"
           TopLeft="294.499999014867,247.266662363608" />
+        <NodeLayout
+          Size="164,42.4"
+          Id="Package\LoadGeography\Derived Column 1"
+          TopLeft="292.999999772343,792.166666907734" />
         <NodeLayout
           Size="159.2,41.6"
           Id="Package\LoadGeography\Insert Destination"
@@ -5366,33 +5381,59 @@ where [refTable].[TripPurposeCode] = ?</property>
           Id="Package\LoadGeography\Change Country Codes"
           TopLeft="298.499986611307,173.349995183349" />
         <NodeLayout
-          Size="130.4,42.4"
-          Id="Package\LoadGeography\Union All 1"
-          TopLeft="312.166666302416,725.033333327306" />
-        <NodeLayout
           Size="166.4,42.4"
           Id="Package\LoadGeography\OLE DB Command"
           TopLeft="145.999999888241,651.833331957525" />
         <NodeLayout
-          Size="152.8,41.6"
-          Id="Package\LoadGeography\Geography data"
-          TopLeft="318.166661561363,25.266666571233" />
-        <NodeLayout
-          Size="210.4,42.4"
-          Id="Package\LoadGeography\Add EU Non-Member Status"
-          TopLeft="429.249980982394,331.516662888792" />
+          Size="120,41.6"
+          Id="Package\LoadGeography\Union All"
+          TopLeft="327.874999224933,419.883330449129" />
         <NodeLayout
           Size="154.4,42.4"
           Id="Package\LoadGeography\Derived Column"
           TopLeft="150.500000298023,580.366665073898" />
         <NodeLayout
-          Size="164,42.4"
-          Id="Package\LoadGeography\Derived Column 1"
-          TopLeft="292.999999772343,792.166666907734" />
+          Size="210.4,42.4"
+          Id="Package\LoadGeography\Add EU Non-Member Status"
+          TopLeft="429.249980982394,331.516662888792" />
+        <NodeLayout
+          Size="200,41.6"
+          Id="Package\LoadGeography\Set default ValidFromDate"
+          TopLeft="276.666651550267,864.199997161428" />
+        <NodeLayout
+          Size="130.4,42.4"
+          Id="Package\LoadGeography\Union All 1"
+          TopLeft="312.166666302416,725.033333327306" />
+        <NodeLayout
+          Size="209.6,42.4"
+          Id="Package\LoadGeography\Slowly Changing Dimension"
+          TopLeft="280.541666073725,492.216663993398" />
         <NodeLayout
           Size="188,42.4"
           Id="Package\LoadGeography\Add EU Member Status"
           TopLeft="153.291672106625,332.8166629327" />
+        <EdgeLayout
+          Id="Package\LoadGeography.Paths[Union All Output 11]"
+          TopLeft="386.608332649329,461.483330449129">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30.7333335442689"
+              Start="0,0"
+              End="0,23.2333335442689">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.2333335442689" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\LoadGeography.Paths[Union All Output 1]"
           TopLeft="376.183333037379,767.433333327306">
@@ -5413,6 +5454,98 @@ where [refTable].[TripPurposeCode] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LoadGeography.Paths[OLE DB Source Output]"
+          TopLeft="396.049990116805,66.866666571233">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,24.1333327959644"
+              Start="0,0"
+              End="0,16.6333327959644">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.6333327959644" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LoadGeography.Paths[OLE DB Command Output]"
+          TopLeft="229.199999888241,694.233331957525">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="127.766666414175,30.8000013697811"
+              Start="0,0"
+              End="127.766666414175,23.3000013697811">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.2560008119066" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.2560008119066"
+                    Point2="0,18.2560008119066"
+                    Point3="4,18.2560008119066" />
+                  <mssgle:LineSegment
+                    End="123.766666414175,18.2560008119066" />
+                  <mssgle:CubicBezierSegment
+                    Point1="123.766666414175,18.2560008119066"
+                    Point2="127.766666414175,18.2560008119066"
+                    Point3="127.766666414175,22.2560008119066" />
+                  <mssgle:LineSegment
+                    End="127.766666414175,23.3000013697811" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LoadGeography.Paths[New Output]"
+          TopLeft="418.941666073725,534.616663993398">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-21.1749997713088,190.416669333907"
+              Start="0,0"
+              End="-21.1749997713088,182.916669333907">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,90.6699551741662" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,90.6699551741662"
+                    Point2="0,94.6699551741662"
+                    Point3="-4,94.6699551741662" />
+                  <mssgle:LineSegment
+                    End="-17.1749997713088,94.6699551741662" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-17.1749997713088,94.6699551741662"
+                    Point2="-21.1749997713088,94.6699551741662"
+                    Point3="-21.1749997713088,98.6699551741662" />
+                  <mssgle:LineSegment
+                    End="-21.1749997713088,182.916669333907" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-37.6788866044044,99.6699551741662,54.1827734375,11.43359375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -5524,6 +5657,118 @@ where [refTable].[TripPurposeCode] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\LoadGeography.Paths[Derived Column Output5]"
+          TopLeft="376.71665888081,905.799997161428">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28.9000029083097"
+              Start="0,0"
+              End="0,21.4000029083097">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.4000029083097" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LoadGeography.Paths[Derived Column Output4]"
+          TopLeft="375.833325661305,834.566666907734">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29.6333302536941"
+              Start="0,0"
+              End="0,22.1333302536941">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.1333302536941" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LoadGeography.Paths[Derived Column Output3]"
+          TopLeft="534.449980982394,373.916662888792">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-127.908315090795,45.9666675603378"
+              Start="0,0"
+              End="-127.908315090795,38.4666675603378">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.2171057923053" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.2171057923053"
+                    Point2="0,27.2171057923053"
+                    Point3="-4,27.2171057923053" />
+                  <mssgle:LineSegment
+                    End="-123.908315090795,27.2171057923053" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-123.908315090795,27.2171057923053"
+                    Point2="-127.908315090795,27.2171057923053"
+                    Point3="-127.908315090795,31.2171057923053" />
+                  <mssgle:LineSegment
+                    End="-127.908315090795,38.4666675603378" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LoadGeography.Paths[Derived Column Output2]"
+          TopLeft="247.291672106625,375.2166629327">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="121.916660451641,44.666667516429"
+              Start="0,0"
+              End="121.916660451641,37.166667516429">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.4473689242014" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.4473689242014"
+                    Point2="0,26.4473689242014"
+                    Point3="4,26.4473689242014" />
+                  <mssgle:LineSegment
+                    End="117.916660451641,26.4473689242014" />
+                  <mssgle:CubicBezierSegment
+                    Point1="117.916660451641,26.4473689242014"
+                    Point2="121.916660451641,26.4473689242014"
+                    Point3="121.916660451641,30.4473689242014" />
+                  <mssgle:LineSegment
+                    End="121.916660451641,37.166667516429" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\LoadGeography.Paths[Derived Column Output1]"
           TopLeft="392.299992813087,214.949995183349">
           <EdgeLayout.Curve>
@@ -5568,240 +5813,6 @@ where [refTable].[TripPurposeCode] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\LoadGeography.Paths[Derived Column Output2]"
-          TopLeft="247.291672106625,375.2166629327">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="121.916660451641,44.666667516429"
-              Start="0,0"
-              End="121.916660451641,37.166667516429">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,22.4473689242014" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,22.4473689242014"
-                    Point2="0,26.4473689242014"
-                    Point3="4,26.4473689242014" />
-                  <mssgle:LineSegment
-                    End="117.916660451641,26.4473689242014" />
-                  <mssgle:CubicBezierSegment
-                    Point1="117.916660451641,26.4473689242014"
-                    Point2="121.916660451641,26.4473689242014"
-                    Point3="121.916660451641,30.4473689242014" />
-                  <mssgle:LineSegment
-                    End="121.916660451641,37.166667516429" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\LoadGeography.Paths[Derived Column Output3]"
-          TopLeft="534.449980982394,373.916662888792">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-127.908315090795,45.9666675603378"
-              Start="0,0"
-              End="-127.908315090795,38.4666675603378">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,23.2171057923053" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,23.2171057923053"
-                    Point2="0,27.2171057923053"
-                    Point3="-4,27.2171057923053" />
-                  <mssgle:LineSegment
-                    End="-123.908315090795,27.2171057923053" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-123.908315090795,27.2171057923053"
-                    Point2="-127.908315090795,27.2171057923053"
-                    Point3="-127.908315090795,31.2171057923053" />
-                  <mssgle:LineSegment
-                    End="-127.908315090795,38.4666675603378" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\LoadGeography.Paths[Union All Output 11]"
-          TopLeft="386.608332649329,461.483330449129">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,30.7333335442689"
-              Start="0,0"
-              End="0,23.2333335442689">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,23.2333335442689" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\LoadGeography.Paths[New Output]"
-          TopLeft="418.941666073725,534.616663993398">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-21.1749997713088,190.416669333907"
-              Start="0,0"
-              End="-21.1749997713088,182.916669333907">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,90.6699551741662" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,90.6699551741662"
-                    Point2="0,94.6699551741662"
-                    Point3="-4,94.6699551741662" />
-                  <mssgle:LineSegment
-                    End="-17.1749997713088,94.6699551741662" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-17.1749997713088,94.6699551741662"
-                    Point2="-21.1749997713088,94.6699551741662"
-                    Point3="-21.1749997713088,98.6699551741662" />
-                  <mssgle:LineSegment
-                    End="-21.1749997713088,182.916669333907" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-37.6788866044044,99.6699551741662,54.1827734375,11.43359375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\LoadGeography.Paths[OLE DB Command Output]"
-          TopLeft="229.199999888241,694.233331957525">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="127.766666414175,30.8000013697811"
-              Start="0,0"
-              End="127.766666414175,23.3000013697811">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,14.2560008119066" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,14.2560008119066"
-                    Point2="0,18.2560008119066"
-                    Point3="4,18.2560008119066" />
-                  <mssgle:LineSegment
-                    End="123.766666414175,18.2560008119066" />
-                  <mssgle:CubicBezierSegment
-                    Point1="123.766666414175,18.2560008119066"
-                    Point2="127.766666414175,18.2560008119066"
-                    Point3="127.766666414175,22.2560008119066" />
-                  <mssgle:LineSegment
-                    End="127.766666414175,23.3000013697811" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="200,41.6"
-          Id="Package\LoadGeography\Set default ValidFromDate"
-          TopLeft="276.666651550267,864.199997161428" />
-        <EdgeLayout
-          Id="Package\LoadGeography.Paths[Derived Column Output4]"
-          TopLeft="375.833325661305,834.566666907734">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,29.6333302536941"
-              Start="0,0"
-              End="0,22.1333302536941">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,22.1333302536941" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\LoadGeography.Paths[Derived Column Output5]"
-          TopLeft="376.71665888081,905.799997161428">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,28.9000029083097"
-              Start="0,0"
-              End="0,21.4000029083097">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.4000029083097" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="258.4,41.6"
-          Id="Package\LoadGeography\Remove aggregated group of countries"
-          TopLeft="268.333318672247,90.9999993671974" />
-        <EdgeLayout
-          Id="Package\LoadGeography.Paths[OLE DB Source Output]"
-          TopLeft="396.049990116805,66.866666571233">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,24.1333327959644"
-              Start="0,0"
-              End="0,16.6333327959644">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16.6333327959644" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\LoadGeography.Paths[Countries data]"
           TopLeft="394.816652641777,132.599999367197">
           <EdgeLayout.Curve>
@@ -5829,6 +5840,19 @@ where [refTable].[TripPurposeCode] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
+    design-time-name="Package\LoadGeography\Geography data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\LoadGeography\Check if Country is in EU">
     <Properties>
       <Property>
@@ -5844,10 +5868,23 @@ where [refTable].[TripPurposeCode] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\LoadGeography\Insert Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -5912,32 +5949,6 @@ where [refTable].[TripPurposeCode] = ?</property>
   &lt;DateVariable /&gt;
   &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
 &lt;/SCDWizardMetadata&gt;</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\LoadGeography\Insert Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\LoadGeography\Geography data">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
