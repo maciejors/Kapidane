@@ -11,8 +11,8 @@
   DTS:LocaleID="6153"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="82"
-  DTS:VersionGUID="{02F6238A-F1A5-40DA-8F23-E7880270FDBC}">
+  DTS:VersionBuild="92"
+  DTS:VersionGUID="{F0F62048-2E50-40A8-87E1-64F436B662AA}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1557,13 +1557,13 @@ where [refTable].[ExpenditureCode] = ?</property>
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">(DT_STR,50,1252)(#{Package\LoadGeography\Geography data.Outputs[OLE DB Source Output].Columns[Country Code]} == "GB" ? "UK" : #{Package\LoadGeography\Geography data.Outputs[OLE DB Source Output].Columns[Country Code]} == "GR" ? "EL" : #{Package\LoadGeography\Geography data.Outputs[OLE DB Source Output].Columns[Country Code]})</property>
+                          name="Expression">(DT_STR,2,1252)(#{Package\LoadGeography\Geography data.Outputs[OLE DB Source Output].Columns[Country Code]} == "GB" ? "UK" : #{Package\LoadGeography\Geography data.Outputs[OLE DB Source Output].Columns[Country Code]} == "GR" ? "EL" : #{Package\LoadGeography\Geography data.Outputs[OLE DB Source Output].Columns[Country Code]})</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">(DT_STR,50,1252)([Country Code] == "GB" ? "UK" : [Country Code] == "GR" ? "EL" : [Country Code])</property>
+                          name="FriendlyExpression">(DT_STR,2,1252)([Country Code] == "GB" ? "UK" : [Country Code] == "GR" ? "EL" : [Country Code])</property>
                       </properties>
                     </inputColumn>
                   </inputColumns>
@@ -1748,81 +1748,6 @@ where [refTable].[CountryCode] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\LoadGeography\Derived Column"
-              componentClassID="Microsoft.DerivedColumn"
-              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
-              name="Derived Column"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\LoadGeography\Derived Column.Inputs[Derived Column Input]"
-                  description="Input to the Derived Column Transformation"
-                  name="Derived Column Input">
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\LoadGeography\Derived Column.Outputs[Derived Column Output]"
-                  description="Default Output of the Derived Column Transformation"
-                  exclusionGroup="1"
-                  name="Derived Column Output"
-                  synchronousInputId="Package\LoadGeography\Derived Column.Inputs[Derived Column Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\LoadGeography\Derived Column.Outputs[Derived Column Output].Columns[IsCurrent]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      length="3"
-                      lineageId="Package\LoadGeography\Derived Column.Outputs[Derived Column Output].Columns[IsCurrent]"
-                      name="IsCurrent"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">(DT_STR,3,1252)("No")</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">(DT_STR,3,1252)("No")</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\LoadGeography\Derived Column.Outputs[Derived Column Error Output]"
-                  description="Error Output of the Derived Column Transformation"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Derived Column Error Output"
-                  synchronousInputId="Package\LoadGeography\Derived Column.Inputs[Derived Column Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\LoadGeography\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\LoadGeography\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\LoadGeography\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\LoadGeography\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
               refId="Package\LoadGeography\Derived Column 1"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
@@ -1890,6 +1815,89 @@ where [refTable].[CountryCode] = ?</property>
                       refId="Package\LoadGeography\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\LoadGeography\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LoadGeography\Fix Venezuela"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Fix Venezuela"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\LoadGeography\Fix Venezuela.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoadGeography\Fix Venezuela.Inputs[Derived Column Input].Columns[Country Code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="Country Code"
+                      lineageId="Package\LoadGeography\Geography data.Outputs[OLE DB Source Output].Columns[Country Code]" />
+                    <inputColumn
+                      refId="Package\LoadGeography\Fix Venezuela.Inputs[Derived Column Input].Columns[Income Group]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Income Group"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\LoadGeography\Geography data.Outputs[OLE DB Source Output].Columns[Income Group]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,50,1252)((#{Package\LoadGeography\Geography data.Outputs[OLE DB Source Output].Columns[Country Code]} == "VE" &amp;&amp; [ISNULL](#{Package\LoadGeography\Geography data.Outputs[OLE DB Source Output].Columns[Income Group]})) ? "Upper middle income" : #{Package\LoadGeography\Geography data.Outputs[OLE DB Source Output].Columns[Income Group]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,50,1252)(([Country Code] == "VE" &amp;&amp; ISNULL([Income Group])) ? "Upper middle income" : [Income Group])</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LoadGeography\Fix Venezuela.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\LoadGeography\Fix Venezuela.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoadGeography\Fix Venezuela.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\LoadGeography\Fix Venezuela.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoadGeography\Fix Venezuela.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LoadGeography\Fix Venezuela.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LoadGeography\Fix Venezuela.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LoadGeography\Fix Venezuela.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -2166,7 +2174,7 @@ where [refTable].[CountryCode] = ?</property>
                       cachedLength="50"
                       cachedName="Region"
                       externalMetadataColumnId="Package\LoadGeography\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Region]"
-                      lineageId="Package\LoadGeography\Union All 1.Outputs[Union All Output 1].Columns[Region]" />
+                      lineageId="Package\LoadGeography\Union All.Outputs[Union All Output 1].Columns[Region]" />
                     <inputColumn
                       refId="Package\LoadGeography\Insert Destination.Inputs[OLE DB Destination Input].Columns[IsCurrent]"
                       cachedCodepage="1252"
@@ -2188,7 +2196,7 @@ where [refTable].[CountryCode] = ?</property>
                       cachedLength="100"
                       cachedName="Country Name"
                       externalMetadataColumnId="Package\LoadGeography\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[CountryName]"
-                      lineageId="Package\LoadGeography\Union All 1.Outputs[Union All Output 1].Columns[Country Name]" />
+                      lineageId="Package\LoadGeography\Union All.Outputs[Union All Output 1].Columns[Country Name]" />
                     <inputColumn
                       refId="Package\LoadGeography\Insert Destination.Inputs[OLE DB Destination Input].Columns[Income Group]"
                       cachedCodepage="1252"
@@ -2196,15 +2204,7 @@ where [refTable].[CountryCode] = ?</property>
                       cachedLength="50"
                       cachedName="Income Group"
                       externalMetadataColumnId="Package\LoadGeography\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[IncomeGroup]"
-                      lineageId="Package\LoadGeography\Union All 1.Outputs[Union All Output 1].Columns[Income Group]" />
-                    <inputColumn
-                      refId="Package\LoadGeography\Insert Destination.Inputs[OLE DB Destination Input].Columns[Is MemberStateEU]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="3"
-                      cachedName="Is MemberStateEU"
-                      externalMetadataColumnId="Package\LoadGeography\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[IsMemberStateEU]"
-                      lineageId="Package\LoadGeography\Union All 1.Outputs[Union All Output 1].Columns[Is MemberStateEU]" />
+                      lineageId="Package\LoadGeography\Union All.Outputs[Union All Output 1].Columns[Income Group]" />
                     <inputColumn
                       refId="Package\LoadGeography\Insert Destination.Inputs[OLE DB Destination Input].Columns[Country Code]"
                       cachedCodepage="1252"
@@ -2212,7 +2212,15 @@ where [refTable].[CountryCode] = ?</property>
                       cachedLength="50"
                       cachedName="Country Code"
                       externalMetadataColumnId="Package\LoadGeography\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[CountryCode]"
-                      lineageId="Package\LoadGeography\Union All 1.Outputs[Union All Output 1].Columns[Country Code]" />
+                      lineageId="Package\LoadGeography\Union All.Outputs[Union All Output 1].Columns[Country Code]" />
+                    <inputColumn
+                      refId="Package\LoadGeography\Insert Destination.Inputs[OLE DB Destination Input].Columns[IsMemberStateEU]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="IsMemberStateEU"
+                      externalMetadataColumnId="Package\LoadGeography\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[IsMemberStateEU]"
+                      lineageId="Package\LoadGeography\Union All.Outputs[Union All Output 1].Columns[IsMemberStateEU]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -2285,126 +2293,6 @@ where [refTable].[CountryCode] = ?</property>
                       refId="Package\LoadGeography\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\LoadGeography\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\LoadGeography\OLE DB Command"
-              componentClassID="Microsoft.OLEDBCommand"
-              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
-              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
-              name="OLE DB Command"
-              usesDispositions="true"
-              version="2">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  expressionType="Notify"
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[Dim_Geography] SET [IsCurrent] = ? WHERE [CountryCode] = ? AND [IsCurrent] = 'Current'</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\LoadGeography\OLE DB Command.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[localhost.kapidane_dwh]"
-                  connectionManagerRefId="Package.ConnectionManagers[localhost.kapidane_dwh]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\LoadGeography\OLE DB Command.Inputs[OLE DB Command Input]"
-                  errorOrTruncationOperation="Command Execution"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Command Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\LoadGeography\OLE DB Command.Inputs[OLE DB Command Input].Columns[Country Code]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Country Code"
-                      externalMetadataColumnId="Package\LoadGeography\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      lineageId="Package\LoadGeography\Union All.Outputs[Union All Output 1].Columns[Country Code]" />
-                    <inputColumn
-                      refId="Package\LoadGeography\OLE DB Command.Inputs[OLE DB Command Input].Columns[IsCurrent]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="3"
-                      cachedName="IsCurrent"
-                      externalMetadataColumnId="Package\LoadGeography\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      lineageId="Package\LoadGeography\Derived Column.Outputs[Derived Column Output].Columns[IsCurrent]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\LoadGeography\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Param_0">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">65</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\LoadGeography\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      codePage="1252"
-                      dataType="str"
-                      length="2"
-                      name="Param_1">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">65</property>
-                      </properties>
-                    </externalMetadataColumn>
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\LoadGeography\OLE DB Command.Outputs[OLE DB Command Output]"
-                  exclusionGroup="1"
-                  name="OLE DB Command Output"
-                  synchronousInputId="Package\LoadGeography\OLE DB Command.Inputs[OLE DB Command Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\LoadGeography\OLE DB Command.Outputs[OLE DB Command Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Command Error Output"
-                  synchronousInputId="Package\LoadGeography\OLE DB Command.Inputs[OLE DB Command Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\LoadGeography\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\LoadGeography\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\LoadGeography\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\LoadGeography\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -2579,235 +2467,6 @@ where [refTable].[CountryCode] = ?</property>
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\LoadGeography\Slowly Changing Dimension"
-              componentClassID="Microsoft.SCD"
-              contactInfo="Slowly Changing Dimension;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
-              description="Updates a SQL Server Analysis Services data warehouse dimension. Update dimension records that are already present and  insert dimension records that aren't. For example, update the DimProduct table of the AdventureWorksDW OLAP database with data from the Products table in the AdventureWorks OLTP database."
-              name="Slowly Changing Dimension"
-              version="3">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Specifies the SELECT statement used to create a schema rowset."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [CountryKey], [CountryName], [IncomeGroup], [IsMemberStateEU], [Region],[IsCurrent] FROM [dbo].[Dim_Geography]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
-                  name="CurrentRowWhere">[IsCurrent] = 'Current'</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether historical attribute updates are directed to the transformation output for changing attribute updates."
-                  name="UpdateChangingAttributeHistory">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the transformation fails when columns with fixed attributes contain changes."
-                  name="FailOnFixedAttributeChange">false</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the column name for the inferred member."
-                  name="InferredMemberIndicator"></property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether inferred member updates are detected."
-                  name="EnableInferredMember">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the transformation fails when a lookup of an existing record fails."
-                  name="FailOnLookupFailure">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies that all rows in the input are new or the transformation detects the change type."
-                  name="IncomingRowChangeType"
-                  typeConverter="IncomingRowChangeType">1</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\LoadGeography\Slowly Changing Dimension.Connections[LookupConnection]"
-                  connectionManagerID="Package.ConnectionManagers[localhost.kapidane_dwh]"
-                  connectionManagerRefId="Package.ConnectionManagers[localhost.kapidane_dwh]"
-                  description="Defines the connection to use for lookups in the dimension table"
-                  name="LookupConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\LoadGeography\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
-                  name="Slowly Changing Dimension Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\LoadGeography\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Country Code]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Country Code"
-                      externalMetadataColumnId="Package\LoadGeography\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[CountryKey]"
-                      lineageId="Package\LoadGeography\Union All.Outputs[Union All Output 1].Columns[Country Code]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          name="ColumnType"
-                          typeConverter="ColumnType">1</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\LoadGeography\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Country Name]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="100"
-                      cachedName="Country Name"
-                      externalMetadataColumnId="Package\LoadGeography\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[CountryName]"
-                      lineageId="Package\LoadGeography\Union All.Outputs[Union All Output 1].Columns[Country Name]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          name="ColumnType"
-                          typeConverter="ColumnType">3</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\LoadGeography\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Income Group]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Income Group"
-                      externalMetadataColumnId="Package\LoadGeography\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[IncomeGroup]"
-                      lineageId="Package\LoadGeography\Union All.Outputs[Union All Output 1].Columns[Income Group]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          name="ColumnType"
-                          typeConverter="ColumnType">3</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\LoadGeography\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Is MemberStateEU]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="3"
-                      cachedName="IsMemberStateEU"
-                      externalMetadataColumnId="Package\LoadGeography\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[IsMemberStateEU]"
-                      lineageId="Package\LoadGeography\Union All.Outputs[Union All Output 1].Columns[IsMemberStateEU]"
-                      name="Is MemberStateEU">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          name="ColumnType"
-                          typeConverter="ColumnType">3</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\LoadGeography\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Region]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Region"
-                      externalMetadataColumnId="Package\LoadGeography\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Region]"
-                      lineageId="Package\LoadGeography\Union All.Outputs[Union All Output 1].Columns[Region]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          name="ColumnType"
-                          typeConverter="ColumnType">3</property>
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\LoadGeography\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[CountryKey]"
-                      codePage="1252"
-                      dataType="str"
-                      length="10"
-                      name="CountryKey" />
-                    <externalMetadataColumn
-                      refId="Package\LoadGeography\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[CountryName]"
-                      codePage="1252"
-                      dataType="str"
-                      length="100"
-                      name="CountryName" />
-                    <externalMetadataColumn
-                      refId="Package\LoadGeography\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[IncomeGroup]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="IncomeGroup" />
-                    <externalMetadataColumn
-                      refId="Package\LoadGeography\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[IsMemberStateEU]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="IsMemberStateEU" />
-                    <externalMetadataColumn
-                      refId="Package\LoadGeography\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Region]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Region" />
-                    <externalMetadataColumn
-                      refId="Package\LoadGeography\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[IsCurrent]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="IsCurrent" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\LoadGeography\Slowly Changing Dimension.Outputs[Unchanged Output]"
-                  description="Unchanged rows"
-                  exclusionGroup="1"
-                  name="Unchanged Output"
-                  synchronousInputId="Package\LoadGeography\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\LoadGeography\Slowly Changing Dimension.Outputs[New Output]"
-                  description="New rows"
-                  exclusionGroup="1"
-                  name="New Output"
-                  synchronousInputId="Package\LoadGeography\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\LoadGeography\Slowly Changing Dimension.Outputs[Fixed Attribute Output]"
-                  description="Rows with changes in columns tagged FixedAttribute"
-                  exclusionGroup="1"
-                  name="Fixed Attribute Output"
-                  synchronousInputId="Package\LoadGeography\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\LoadGeography\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]"
-                  description="These rows contain new information for ChangingAttribute (Type 1) column changes"
-                  exclusionGroup="1"
-                  name="Changing Attribute Updates Output"
-                  synchronousInputId="Package\LoadGeography\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\LoadGeography\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]"
-                  description="HistoricalAttribute (Type 2) changes result in these new rows"
-                  exclusionGroup="2"
-                  name="Historical Attribute Inserts Output"
-                  synchronousInputId="Package\LoadGeography\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\LoadGeography\Slowly Changing Dimension.Outputs[Inferred Member Updates Output]"
-                  description="Information to update unpopulated initial dimension row"
-                  exclusionGroup="1"
-                  name="Inferred Member Updates Output"
-                  synchronousInputId="Package\LoadGeography\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
                   <externalMetadataColumns />
                 </output>
               </outputs>
@@ -3039,233 +2698,6 @@ where [refTable].[CountryCode] = ?</property>
                 </output>
               </outputs>
             </component>
-            <component
-              refId="Package\LoadGeography\Union All 1"
-              componentClassID="Microsoft.UnionAll"
-              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
-              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
-              name="Union All 1"
-              version="1">
-              <inputs>
-                <input
-                  refId="Package\LoadGeography\Union All 1.Inputs[Union All Input 3]"
-                  hasSideEffects="true"
-                  name="Union All Input 3">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\LoadGeography\Union All 1.Inputs[Union All Input 3].Columns[Country Code]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Country Code"
-                      lineageId="Package\LoadGeography\Union All.Outputs[Union All Output 1].Columns[Country Code]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\LoadGeography\Union All 1.Outputs[Union All Output 1].Columns[Country Code]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\LoadGeography\Union All 1.Inputs[Union All Input 3].Columns[Income Group]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Income Group"
-                      lineageId="Package\LoadGeography\Union All.Outputs[Union All Output 1].Columns[Income Group]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\LoadGeography\Union All 1.Outputs[Union All Output 1].Columns[Income Group]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\LoadGeography\Union All 1.Inputs[Union All Input 3].Columns[Region]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Region"
-                      lineageId="Package\LoadGeography\Union All.Outputs[Union All Output 1].Columns[Region]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\LoadGeography\Union All 1.Outputs[Union All Output 1].Columns[Region]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\LoadGeography\Union All 1.Inputs[Union All Input 3].Columns[IsMemberStateEU]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="3"
-                      cachedName="IsMemberStateEU"
-                      lineageId="Package\LoadGeography\Union All.Outputs[Union All Output 1].Columns[IsMemberStateEU]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\LoadGeography\Union All 1.Outputs[Union All Output 1].Columns[Is MemberStateEU]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\LoadGeography\Union All 1.Inputs[Union All Input 3].Columns[Country Name]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="100"
-                      cachedName="Country Name"
-                      lineageId="Package\LoadGeography\Union All.Outputs[Union All Output 1].Columns[Country Name]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\LoadGeography\Union All 1.Outputs[Union All Output 1].Columns[Country Name]}</property>
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-                <input
-                  refId="Package\LoadGeography\Union All 1.Inputs[Union All Input 1]"
-                  hasSideEffects="true"
-                  name="Union All Input 1">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\LoadGeography\Union All 1.Inputs[Union All Input 1].Columns[Country Code]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Country Code"
-                      lineageId="Package\LoadGeography\Union All.Outputs[Union All Output 1].Columns[Country Code]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\LoadGeography\Union All 1.Outputs[Union All Output 1].Columns[Country Code]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\LoadGeography\Union All 1.Inputs[Union All Input 1].Columns[Income Group]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Income Group"
-                      lineageId="Package\LoadGeography\Union All.Outputs[Union All Output 1].Columns[Income Group]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\LoadGeography\Union All 1.Outputs[Union All Output 1].Columns[Income Group]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\LoadGeography\Union All 1.Inputs[Union All Input 1].Columns[Region]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Region"
-                      lineageId="Package\LoadGeography\Union All.Outputs[Union All Output 1].Columns[Region]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\LoadGeography\Union All 1.Outputs[Union All Output 1].Columns[Region]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\LoadGeography\Union All 1.Inputs[Union All Input 1].Columns[IsMemberStateEU]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="3"
-                      cachedName="IsMemberStateEU"
-                      lineageId="Package\LoadGeography\Union All.Outputs[Union All Output 1].Columns[IsMemberStateEU]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\LoadGeography\Union All 1.Outputs[Union All Output 1].Columns[Is MemberStateEU]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\LoadGeography\Union All 1.Inputs[Union All Input 1].Columns[Country Name]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="100"
-                      cachedName="Country Name"
-                      lineageId="Package\LoadGeography\Union All.Outputs[Union All Output 1].Columns[Country Name]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\LoadGeography\Union All 1.Outputs[Union All Output 1].Columns[Country Name]}</property>
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-                <input
-                  refId="Package\LoadGeography\Union All 1.Inputs[Union All Input 2]"
-                  dangling="true"
-                  hasSideEffects="true"
-                  name="Union All Input 2">
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\LoadGeography\Union All 1.Outputs[Union All Output 1]"
-                  name="Union All Output 1">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\LoadGeography\Union All 1.Outputs[Union All Output 1].Columns[Country Code]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      lineageId="Package\LoadGeography\Union All 1.Outputs[Union All Output 1].Columns[Country Code]"
-                      name="Country Code" />
-                    <outputColumn
-                      refId="Package\LoadGeography\Union All 1.Outputs[Union All Output 1].Columns[Country Name]"
-                      codePage="1252"
-                      dataType="str"
-                      length="100"
-                      lineageId="Package\LoadGeography\Union All 1.Outputs[Union All Output 1].Columns[Country Name]"
-                      name="Country Name" />
-                    <outputColumn
-                      refId="Package\LoadGeography\Union All 1.Outputs[Union All Output 1].Columns[Income Group]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      lineageId="Package\LoadGeography\Union All 1.Outputs[Union All Output 1].Columns[Income Group]"
-                      name="Income Group" />
-                    <outputColumn
-                      refId="Package\LoadGeography\Union All 1.Outputs[Union All Output 1].Columns[Region]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      lineageId="Package\LoadGeography\Union All 1.Outputs[Union All Output 1].Columns[Region]"
-                      name="Region" />
-                    <outputColumn
-                      refId="Package\LoadGeography\Union All 1.Outputs[Union All Output 1].Columns[Is MemberStateEU]"
-                      codePage="1252"
-                      dataType="str"
-                      length="3"
-                      lineageId="Package\LoadGeography\Union All 1.Outputs[Union All Output 1].Columns[Is MemberStateEU]"
-                      name="Is MemberStateEU" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
           </components>
           <paths>
             <path
@@ -3275,39 +2707,34 @@ where [refTable].[CountryCode] = ?</property>
               startId="Package\LoadGeography\Remove aggregated group of countries.Outputs[Countries data]" />
             <path
               refId="Package\LoadGeography.Paths[Derived Column Output]"
-              endId="Package\LoadGeography\OLE DB Command.Inputs[OLE DB Command Input]"
-              name="Derived Column Output"
-              startId="Package\LoadGeography\Derived Column.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\LoadGeography.Paths[Derived Column Output1]"
-              endId="Package\LoadGeography\Check if Country is in EU.Inputs[Lookup Input]"
-              name="Derived Column Output"
-              startId="Package\LoadGeography\Change Country Codes.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\LoadGeography.Paths[Derived Column Output2]"
               endId="Package\LoadGeography\Union All.Inputs[Union All Input 3]"
               name="Derived Column Output"
               startId="Package\LoadGeography\Add EU Member Status.Outputs[Derived Column Output]" />
             <path
-              refId="Package\LoadGeography.Paths[Derived Column Output3]"
+              refId="Package\LoadGeography.Paths[Derived Column Output1]"
               endId="Package\LoadGeography\Union All.Inputs[Union All Input 1]"
               name="Derived Column Output"
               startId="Package\LoadGeography\Add EU Non-Member Status.Outputs[Derived Column Output]" />
             <path
-              refId="Package\LoadGeography.Paths[Derived Column Output4]"
-              endId="Package\LoadGeography\Set default ValidFromDate.Inputs[Derived Column Input]"
-              name="Derived Column Output"
-              startId="Package\LoadGeography\Derived Column 1.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\LoadGeography.Paths[Derived Column Output5]"
+              refId="Package\LoadGeography.Paths[Derived Column Output2]"
               endId="Package\LoadGeography\Insert Destination.Inputs[OLE DB Destination Input]"
               name="Derived Column Output"
               startId="Package\LoadGeography\Set default ValidFromDate.Outputs[Derived Column Output]" />
             <path
-              refId="Package\LoadGeography.Paths[Historical Attribute Inserts Output]"
-              endId="Package\LoadGeography\Derived Column.Inputs[Derived Column Input]"
-              name="Historical Attribute Inserts Output"
-              startId="Package\LoadGeography\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]" />
+              refId="Package\LoadGeography.Paths[Derived Column Output3]"
+              endId="Package\LoadGeography\Fix Venezuela.Inputs[Derived Column Input]"
+              name="Derived Column Output"
+              startId="Package\LoadGeography\Change Country Codes.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\LoadGeography.Paths[Derived Column Output4]"
+              endId="Package\LoadGeography\Check if Country is in EU.Inputs[Lookup Input]"
+              name="Derived Column Output"
+              startId="Package\LoadGeography\Fix Venezuela.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\LoadGeography.Paths[Derived Column Output5]"
+              endId="Package\LoadGeography\Set default ValidFromDate.Inputs[Derived Column Input]"
+              name="Derived Column Output"
+              startId="Package\LoadGeography\Derived Column 1.Outputs[Derived Column Output]" />
             <path
               refId="Package\LoadGeography.Paths[Lookup Match Output]"
               endId="Package\LoadGeography\Add EU Member Status.Inputs[Derived Column Input]"
@@ -3319,16 +2746,6 @@ where [refTable].[CountryCode] = ?</property>
               name="Lookup No Match Output"
               startId="Package\LoadGeography\Check if Country is in EU.Outputs[Lookup No Match Output]" />
             <path
-              refId="Package\LoadGeography.Paths[New Output]"
-              endId="Package\LoadGeography\Union All 1.Inputs[Union All Input 3]"
-              name="New Output"
-              startId="Package\LoadGeography\Slowly Changing Dimension.Outputs[New Output]" />
-            <path
-              refId="Package\LoadGeography.Paths[OLE DB Command Output]"
-              endId="Package\LoadGeography\Union All 1.Inputs[Union All Input 1]"
-              name="OLE DB Command Output"
-              startId="Package\LoadGeography\OLE DB Command.Outputs[OLE DB Command Output]" />
-            <path
               refId="Package\LoadGeography.Paths[OLE DB Source Output]"
               endId="Package\LoadGeography\Remove aggregated group of countries.Inputs[Conditional Split Input]"
               name="OLE DB Source Output"
@@ -3336,11 +2753,6 @@ where [refTable].[CountryCode] = ?</property>
             <path
               refId="Package\LoadGeography.Paths[Union All Output 1]"
               endId="Package\LoadGeography\Derived Column 1.Inputs[Derived Column Input]"
-              name="Union All Output 1"
-              startId="Package\LoadGeography\Union All 1.Outputs[Union All Output 1]" />
-            <path
-              refId="Package\LoadGeography.Paths[Union All Output 11]"
-              endId="Package\LoadGeography\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
               name="Union All Output 1"
               startId="Package\LoadGeography\Union All.Outputs[Union All Output 1]" />
           </paths>
@@ -5357,21 +4769,29 @@ where [refTable].[TripPurposeCode] = ?</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="258.4,41.6"
-          Id="Package\LoadGeography\Remove aggregated group of countries"
-          TopLeft="268.333318672247,90.9999993671974" />
+          Size="200,41.6"
+          Id="Package\LoadGeography\Set default ValidFromDate"
+          TopLeft="276.666651550267,864.199997161428" />
+        <NodeLayout
+          Size="193.6,41.6"
+          Id="Package\LoadGeography\Check if Country is in EU"
+          TopLeft="293.666665727065,332.199995106326" />
+        <NodeLayout
+          Size="210.4,42.4"
+          Id="Package\LoadGeography\Add EU Non-Member Status"
+          TopLeft="428.416647694592,416.44999563151" />
         <NodeLayout
           Size="152.8,41.6"
           Id="Package\LoadGeography\Geography data"
           TopLeft="318.166661561363,25.266666571233" />
         <NodeLayout
-          Size="196,42.4"
-          Id="Package\LoadGeography\Check if Country is in EU"
-          TopLeft="294.499999014867,247.266662363608" />
+          Size="120,41.6"
+          Id="Package\LoadGeography\Union All"
+          TopLeft="327.041665937131,504.816663191847" />
         <NodeLayout
-          Size="164,42.4"
-          Id="Package\LoadGeography\Derived Column 1"
-          TopLeft="292.999999772343,792.166666907734" />
+          Size="258.4,41.6"
+          Id="Package\LoadGeography\Remove aggregated group of countries"
+          TopLeft="268.333318672247,90.9999993671974" />
         <NodeLayout
           Size="159.2,41.6"
           Id="Package\LoadGeography\Insert Destination"
@@ -5381,81 +4801,9 @@ where [refTable].[TripPurposeCode] = ?</property>
           Id="Package\LoadGeography\Change Country Codes"
           TopLeft="298.499986611307,173.349995183349" />
         <NodeLayout
-          Size="166.4,42.4"
-          Id="Package\LoadGeography\OLE DB Command"
-          TopLeft="145.999999888241,651.833331957525" />
-        <NodeLayout
-          Size="120,41.6"
-          Id="Package\LoadGeography\Union All"
-          TopLeft="327.874999224933,419.883330449129" />
-        <NodeLayout
-          Size="154.4,42.4"
-          Id="Package\LoadGeography\Derived Column"
-          TopLeft="150.500000298023,580.366665073898" />
-        <NodeLayout
-          Size="210.4,42.4"
-          Id="Package\LoadGeography\Add EU Non-Member Status"
-          TopLeft="429.249980982394,331.516662888792" />
-        <NodeLayout
-          Size="200,41.6"
-          Id="Package\LoadGeography\Set default ValidFromDate"
-          TopLeft="276.666651550267,864.199997161428" />
-        <NodeLayout
-          Size="130.4,42.4"
-          Id="Package\LoadGeography\Union All 1"
-          TopLeft="312.166666302416,725.033333327306" />
-        <NodeLayout
-          Size="209.6,42.4"
-          Id="Package\LoadGeography\Slowly Changing Dimension"
-          TopLeft="280.541666073725,492.216663993398" />
-        <NodeLayout
           Size="188,42.4"
           Id="Package\LoadGeography\Add EU Member Status"
-          TopLeft="153.291672106625,332.8166629327" />
-        <EdgeLayout
-          Id="Package\LoadGeography.Paths[Union All Output 11]"
-          TopLeft="386.608332649329,461.483330449129">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,30.7333335442689"
-              Start="0,0"
-              End="0,23.2333335442689">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,23.2333335442689" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\LoadGeography.Paths[Union All Output 1]"
-          TopLeft="376.183333037379,767.433333327306">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,24.7333335804282"
-              Start="0,0"
-              End="0,17.2333335804282">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,17.2333335804282" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          TopLeft="152.458338818823,417.749995675418" />
         <EdgeLayout
           Id="Package\LoadGeography.Paths[OLE DB Source Output]"
           TopLeft="396.049990116805,66.866666571233">
@@ -5479,185 +4827,79 @@ where [refTable].[TripPurposeCode] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\LoadGeography.Paths[OLE DB Command Output]"
-          TopLeft="229.199999888241,694.233331957525">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="127.766666414175,30.8000013697811"
-              Start="0,0"
-              End="127.766666414175,23.3000013697811">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,14.2560008119066" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,14.2560008119066"
-                    Point2="0,18.2560008119066"
-                    Point3="4,18.2560008119066" />
-                  <mssgle:LineSegment
-                    End="123.766666414175,18.2560008119066" />
-                  <mssgle:CubicBezierSegment
-                    Point1="123.766666414175,18.2560008119066"
-                    Point2="127.766666414175,18.2560008119066"
-                    Point3="127.766666414175,22.2560008119066" />
-                  <mssgle:LineSegment
-                    End="127.766666414175,23.3000013697811" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\LoadGeography.Paths[New Output]"
-          TopLeft="418.941666073725,534.616663993398">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-21.1749997713088,190.416669333907"
-              Start="0,0"
-              End="-21.1749997713088,182.916669333907">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,90.6699551741662" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,90.6699551741662"
-                    Point2="0,94.6699551741662"
-                    Point3="-4,94.6699551741662" />
-                  <mssgle:LineSegment
-                    End="-17.1749997713088,94.6699551741662" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-17.1749997713088,94.6699551741662"
-                    Point2="-21.1749997713088,94.6699551741662"
-                    Point3="-21.1749997713088,98.6699551741662" />
-                  <mssgle:LineSegment
-                    End="-21.1749997713088,182.916669333907" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-37.6788866044044,99.6699551741662,54.1827734375,11.43359375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\LoadGeography.Paths[Lookup No Match Output]"
-          TopLeft="423.8333323482,289.666662363608">
+          TopLeft="421.399999060398,373.799995106326">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="110.616648634194,41.8500005251832"
+              EndConnector="112.216648634194,42.6500005251839"
               Start="0,0"
-              End="110.616648634194,34.3500005251832">
+              End="112.216648634194,35.1500005251839">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,12.9433200506815" />
+                    End="0,13.2697543110171" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,12.9433200506815"
-                    Point2="0,16.9433200506815"
-                    Point3="4,16.9433200506815" />
+                    Point1="0,13.2697543110171"
+                    Point2="0,17.2697543110171"
+                    Point3="4,17.2697543110171" />
                   <mssgle:LineSegment
-                    End="106.616648634194,16.9433200506815" />
+                    End="108.216648634194,17.2697543110171" />
                   <mssgle:CubicBezierSegment
-                    Point1="106.616648634194,16.9433200506815"
-                    Point2="110.616648634194,16.9433200506815"
-                    Point3="110.616648634194,20.9433200506815" />
+                    Point1="108.216648634194,17.2697543110171"
+                    Point2="112.216648634194,17.2697543110171"
+                    Point3="112.216648634194,21.2697543110171" />
                   <mssgle:LineSegment
-                    End="110.616648634194,34.3500005251832" />
+                    End="112.216648634194,35.1500005251839" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-0.498062401653137,21.9433200506815,111.6127734375,11.609375"
+              BoundingBox="0.301937598346846,22.2697543110171,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\LoadGeography.Paths[Lookup Match Output]"
-          TopLeft="361.166665681534,289.666662363608">
+          TopLeft="359.533332393732,373.799995106326">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-113.874993574909,43.1500005690921"
+              EndConnector="-113.074993574909,43.950000569092"
               Start="0,0"
-              End="-113.874993574909,35.6500005690921">
+              End="-113.074993574909,36.450000569092">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,13.469635857932" />
+                    End="0,13.7961477714192" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,13.469635857932"
-                    Point2="0,17.469635857932"
-                    Point3="-4,17.469635857932" />
+                    Point1="0,13.7961477714192"
+                    Point2="0,17.7961477714192"
+                    Point3="-4,17.7961477714192" />
                   <mssgle:LineSegment
-                    End="-109.874993574909,17.469635857932" />
+                    End="-109.074993574909,17.7961477714192" />
                   <mssgle:CubicBezierSegment
-                    Point1="-109.874993574909,17.469635857932"
-                    Point2="-113.874993574909,17.469635857932"
-                    Point3="-113.874993574909,21.469635857932" />
+                    Point1="-109.074993574909,17.7961477714192"
+                    Point2="-113.074993574909,17.7961477714192"
+                    Point3="-113.074993574909,21.7961477714192" />
                   <mssgle:LineSegment
-                    End="-113.874993574909,35.6500005690921" />
+                    End="-113.074993574909,36.450000569092" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-105.128883506204,22.469635857932,96.3827734375,11.609375"
+              BoundingBox="-104.728883506204,22.7961477714192,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\LoadGeography.Paths[Historical Attribute Inserts Output]"
-          TopLeft="351.741666073725,534.616663993398">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-124.041665775702,45.7500010804995"
-              Start="0,0"
-              End="-124.041665775702,38.2500010804995">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,14.5079549825657" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,14.5079549825657"
-                    Point2="0,18.5079549825657"
-                    Point3="-4,18.5079549825657" />
-                  <mssgle:LineSegment
-                    End="-120.041665775702,18.5079549825657" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-120.041665775702,18.5079549825657"
-                    Point2="-124.041665775702,18.5079549825657"
-                    Point3="-124.041665775702,22.5079549825657" />
-                  <mssgle:LineSegment
-                    End="-124.041665775702,38.2500010804995" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-137.077219606601,23.5079549825657,150.1127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\LoadGeography.Paths[Derived Column Output5]"
+          Id="Package\LoadGeography.Paths[Derived Column Output2]"
           TopLeft="376.71665888081,905.799997161428">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -5679,30 +4921,8 @@ where [refTable].[TripPurposeCode] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\LoadGeography.Paths[Derived Column Output4]"
-          TopLeft="375.833325661305,834.566666907734">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,29.6333302536941"
-              Start="0,0"
-              End="0,22.1333302536941">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,22.1333302536941" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\LoadGeography.Paths[Derived Column Output3]"
-          TopLeft="534.449980982394,373.916662888792">
+          Id="Package\LoadGeography.Paths[Derived Column Output1]"
+          TopLeft="533.616647694592,458.84999563151">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -5735,8 +4955,8 @@ where [refTable].[TripPurposeCode] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\LoadGeography.Paths[Derived Column Output2]"
-          TopLeft="247.291672106625,375.2166629327">
+          Id="Package\LoadGeography.Paths[Derived Column Output]"
+          TopLeft="246.458338818823,460.149995675418">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -5769,50 +4989,6 @@ where [refTable].[TripPurposeCode] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\LoadGeography.Paths[Derived Column Output1]"
-          TopLeft="392.299992813087,214.949995183349">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,32.3166671802595"
-              Start="0,0"
-              End="0,24.8166671802595">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,24.8166671802595" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\LoadGeography.Paths[Derived Column Output]"
-          TopLeft="228.450000093132,622.766665073898">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,29.0666668836269"
-              Start="0,0"
-              End="0,21.5666668836269">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.5666668836269" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\LoadGeography.Paths[Countries data]"
           TopLeft="394.816652641777,132.599999367197">
           <EdgeLayout.Curve>
@@ -5836,9 +5012,140 @@ where [refTable].[TripPurposeCode] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="144,41.6"
+          Id="Package\LoadGeography\Fix Venezuela"
+          TopLeft="323.291662818235,249.83333883312" />
+        <EdgeLayout
+          Id="Package\LoadGeography.Paths[Derived Column Output3]"
+          TopLeft="393.695824714771,214.949995183349">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34.8833436497713"
+              Start="0,0"
+              End="0,27.3833436497713">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.3833436497713" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LoadGeography.Paths[Derived Column Output4]"
+          TopLeft="392.87916427265,291.43333883312">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40.7666562732052"
+              Start="0,0"
+              End="0,33.2666562732052">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.2666562732052" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="161.6,41.6"
+          Id="Package\LoadGeography\Derived Column 1"
+          TopLeft="292.999999772343,792.166666907734" />
+        <EdgeLayout
+          Id="Package\LoadGeography.Paths[Derived Column Output5]"
+          TopLeft="375.233325661305,833.766666907734">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30.433330253694"
+              Start="0,0"
+              End="0,22.933330253694">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.933330253694" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LoadGeography.Paths[Union All Output 1]"
+          TopLeft="387.041665937131,546.416663191847">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-13.2416661647879,245.750003715887"
+              Start="0,0"
+              End="-13.2416661647879,238.250003715887">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,118.875001857944" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,118.875001857944"
+                    Point2="0,122.875001857944"
+                    Point3="-4,122.875001857944" />
+                  <mssgle:LineSegment
+                    End="-9.24166616478794,122.875001857944" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-9.24166616478794,122.875001857944"
+                    Point2="-13.2416661647879,122.875001857944"
+                    Point3="-13.2416661647879,126.875001857944" />
+                  <mssgle:LineSegment
+                    End="-13.2416661647879,238.250003715887" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\LoadGeography\Check if Country is in EU">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Lookup_EU]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\LoadGeography\Geography data">
     <Properties>
@@ -5853,29 +5160,6 @@ where [refTable].[TripPurposeCode] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\LoadGeography\Check if Country is in EU">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[Lookup_EU]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\LoadGeography\Insert Destination">
     <Properties>
       <Property>
@@ -5885,70 +5169,6 @@ where [refTable].[TripPurposeCode] = ?</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\LoadGeography\Slowly Changing Dimension">
-    <Properties>
-      <Property>
-        <Name>SCDMetadata</Name>
-        <Value
-          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;SCDWizardMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;ConnectionID&gt;{D51F1501-A9C1-46C3-AC54-F476C304E9BF}&lt;/ConnectionID&gt;
-  &lt;TableName&gt;[dbo].[Dim_Geography]&lt;/TableName&gt;
-  &lt;InputToColumnsCollection&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Union All.Outputs[Union All Output 1].Columns[Country Code]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;CountryKey&lt;/ColumnName&gt;
-      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
-      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Union All.Outputs[Union All Output 1].Columns[Country Name]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;CountryName&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Union All.Outputs[Union All Output 1].Columns[Income Group]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;IncomeGroup&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Union All.Outputs[Union All Output 1].Columns[Is MemberStateEU]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;IsMemberStateEU&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Union All.Outputs[Union All Output 1].Columns[Region]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;Region&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-  &lt;/InputToColumnsCollection&gt;
-  &lt;GeneratedComponentsIdentificationStrings&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Derived Column&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Union All 1&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Derived Column 1&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
-  &lt;/GeneratedComponentsIdentificationStrings&gt;
-  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
-  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
-  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
-  &lt;CurrentIndicatorColumn&gt;IsCurrent&lt;/CurrentIndicatorColumn&gt;
-  &lt;InferredIndicatorColumn /&gt;
-  &lt;ValueCurrent&gt;Current&lt;/ValueCurrent&gt;
-  &lt;ValueExpired&gt;Expired&lt;/ValueExpired&gt;
-  &lt;StartDateColumn /&gt;
-  &lt;EndDateColumn /&gt;
-  &lt;DateVariable /&gt;
-  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
-&lt;/SCDWizardMetadata&gt;</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
