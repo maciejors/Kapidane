@@ -13,7 +13,7 @@ INSERT INTO Lookup_EU (countrycode, countryname) VALUES
 ('FI', 'Finland'),
 ('FR', 'France'),
 ('DE', 'Germany'),
-('GR', 'Greece'),
+('EL', 'Greece'),
 ('HU', 'Hungary'),
 ('IE', 'Ireland'),
 ('IT', 'Italy'),
