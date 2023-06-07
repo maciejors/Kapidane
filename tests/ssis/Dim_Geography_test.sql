@@ -14,7 +14,14 @@ WHERE Country_Code IS NOT NULL AND Region IS NOT NULL
 UNION ALL
 SELECT 'Countries', 'Target', COUNT(*), MAX(IncomeGroup), MIN(Region)
 FROM Dim_Geography
-
+WHERE CountryCode NOT LIKE '%OTH'
+UNION ALL
+SELECT 'Country groups', 'Source', COUNT(*), MAX(IncomeGroup), MIN(Region)
+FROM GeoSuppl
+UNION ALL
+SELECT 'Country groups', 'Target', COUNT(*), MAX(IncomeGroup), MIN(Region)
+FROM Dim_Geography
+WHERE CountryCode LIKE '%OTH';
 
 
 -- Test3: check if data is updated correctly
@@ -25,7 +32,7 @@ SELECT * FROM Dim_Geography;
 SELECT * FROM Dim_Geography;
 
 
--- Test4: check if SCD2 works
+-- Test4: a simple test to check if SCD2 works
 UPDATE Dim_Geography
 SET IncomeGroup = 'Low income'
 WHERE CountryCode = 'PL';

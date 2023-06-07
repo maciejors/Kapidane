@@ -28,4 +28,6 @@ INSERT INTO Lookup_EU (countrycode, countryname) VALUES
 ('SK', 'Slovakia'),
 ('SI', 'Slovenia'),
 ('ES', 'Spain'),
-('SE', 'Sweden');
+('SE', 'Sweden'),
+('UK', 'United Kingdom');
+
