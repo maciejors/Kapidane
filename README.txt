@@ -19,7 +19,10 @@ After these steps the warehouse should be ready to use for reports etc.
 
 ================
 
-Important note related to tests:
+Important notes related to tests:
 
-Some tests for dimensions might fail to execute after facts are loaded due to foreign key constraints. Make sure to run these before the LoadFacts task is first executed.
+1. Some tests for dimensions might fail to execute after facts are loaded due to foreign key constraints. Make sure to run these before the LoadFacts task is first executed.
+
+2. Some tests assume that the entire data has been loaded to the warehouse (i.e. not restricted to some period of time) and will yield false positive results otherwise.
+
 

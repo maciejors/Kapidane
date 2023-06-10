@@ -11,8 +11,8 @@
   DTS:LocaleID="6153"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="102"
-  DTS:VersionGUID="{29C4C830-21EA-4226-B645-53AC876D0A7B}">
+  DTS:VersionBuild="112"
+  DTS:VersionGUID="{B5DBB30A-A0D6-4E45-AE64-24597609F95A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -437,7 +437,7 @@
       DTS:Required="True">
       <DTS:Property
         DTS:DataType="3"
-        DTS:Name="ParameterValue">2030</DTS:Property>
+        DTS:Name="ParameterValue">2099</DTS:Property>
     </DTS:PackageParameter>
     <DTS:PackageParameter
       DTS:CreationName=""
@@ -1596,7 +1596,7 @@ where [refTable].[CountryCode] = ?</property>
                 <property
                   dataType="System.Boolean"
                   description="Causes the Pivot Transform to ignore rows containing unrecognized values in the Pivot Key column and to report the complete list of unmatched values at the end of DataFlow execution. Useful for collecting a list of values from input rows that can be used to automatically generate output columns."
-                  name="PassThroughUnmatchedPivotKeys">true</property>
+                  name="PassThroughUnmatchedPivotKeys">false</property>
               </properties>
               <inputs>
                 <input
@@ -1847,24 +1847,6 @@ where [refTable].[CountryCode] = ?</property>
                           name="PivotKeyValue">AVG_TRP</property>
                       </properties>
                     </outputColumn>
-                    <outputColumn
-                      refId="Package\Load Expenditures data into pre-load layer\Pivot statinfo.Outputs[Pivot Default Output].Columns[C_TOTAL_ExpenditureValue]"
-                      dataType="cy"
-                      lineageId="Package\Load Expenditures data into pre-load layer\Pivot statinfo.Outputs[Pivot Default Output].Columns[C_TOTAL_ExpenditureValue]"
-                      name="C_TOTAL_ExpenditureValue">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
-                          name="SourceColumn">#{Package\Load Expenditures data into pre-load layer\Sort rows.Outputs[Sort Output].Columns[ExpenditureValue]}</property>
-                        <property
-                          dataType="System.String"
-                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
-                          expressionType="Notify"
-                          name="PivotKeyValue">TOTAL</property>
-                      </properties>
-                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -1893,27 +1875,27 @@ where [refTable].[CountryCode] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Load Expenditures data into pre-load layer\Remove aggregated countries"
+              refId="Package\Load Expenditures data into pre-load layer\Remove aggregated countries exc for ones marked as other"
               componentClassID="Microsoft.ConditionalSplit"
               contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
-              name="Remove aggregated countries"
+              name="Remove aggregated countries exc for ones marked as other"
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\Load Expenditures data into pre-load layer\Remove aggregated countries.Inputs[Conditional Split Input]"
+                  refId="Package\Load Expenditures data into pre-load layer\Remove aggregated countries exc for ones marked as other.Inputs[Conditional Split Input]"
                   description="Input to the Conditional Split Transformation"
                   name="Conditional Split Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Load Expenditures data into pre-load layer\Remove aggregated countries.Inputs[Conditional Split Input].Columns[DestinationCountryCodeRaw]"
+                      refId="Package\Load Expenditures data into pre-load layer\Remove aggregated countries exc for ones marked as other.Inputs[Conditional Split Input].Columns[DestinationCountryCodeRaw]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="DestinationCountryCodeRaw"
                       lineageId="Package\Load Expenditures data into pre-load layer\Expenditures data.Outputs[OLE DB Source Output].Columns[DestinationCountryCodeRaw]" />
                     <inputColumn
-                      refId="Package\Load Expenditures data into pre-load layer\Remove aggregated countries.Inputs[Conditional Split Input].Columns[OriginCountryCodeRaw]"
+                      refId="Package\Load Expenditures data into pre-load layer\Remove aggregated countries exc for ones marked as other.Inputs[Conditional Split Input].Columns[OriginCountryCodeRaw]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
@@ -1925,26 +1907,26 @@ where [refTable].[CountryCode] = ?</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Load Expenditures data into pre-load layer\Remove aggregated countries.Outputs[FilteredRows]"
+                  refId="Package\Load Expenditures data into pre-load layer\Remove aggregated countries exc for ones marked as other.Outputs[FilteredRows]"
                   description="Output 1 of the Conditional Split Transformation"
                   errorOrTruncationOperation="Computation"
                   errorRowDisposition="FailComponent"
                   exclusionGroup="1"
                   name="FilteredRows"
-                  synchronousInputId="Package\Load Expenditures data into pre-load layer\Remove aggregated countries.Inputs[Conditional Split Input]"
+                  synchronousInputId="Package\Load Expenditures data into pre-load layer\Remove aggregated countries exc for ones marked as other.Inputs[Conditional Split Input]"
                   truncationRowDisposition="FailComponent">
                   <properties>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">[LEN](#{Package\Load Expenditures data into pre-load layer\Expenditures data.Outputs[OLE DB Source Output].Columns[OriginCountryCodeRaw]}) == 2 &amp;&amp; #{Package\Load Expenditures data into pre-load layer\Expenditures data.Outputs[OLE DB Source Output].Columns[OriginCountryCodeRaw]} != "EA" &amp;&amp; [LEN](#{Package\Load Expenditures data into pre-load layer\Expenditures data.Outputs[OLE DB Source Output].Columns[DestinationCountryCodeRaw]}) == 2</property>
+                      name="Expression">[LEN](#{Package\Load Expenditures data into pre-load layer\Expenditures data.Outputs[OLE DB Source Output].Columns[OriginCountryCodeRaw]}) == 2 &amp;&amp; #{Package\Load Expenditures data into pre-load layer\Expenditures data.Outputs[OLE DB Source Output].Columns[OriginCountryCodeRaw]} != "EA" &amp;&amp; ([LEN](#{Package\Load Expenditures data into pre-load layer\Expenditures data.Outputs[OLE DB Source Output].Columns[DestinationCountryCodeRaw]}) == 2 || [RIGHT](#{Package\Load Expenditures data into pre-load layer\Expenditures data.Outputs[OLE DB Source Output].Columns[DestinationCountryCodeRaw]},3) == "OTH")</property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the friendly version of the expression. This expression version uses column names."
                       expressionType="Notify"
-                      name="FriendlyExpression">LEN(OriginCountryCodeRaw) == 2 &amp;&amp; OriginCountryCodeRaw != "EA" &amp;&amp; LEN(DestinationCountryCodeRaw) == 2</property>
+                      name="FriendlyExpression">LEN(OriginCountryCodeRaw) == 2 &amp;&amp; OriginCountryCodeRaw != "EA" &amp;&amp; (LEN(DestinationCountryCodeRaw) == 2 || RIGHT(DestinationCountryCodeRaw,3) == "OTH")</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
@@ -1953,11 +1935,11 @@ where [refTable].[CountryCode] = ?</property>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Load Expenditures data into pre-load layer\Remove aggregated countries.Outputs[Conditional Split Default Output]"
+                  refId="Package\Load Expenditures data into pre-load layer\Remove aggregated countries exc for ones marked as other.Outputs[Conditional Split Default Output]"
                   description="Default Output of the Conditional Split Transformation"
                   exclusionGroup="1"
                   name="Conditional Split Default Output"
-                  synchronousInputId="Package\Load Expenditures data into pre-load layer\Remove aggregated countries.Inputs[Conditional Split Input]">
+                  synchronousInputId="Package\Load Expenditures data into pre-load layer\Remove aggregated countries exc for ones marked as other.Inputs[Conditional Split Input]">
                   <properties>
                     <property
                       dataType="System.Boolean"
@@ -1966,23 +1948,23 @@ where [refTable].[CountryCode] = ?</property>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Load Expenditures data into pre-load layer\Remove aggregated countries.Outputs[Conditional Split Error Output]"
+                  refId="Package\Load Expenditures data into pre-load layer\Remove aggregated countries exc for ones marked as other.Outputs[Conditional Split Error Output]"
                   description="Error Output of the Conditional Split Transformation"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Conditional Split Error Output"
-                  synchronousInputId="Package\Load Expenditures data into pre-load layer\Remove aggregated countries.Inputs[Conditional Split Input]">
+                  synchronousInputId="Package\Load Expenditures data into pre-load layer\Remove aggregated countries exc for ones marked as other.Inputs[Conditional Split Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Load Expenditures data into pre-load layer\Remove aggregated countries.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      refId="Package\Load Expenditures data into pre-load layer\Remove aggregated countries exc for ones marked as other.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Load Expenditures data into pre-load layer\Remove aggregated countries.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Load Expenditures data into pre-load layer\Remove aggregated countries exc for ones marked as other.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Load Expenditures data into pre-load layer\Remove aggregated countries.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      refId="Package\Load Expenditures data into pre-load layer\Remove aggregated countries exc for ones marked as other.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Load Expenditures data into pre-load layer\Remove aggregated countries.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Load Expenditures data into pre-load layer\Remove aggregated countries exc for ones marked as other.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -2202,11 +2184,6 @@ where [refTable].[CountryCode] = ?</property>
                       cachedDataType="cy"
                       cachedName="C_AVG_TRP_ExpenditureValue"
                       lineageId="Package\Load Expenditures data into pre-load layer\Pivot statinfo.Outputs[Pivot Default Output].Columns[C_AVG_TRP_ExpenditureValue]" />
-                    <inputColumn
-                      refId="Package\Load Expenditures data into pre-load layer\Remove NULL &amp; empty values.Inputs[Conditional Split Input].Columns[C_TOTAL_ExpenditureValue]"
-                      cachedDataType="cy"
-                      cachedName="C_TOTAL_ExpenditureValue"
-                      lineageId="Package\Load Expenditures data into pre-load layer\Pivot statinfo.Outputs[Pivot Default Output].Columns[C_TOTAL_ExpenditureValue]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -2226,13 +2203,13 @@ where [refTable].[CountryCode] = ?</property>
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">![ISNULL](#{Package\Load Expenditures data into pre-load layer\Pivot statinfo.Outputs[Pivot Default Output].Columns[C_AVG_NGT_ExpenditureValue]}) || ![ISNULL](#{Package\Load Expenditures data into pre-load layer\Pivot statinfo.Outputs[Pivot Default Output].Columns[C_AVG_TRP_ExpenditureValue]}) || ![ISNULL](#{Package\Load Expenditures data into pre-load layer\Pivot statinfo.Outputs[Pivot Default Output].Columns[C_TOTAL_ExpenditureValue]})</property>
+                      name="Expression">![ISNULL](#{Package\Load Expenditures data into pre-load layer\Pivot statinfo.Outputs[Pivot Default Output].Columns[C_AVG_NGT_ExpenditureValue]}) &amp;&amp; ![ISNULL](#{Package\Load Expenditures data into pre-load layer\Pivot statinfo.Outputs[Pivot Default Output].Columns[C_AVG_TRP_ExpenditureValue]})</property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the friendly version of the expression. This expression version uses column names."
                       expressionType="Notify"
-                      name="FriendlyExpression">!ISNULL(C_AVG_NGT_ExpenditureValue) || !ISNULL(C_AVG_TRP_ExpenditureValue) || !ISNULL(C_TOTAL_ExpenditureValue)</property>
+                      name="FriendlyExpression">!ISNULL(C_AVG_NGT_ExpenditureValue) &amp;&amp; !ISNULL(C_AVG_TRP_ExpenditureValue)</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
@@ -2271,6 +2248,97 @@ where [refTable].[CountryCode] = ?</property>
                       refId="Package\Load Expenditures data into pre-load layer\Remove NULL &amp; empty values.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\Load Expenditures data into pre-load layer\Remove NULL &amp; empty values.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Expenditures data into pre-load layer\Remove statinfo total"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Remove statinfo total"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load Expenditures data into pre-load layer\Remove statinfo total.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Expenditures data into pre-load layer\Remove statinfo total.Inputs[Conditional Split Input].Columns[statinfo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="statinfo"
+                      lineageId="Package\Load Expenditures data into pre-load layer\Expenditures data.Outputs[OLE DB Source Output].Columns[statinfo]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Expenditures data into pre-load layer\Remove statinfo total.Outputs[FilteredRows]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="FilteredRows"
+                  synchronousInputId="Package\Load Expenditures data into pre-load layer\Remove statinfo total.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\Load Expenditures data into pre-load layer\Expenditures data.Outputs[OLE DB Source Output].Columns[statinfo]} != "TOTAL"</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">statinfo != "TOTAL"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Expenditures data into pre-load layer\Remove statinfo total.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\Load Expenditures data into pre-load layer\Remove statinfo total.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Expenditures data into pre-load layer\Remove statinfo total.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\Load Expenditures data into pre-load layer\Remove statinfo total.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Expenditures data into pre-load layer\Remove statinfo total.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Expenditures data into pre-load layer\Remove statinfo total.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Expenditures data into pre-load layer\Remove statinfo total.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Expenditures data into pre-load layer\Remove statinfo total.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -2564,24 +2632,29 @@ where [refTable].[CountryCode] = ?</property>
               startId="Package\Load Expenditures data into pre-load layer\Remove aggregated trip details.Outputs[FilteredRows]" />
             <path
               refId="Package\Load Expenditures data into pre-load layer.Paths[FilteredRows1]"
-              endId="Package\Load Expenditures data into pre-load layer\Remove aggregated countries.Inputs[Conditional Split Input]"
+              endId="Package\Load Expenditures data into pre-load layer\Remove aggregated countries exc for ones marked as other.Inputs[Conditional Split Input]"
               name="FilteredRows"
               startId="Package\Load Expenditures data into pre-load layer\Remove aggregated expenditure details.Outputs[FilteredRows]" />
             <path
               refId="Package\Load Expenditures data into pre-load layer.Paths[FilteredRows2]"
-              endId="Package\Load Expenditures data into pre-load layer\Create TripDetailsKey.Inputs[Derived Column Input]"
-              name="FilteredRows"
-              startId="Package\Load Expenditures data into pre-load layer\Remove aggregated countries.Outputs[FilteredRows]" />
-            <path
-              refId="Package\Load Expenditures data into pre-load layer.Paths[FilteredRows3]"
               endId="Package\Load Expenditures data into pre-load layer\Create FactKey.Inputs[Derived Column Input]"
               name="FilteredRows"
               startId="Package\Load Expenditures data into pre-load layer\Remove NULL &amp; empty values.Outputs[FilteredRows]" />
             <path
-              refId="Package\Load Expenditures data into pre-load layer.Paths[FilteredRows4]"
+              refId="Package\Load Expenditures data into pre-load layer.Paths[FilteredRows3]"
               endId="Package\Load Expenditures data into pre-load layer\Remove aggregated trip details.Inputs[Conditional Split Input]"
               name="FilteredRows"
               startId="Package\Load Expenditures data into pre-load layer\Limit data to specified years.Outputs[FilteredRows]" />
+            <path
+              refId="Package\Load Expenditures data into pre-load layer.Paths[FilteredRows4]"
+              endId="Package\Load Expenditures data into pre-load layer\Remove statinfo total.Inputs[Conditional Split Input]"
+              name="FilteredRows"
+              startId="Package\Load Expenditures data into pre-load layer\Remove aggregated countries exc for ones marked as other.Outputs[FilteredRows]" />
+            <path
+              refId="Package\Load Expenditures data into pre-load layer.Paths[FilteredRows5]"
+              endId="Package\Load Expenditures data into pre-load layer\Create TripDetailsKey.Inputs[Derived Column Input]"
+              name="FilteredRows"
+              startId="Package\Load Expenditures data into pre-load layer\Remove statinfo total.Outputs[FilteredRows]" />
             <path
               refId="Package\Load Expenditures data into pre-load layer.Paths[Lookup Match Output]"
               endId="Package\Load Expenditures data into pre-load layer\Lookup DestinationCountryKey.Inputs[Lookup Input]"
@@ -3968,13 +4041,13 @@ where [refTable].[CountryCode] = ?</property>
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">([LEN](#{Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output].Columns[OriginCountryCodeRaw]}) == 2 || [RIGHT](#{Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output].Columns[OriginCountryCodeRaw]},3) == "OTH") &amp;&amp; #{Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output].Columns[OriginCountryCodeRaw]} != "EA" &amp;&amp; ([LEN](#{Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output].Columns[DestinationCountryCodeRaw]}) == 2 || [RIGHT](#{Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output].Columns[DestinationCountryCodeRaw]},3) == "OTH")</property>
+                      name="Expression">[LEN](#{Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output].Columns[OriginCountryCodeRaw]}) == 2 &amp;&amp; #{Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output].Columns[OriginCountryCodeRaw]} != "EA" &amp;&amp; ([LEN](#{Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output].Columns[DestinationCountryCodeRaw]}) == 2 || [RIGHT](#{Package\Load TripNights data into pre-load layer\Merge Join.Outputs[Merge Join Output].Columns[DestinationCountryCodeRaw]},3) == "OTH")</property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the friendly version of the expression. This expression version uses column names."
                       expressionType="Notify"
-                      name="FriendlyExpression">(LEN(OriginCountryCodeRaw) == 2 || RIGHT(OriginCountryCodeRaw,3) == "OTH") &amp;&amp; OriginCountryCodeRaw != "EA" &amp;&amp; (LEN(DestinationCountryCodeRaw) == 2 || RIGHT(DestinationCountryCodeRaw,3) == "OTH")</property>
+                      name="FriendlyExpression">LEN(OriginCountryCodeRaw) == 2 &amp;&amp; OriginCountryCodeRaw != "EA" &amp;&amp; (LEN(DestinationCountryCodeRaw) == 2 || RIGHT(DestinationCountryCodeRaw,3) == "OTH")</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
@@ -5239,56 +5312,64 @@ where [refTable].[CountryCode] = ?</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="213.6,41.6"
-          Id="Package\Load Expenditures data into pre-load layer\Insert data into pre-load table"
-          TopLeft="133.499992745618,883.666662176385" />
-        <NodeLayout
-          Size="221.6,41.6"
-          Id="Package\Load Expenditures data into pre-load layer\Lookup DestinationCountryKey"
-          TopLeft="129.999998062849,805.599999439718" />
-        <NodeLayout
-          Size="122.4,41.6"
-          Id="Package\Load Expenditures data into pre-load layer\Sort rows"
-          TopLeft="176.166664670739,446.199995060564" />
-        <NodeLayout
           Size="262.4,41.6"
           Id="Package\Load Expenditures data into pre-load layer\Remove aggregated expenditure details"
           TopLeft="102.99999846518,216.399999135733" />
+        <NodeLayout
+          Size="213.6,41.6"
+          Id="Package\Load Expenditures data into pre-load layer\Insert data into pre-load table"
+          TopLeft="131.49999277542,955.866661386623" />
+        <NodeLayout
+          Size="197.6,41.6"
+          Id="Package\Load Expenditures data into pre-load layer\Lookup OriginCountryKey"
+          TopLeft="136.333330970671,806.333331645794" />
         <NodeLayout
           Size="162.4,41.6"
           Id="Package\Load Expenditures data into pre-load layer\Expenditures data"
           TopLeft="157.999995460113,4.33333641297334" />
         <NodeLayout
-          Size="197.6,41.6"
-          Id="Package\Load Expenditures data into pre-load layer\Lookup OriginCountryKey"
-          TopLeft="138.333330940869,734.133332435556" />
-        <NodeLayout
           Size="220,41.6"
           Id="Package\Load Expenditures data into pre-load layer\Remove NULL &amp; empty values"
-          TopLeft="129.999992897113,584.666665517623" />
+          TopLeft="127.999992926915,656.866664727861" />
         <NodeLayout
-          Size="217.6,41.6"
-          Id="Package\Load Expenditures data into pre-load layer\Remove aggregated countries"
-          TopLeft="132.999998018146,291.199996185303" />
+          Size="354.4,41.6"
+          Id="Package\Load Expenditures data into pre-load layer\Remove aggregated countries exc for ones marked as other"
+          TopLeft="52.9999992102389,292.199996170402" />
         <NodeLayout
-          Size="180,41.6"
-          Id="Package\Load Expenditures data into pre-load layer\Create TripDetailsKey"
-          TopLeft="152.499997826914,374.333330847886" />
+          Size="207.2,41.6"
+          Id="Package\Load Expenditures data into pre-load layer\Limit data to specified years"
+          TopLeft="135.30769029145,69.8820604320636" />
         <NodeLayout
           Size="137.6,41.6"
           Id="Package\Load Expenditures data into pre-load layer\Pivot statinfo"
-          TopLeft="170.833330953287,513.666660646135" />
+          TopLeft="168.833330983089,585.866659856373" />
+        <NodeLayout
+          Size="180,41.6"
+          Id="Package\Load Expenditures data into pre-load layer\Create TripDetailsKey"
+          TopLeft="150.499997856716,446.533330058124" />
+        <NodeLayout
+          Size="122.4,41.6"
+          Id="Package\Load Expenditures data into pre-load layer\Sort rows"
+          TopLeft="174.166664700541,518.399994270802" />
         <NodeLayout
           Size="222.4,41.6"
           Id="Package\Load Expenditures data into pre-load layer\Remove aggregated trip details"
           TopLeft="128.99999807775,143.199998390675" />
         <NodeLayout
+          Size="221.6,41.6"
+          Id="Package\Load Expenditures data into pre-load layer\Lookup DestinationCountryKey"
+          TopLeft="127.999998092651,877.799998649956" />
+        <NodeLayout
           Size="150.4,41.6"
           Id="Package\Load Expenditures data into pre-load layer\Create FactKey"
-          TopLeft="166.666662726137,661.266667004361" />
+          TopLeft="164.666662755939,733.466666214599" />
+        <NodeLayout
+          Size="176,41.6"
+          Id="Package\Load Expenditures data into pre-load layer\Remove statinfo total"
+          TopLeft="149.999997764826,368.199996647239" />
         <EdgeLayout
           Id="Package\Load Expenditures data into pre-load layer.Paths[Sort Output]"
-          TopLeft="238.499997812013,487.799995060564">
+          TopLeft="236.499997841815,559.999994270802">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -5310,7 +5391,7 @@ where [refTable].[CountryCode] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Expenditures data into pre-load layer.Paths[Pivot Default Output]"
-          TopLeft="239.8166619252,555.266660646135">
+          TopLeft="237.816661955002,627.466659856373">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -5330,198 +5411,6 @@ where [refTable].[CountryCode] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Expenditures data into pre-load layer.Paths[Lookup Match Output1]"
-          TopLeft="240.549995404233,847.199999439718">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,36.4666627366666"
-              Start="0,0"
-              End="0,28.9666627366666">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,28.9666627366666" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,8.67864386833332,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Expenditures data into pre-load layer.Paths[Lookup Match Output]"
-          TopLeft="238.966664501859,775.733332435556">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,29.8666670041619"
-              Start="0,0"
-              End="0,22.3666670041619">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,22.3666670041619" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,5.37864600208093,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Expenditures data into pre-load layer.Paths[FilteredRows3]"
-          TopLeft="240.933327811625,626.266665517622">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,35.0000014867393"
-              Start="0,0"
-              End="0,27.5000014867393">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,27.5000014867393" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-28.687578125,8.87548902461964,57.37515625,9.7490234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Expenditures data into pre-load layer.Paths[FilteredRows2]"
-          TopLeft="242.14999792253,332.799996185303">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,41.5333346625826"
-              Start="0,0"
-              End="0,34.0333346625826">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,34.0333346625826" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-28.687578125,12.1421556125413,57.37515625,9.7490234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Expenditures data into pre-load layer.Paths[FilteredRows1]"
-          TopLeft="237.999998241663,257.999999135733">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,33.1999970495701"
-              Start="0,0"
-              End="0,25.6999970495701">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,25.6999970495701" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-28.687578125,7.97548680603506,57.37515625,9.7490234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Expenditures data into pre-load layer.Paths[FilteredRows]"
-          TopLeft="237.199998271465,184.799998390675">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,31.6000007450587"
-              Start="0,0"
-              End="0,24.1000007450587">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,24.1000007450587" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-28.687578125,7.17548865377933,57.37515625,9.7490234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Expenditures data into pre-load layer.Paths[Derived Column Output1]"
-          TopLeft="239.499996833503,702.866667004361">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,31.2666654311946"
-              Start="0,0"
-              End="0,23.7666654311946">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,23.7666654311946" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load Expenditures data into pre-load layer.Paths[Derived Column Output]"
-          TopLeft="239.933331248827,415.933330847886">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,30.2666642126779"
-              Start="0,0"
-              End="0,22.7666642126779">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,22.7666642126779" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="207.2,41.6"
-          Id="Package\Load Expenditures data into pre-load layer\Limit data to specified years"
-          TopLeft="135.30769029145,69.8820604320636" />
         <EdgeLayout
           Id="Package\Load Expenditures data into pre-load layer.Paths[OLE DB Source Output]"
           TopLeft="239.053842875781,45.9333364129733">
@@ -5545,7 +5434,103 @@ where [refTable].[CountryCode] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\Load Expenditures data into pre-load layer.Paths[Lookup Match Output1]"
+          TopLeft="238.549995434035,919.399998649956">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36.4666627366666"
+              Start="0,0"
+              End="0,28.9666627366666">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.9666627366666" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,8.6786438683333,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Expenditures data into pre-load layer.Paths[Lookup Match Output]"
+          TopLeft="236.966664531661,847.933331645794">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29.8666670041619"
+              Start="0,0"
+              End="0,22.3666670041619">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.3666670041619" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,5.37864600208095,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Expenditures data into pre-load layer.Paths[FilteredRows5]"
+          TopLeft="239.249997810771,409.799996647239">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36.7333334108857"
+              Start="0,0"
+              End="0,29.2333334108857">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.2333334108857" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-28.687578125,9.74215498669285,57.37515625,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Load Expenditures data into pre-load layer.Paths[FilteredRows4]"
+          TopLeft="234.099998487532,333.799996170402">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34.4000004768369"
+              Start="0,0"
+              End="0,26.9000004768369">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.9000004768369" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-28.687578125,8.57548851966845,57.37515625,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Expenditures data into pre-load layer.Paths[FilteredRows3]"
           TopLeft="239.5538441846,111.482060432064">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -5564,13 +5549,142 @@ where [refTable].[CountryCode] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-28.687578125,7.23445726055549,57.37515625,9.7490234375"
+              BoundingBox="-28.687578125,7.2344572605555,57.37515625,9.7490234375"
               RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Expenditures data into pre-load layer.Paths[FilteredRows2]"
+          TopLeft="238.933327841427,698.46666472786">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,35.0000014867393"
+              Start="0,0"
+              End="0,27.5000014867393">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.5000014867393" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-28.687578125,8.87548902461965,57.37515625,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Expenditures data into pre-load layer.Paths[FilteredRows1]"
+          TopLeft="232.199998837709,257.999999135733">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34.1999970346689"
+              Start="0,0"
+              End="0,26.6999970346689">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.6999970346689" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-28.687578125,8.47548679858445,57.37515625,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Expenditures data into pre-load layer.Paths[FilteredRows]"
+          TopLeft="237.199998271465,184.799998390675">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31.6000007450587"
+              Start="0,0"
+              End="0,24.1000007450587">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.1000007450587" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-28.687578125,7.17548865377935,57.37515625,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Expenditures data into pre-load layer.Paths[Derived Column Output1]"
+          TopLeft="237.499996863305,775.066666214599">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31.2666654311946"
+              Start="0,0"
+              End="0,23.7666654311946">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.7666654311946" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Expenditures data into pre-load layer.Paths[Derived Column Output]"
+          TopLeft="237.933331278629,488.133330058124">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30.2666642126779"
+              Start="0,0"
+              End="0,22.7666642126779">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.7666642126779" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Expenditures data into pre-load layer\Insert data into pre-load table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Load Expenditures data into pre-load layer\Lookup OriginCountryKey">
     <Properties>
@@ -5630,40 +5744,15 @@ where [refTable].[CountryCode] = ?</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Expenditures data into pre-load layer\Insert data into pre-load table">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Load TripNights data into pre-load layer">
     <LayoutInfo>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="151.2,41.6"
-          Id="Package\Load TripNights data into pre-load layer\Sort nights data"
-          TopLeft="307.499983198942,99.2666662990387" />
-        <NodeLayout
-          Size="143.2,41.6"
-          Id="Package\Load TripNights data into pre-load layer\Sort trips data"
-          TopLeft="92.4999949460229,99.2666662990387" />
-        <NodeLayout
-          Size="131.2,41.6"
-          Id="Package\Load TripNights data into pre-load layer\Nights data"
-          TopLeft="313.333316213555,24.5333355270494" />
-        <NodeLayout
-          Size="124.8,41.6"
-          Id="Package\Load TripNights data into pre-load layer\Trips data"
-          TopLeft="95.8333280972309,23.6666688664095" />
+          Size="221.6,41.6"
+          Id="Package\Load TripNights data into pre-load layer\Lookup DestinationCountryKey"
+          TopLeft="165.8333242726,776.599997631511" />
         <NodeLayout
           Size="215.2,41.6"
           Id="Package\Load TripNights data into pre-load layer\Insert rows into pre-load table"
@@ -5673,33 +5762,193 @@ where [refTable].[CountryCode] = ?</property>
           Id="Package\Load TripNights data into pre-load layer\Remove columns with NULL values"
           TopLeft="154.999991531174,486.199998643994" />
         <NodeLayout
-          Size="221.6,41.6"
-          Id="Package\Load TripNights data into pre-load layer\Lookup DestinationCountryKey"
-          TopLeft="165.8333242726,776.599997631511" />
-        <NodeLayout
-          Size="180,41.6"
-          Id="Package\Load TripNights data into pre-load layer\Create TripDetailsKey"
-          TopLeft="184.999989892046,561.66666420175" />
-        <NodeLayout
-          Size="354.4,41.6"
-          Id="Package\Load TripNights data into pre-load layer\Remove aggregated countries exc for ones marked as other"
-          TopLeft="96.6666613850332,412.866665358874" />
-        <NodeLayout
-          Size="197.6,41.6"
-          Id="Package\Load TripNights data into pre-load layer\Lookup OriginCountryKey"
-          TopLeft="174.16665715062,705.133330627349" />
+          Size="143.2,41.6"
+          Id="Package\Load TripNights data into pre-load layer\Sort trips data"
+          TopLeft="92.4999949460229,99.2666662990387" />
         <NodeLayout
           Size="222.4,41.6"
           Id="Package\Load TripNights data into pre-load layer\Remove aggregated trip details"
           TopLeft="159.999991257986,335.133332182235" />
         <NodeLayout
+          Size="207.2,41.6"
+          Id="Package\Load TripNights data into pre-load layer\Limit data to specified years"
+          TopLeft="169.99999071161,259.266668034727" />
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\Load TripNights data into pre-load layer\Sort nights data"
+          TopLeft="307.499983198942,99.2666662990387" />
+        <NodeLayout
+          Size="180,41.6"
+          Id="Package\Load TripNights data into pre-load layer\Create TripDetailsKey"
+          TopLeft="184.999989892046,561.66666420175" />
+        <NodeLayout
+          Size="197.6,41.6"
+          Id="Package\Load TripNights data into pre-load layer\Lookup OriginCountryKey"
+          TopLeft="174.16665715062,705.133330627349" />
+        <NodeLayout
           Size="129.6,41.6"
           Id="Package\Load TripNights data into pre-load layer\Merge Join"
           TopLeft="202.499988935888,183.733332055675" />
         <NodeLayout
+          Size="354.4,41.6"
+          Id="Package\Load TripNights data into pre-load layer\Remove aggregated countries exc for ones marked as other"
+          TopLeft="96.6666613850332,412.866665358874" />
+        <NodeLayout
+          Size="131.2,41.6"
+          Id="Package\Load TripNights data into pre-load layer\Nights data"
+          TopLeft="313.333316213555,24.5333355270494" />
+        <NodeLayout
+          Size="124.8,41.6"
+          Id="Package\Load TripNights data into pre-load layer\Trips data"
+          TopLeft="95.8333280972309,23.6666688664095" />
+        <NodeLayout
           Size="150.4,41.6"
           Id="Package\Load TripNights data into pre-load layer\Create FactKey"
           TopLeft="202.499988935888,632.266665196154" />
+        <EdgeLayout
+          Id="Package\Load TripNights data into pre-load layer.Paths[Sort Output1]"
+          TopLeft="383.099983198942,140.866666299039">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-95.533327596387,42.866665756636"
+              Start="0,0"
+              End="-95.533327596387,35.366665756636">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.406340924055" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.406340924055"
+                    Point2="0,25.406340924055"
+                    Point3="-4,25.406340924055" />
+                  <mssgle:LineSegment
+                    End="-91.533327596387,25.406340924055" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-91.533327596387,25.406340924055"
+                    Point2="-95.533327596387,25.406340924055"
+                    Point3="-95.533327596387,29.406340924055" />
+                  <mssgle:LineSegment
+                    End="-95.533327596387,35.366665756636" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load TripNights data into pre-load layer.Paths[Sort Output]"
+          TopLeft="164.099994946023,140.866666299039">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="82.9333273231988,42.866665756636"
+              Start="0,0"
+              End="82.9333273231988,35.366665756636">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.406340924055" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.406340924055"
+                    Point2="0,25.406340924055"
+                    Point3="4,25.406340924055" />
+                  <mssgle:LineSegment
+                    End="78.9333273231988,25.406340924055" />
+                  <mssgle:CubicBezierSegment
+                    Point1="78.9333273231988,25.406340924055"
+                    Point2="82.9333273231988,25.406340924055"
+                    Point3="82.9333273231988,29.406340924055" />
+                  <mssgle:LineSegment
+                    End="82.9333273231988,35.366665756636" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load TripNights data into pre-load layer.Paths[OLE DB Source Output1]"
+          TopLeft="381.016649706249,66.1333355270494">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.1333307719893"
+              Start="0,0"
+              End="0,25.6333307719893">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.6333307719893" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load TripNights data into pre-load layer.Paths[OLE DB Source Output]"
+          TopLeft="161.166661521627,65.2666688664095">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.9999974326292"
+              Start="0,0"
+              End="0,26.4999974326292">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.4999974326292" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load TripNights data into pre-load layer.Paths[Merge Join Output]"
+          TopLeft="270.449989823749,225.333332055675">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.9333359790516"
+              Start="0,0"
+              End="0,26.4333359790516">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.4333359790516" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Load TripNights data into pre-load layer.Paths[Lookup Match Output1]"
           TopLeft="275.866657560402,818.199997631511">
@@ -5744,7 +5993,31 @@ where [refTable].[CountryCode] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,5.37864600208093,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,5.37864600208095,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load TripNights data into pre-load layer.Paths[FilteredRows3]"
+          TopLeft="272.399990984798,300.866668034727">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34.2666641475085"
+              Start="0,0"
+              End="0,26.7666641475085">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.7666641475085" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-28.687578125,8.50882035500425,57.37515625,9.7490234375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -5778,21 +6051,21 @@ where [refTable].[CountryCode] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,31.7333332851202"
+              EndConnector="0,31.73333328512"
               Start="0,0"
-              End="0,24.2333332851202">
+              End="0,24.23333328512">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,24.2333332851202" />
+                    End="0,24.23333328512" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-28.687578125,7.24215492381009,57.37515625,9.7490234375"
+              BoundingBox="-28.687578125,7.24215492380998,57.37515625,9.7490234375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -5802,21 +6075,21 @@ where [refTable].[CountryCode] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,36.1333331766388"
+              EndConnector="0,36.133333176639"
               Start="0,0"
-              End="0,28.6333331766388">
+              End="0,28.633333176639">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,28.6333331766388" />
+                    End="0,28.633333176639" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-28.687578125,9.44215486956941,57.37515625,9.7490234375"
+              BoundingBox="-28.687578125,9.44215486956949,57.37515625,9.7490234375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -5839,7 +6112,9 @@ where [refTable].[CountryCode] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -5861,213 +6136,14 @@ where [refTable].[CountryCode] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load TripNights data into pre-load layer.Paths[Sort Output1]"
-          TopLeft="383.099983198942,140.866666299039">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-95.533327596387,42.866665756636"
-              Start="0,0"
-              End="-95.533327596387,35.366665756636">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.406340924055" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,21.406340924055"
-                    Point2="0,25.406340924055"
-                    Point3="-4,25.406340924055" />
-                  <mssgle:LineSegment
-                    End="-91.533327596387,25.406340924055" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-91.533327596387,25.406340924055"
-                    Point2="-95.533327596387,25.406340924055"
-                    Point3="-95.533327596387,29.406340924055" />
-                  <mssgle:LineSegment
-                    End="-95.533327596387,35.366665756636" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load TripNights data into pre-load layer.Paths[Sort Output]"
-          TopLeft="164.099994946023,140.866666299039">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="82.9333273231988,42.866665756636"
-              Start="0,0"
-              End="82.9333273231988,35.366665756636">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.406340924055" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,21.406340924055"
-                    Point2="0,25.406340924055"
-                    Point3="4,25.406340924055" />
-                  <mssgle:LineSegment
-                    End="78.9333273231988,25.406340924055" />
-                  <mssgle:CubicBezierSegment
-                    Point1="78.9333273231988,25.406340924055"
-                    Point2="82.9333273231988,25.406340924055"
-                    Point3="82.9333273231988,29.406340924055" />
-                  <mssgle:LineSegment
-                    End="82.9333273231988,35.366665756636" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load TripNights data into pre-load layer.Paths[OLE DB Source Output1]"
-          TopLeft="381.016649706249,66.1333355270494">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,33.1333307719893"
-              Start="0,0"
-              End="0,25.6333307719893">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,25.6333307719893" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load TripNights data into pre-load layer.Paths[OLE DB Source Output]"
-          TopLeft="161.166661521627,65.2666688664095">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,33.9999974326292"
-              Start="0,0"
-              End="0,26.4999974326292">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.4999974326292" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="207.2,41.6"
-          Id="Package\Load TripNights data into pre-load layer\Limit data to specified years"
-          TopLeft="169.99999071161,259.266668034727" />
-        <EdgeLayout
-          Id="Package\Load TripNights data into pre-load layer.Paths[Merge Join Output]"
-          TopLeft="270.449989823749,225.333332055675">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,33.9333359790516"
-              Start="0,0"
-              End="0,26.4333359790516">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.4333359790516" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load TripNights data into pre-load layer.Paths[FilteredRows3]"
-          TopLeft="272.399990984798,300.866668034727">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,34.2666641475085"
-              Start="0,0"
-              End="0,26.7666641475085">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.7666641475085" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-28.687578125,8.50882035500425,57.37515625,9.7490234375"
+              BoundingBox="0,0,0,0"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load TripNights data into pre-load layer\Nights data">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load TripNights data into pre-load layer\Trips data">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load TripNights data into pre-load layer\Insert rows into pre-load table">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Load TripNights data into pre-load layer\Lookup DestinationCountryKey">
     <Properties>
@@ -6092,6 +6168,19 @@ where [refTable].[CountryCode] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
+    design-time-name="Package\Load TripNights data into pre-load layer\Insert rows into pre-load table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Load TripNights data into pre-load layer\Lookup OriginCountryKey">
     <Properties>
       <Property>
@@ -6111,6 +6200,32 @@ where [refTable].[CountryCode] = ?</property>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load TripNights data into pre-load layer\Nights data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load TripNights data into pre-load layer\Trips data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
