@@ -21,9 +21,8 @@ JOIN Dim_Geography o ON e.OriginCountryKey = o.CountryKey
 JOIN Dim_Geography d ON e.DestinationCountryKey = d.CountryKey
 JOIN Dim_TripDetails td ON e.TripDetailsKey = td.TripDetailsKey
 JOIN Dim_Year y ON e.YearKey = y.Year
-WHERE o.CountryName = 'Poland'  -- filters applied on page
-	AND d.CountryName != 'Poland'
-	AND e.YearKey >= 2012 AND e.YearKey <= 2020
+WHERE o.CountryName = 'Germany'  -- filters applied on page
+	AND e.YearKey >= 2013 AND e.YearKey <= 2020
 GROUP BY o.CountryName, 
 	d.CountryName,
 	d.IsMemberStateEU,
@@ -36,19 +35,15 @@ GROUP BY o.CountryName,
 GO
 
 
--- Money spent (KPI)
-SELECT SUM(TotalExpenditure)
-FROM Test_CountryPageView;
-
-
--- Average Trip Length (KPI)
-SELECT CAST(SUM(NightsSpentCount) AS float) / SUM(TripsCount)
-FROM Test_CountryPageView;
-
-
--- Trips Taken (KPI)
-SELECT SUM(TripsCount)
+-- KPIs
+SELECT 'Money Spent', SUM(TotalExpenditure)
 FROM Test_CountryPageView
+UNION ALL
+SELECT 'Average Trip Length', CAST(SUM(NightsSpentCount) AS float) / SUM(TripsCount)
+FROM Test_CountryPageView
+UNION ALL
+SELECT 'Trips Taken', SUM(TripsCount)
+FROM Test_CountryPageView;
 
 
 -- Trips Taken to EU vs non-EU (bar plot)

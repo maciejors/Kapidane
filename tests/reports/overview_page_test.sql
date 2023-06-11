@@ -16,7 +16,7 @@ GO
 
 
 -- KPIs
-SELECT SUM(NightsSpentCount) AS 'Sum of NightsSpentCount',
-	SUM(CAST(TripsCount AS bigint)) AS 'Sum of TripsCount', 
-	SUM(TotalExpenditure) AS 'Total Expenditure'
+SELECT SUM(CAST(TripsCount AS bigint)) AS 'Trips Taken', 
+	SUM(NightsSpentCount) AS 'Total Trip Nights',
+	SUM(TotalExpenditure) AS 'Total Trip Expenditure'
 FROM Test_OverviewPageView

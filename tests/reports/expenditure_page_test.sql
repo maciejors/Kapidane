@@ -16,20 +16,17 @@ JOIN Dim_Geography o ON e.OriginCountryKey = o.CountryKey
 JOIN Dim_Geography d ON e.DestinationCountryKey = d.CountryKey
 JOIN Dim_ExpenditureDetails ed ON e.ExpenditureDetailsKey = ed.ExpenditureDetailsKey
 JOIN Dim_TripDetails td ON e.TripDetailsKey = td.TripDetailsKey
-WHERE o.CountryName = 'Ireland'  -- filters applied on page
-	AND d.CountryName != 'Ireland'
-	AND TripPurpose = 'Professional, business'
-	AND e.YearKey >= 2016 AND e.YearKey <= 2021;
+WHERE o.CountryName = 'Germany'  -- filters applied on page
+	AND d.CountryName IN ('Austria', 'Belgium', 'Croatia', 'Czechia', 'Denmark', 'Italy', 'Switzerland')
+	AND e.YearKey >= 2013 AND e.YearKey <= 2020;
 GO
 
 
--- Avg Expenditure by Night (KPI)
-SELECT AVG(AvgExpenditureByNight)
-FROM Test_ExpenditurePageView;
-
-
--- Total Expenditure (KPI)
-SELECT SUM(TotalExpenditure)
+-- KPIs
+SELECT 'Avg Expenditure by Night', AVG(AvgExpenditureByNight)
+FROM Test_ExpenditurePageView
+UNION ALL
+SELECT 'Total Expenditure', SUM(TotalExpenditure)
 FROM Test_ExpenditurePageView;
 
 
