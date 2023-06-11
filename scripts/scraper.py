@@ -7,6 +7,7 @@ import os
 
 def download_file(url, output_file):
     # Send a GET request to the API endpoint
+    print(f'Downloading {output_file}...')
     response = requests.get(url)
 
     # Check if the request was successful (status code 200)
@@ -35,6 +36,7 @@ def download_country_data():
     url = "https://api.worldbank.org/v2/sources/2/country/all/metadata?format=json&per_page=10000"
 
     # Send GET request to the API
+    print('Downloading countries data...')
     response = requests.get(url)
 
     # Check if the request was successful
@@ -87,3 +89,4 @@ if __name__ == "__main__":
         download_file(value, key)
 
     download_country_data()
+    input('\nPress [Enter] to continue')

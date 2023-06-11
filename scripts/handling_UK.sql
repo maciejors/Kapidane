@@ -15,8 +15,12 @@ WHERE CountryCode = 'UK';
 --		StartYear set to 2021 and EndYear set to 9999
 
 -- STEP 6: Execute the following code to check if SCD2 works:
+SELECT *
+FROM Dim_Geography
+WHERE CountryCode = 'UK';
+
 SELECT DISTINCT CountryName, YearKey, IsMemberStateEU, ValidFromDate, ValidToDate, IsCurrent
 FROM Fact_TripsNights
 JOIN Dim_Geography d
 ON DestinationCountryKey = d.CountryKey
-WHERE d.CountryCode = 'UK'
+WHERE d.CountryCode = 'UK';

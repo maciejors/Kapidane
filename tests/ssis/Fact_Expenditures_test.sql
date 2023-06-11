@@ -6,7 +6,23 @@ GO
 SELECT * FROM Fact_Expenditures;
 
 
--- Test2: joins with dimensions
+-- Test2: Check if the TripDetailsKey is created correctly
+SELECT [source], [target]
+FROM (
+	SELECT DISTINCT CONCAT(purpose, duration) AS 'source'
+	FROM kapidane_raw.dbo.trips
+	WHERE purpose NOT IN ('TOTAL', 'PER_VFR')
+		AND duration != 'N_GE1'
+) AS s
+FULL OUTER JOIN (
+	SELECT DISTINCT TripDetailsKey AS 'target'
+	FROM Fact_Expenditures
+) AS t
+ON s.[source] = t.[target]
+
+
+
+-- Test3: inner joins with dimensions to check for missing references
 -- run task here (LoadFacts)
 SELECT 'Standalone fact table', COUNT(*) AS 'Count' 
 FROM Fact_Expenditures
@@ -20,8 +36,8 @@ JOIN Dim_Geography o ON f.OriginCountryKey = o.CountryKey
 JOIN Dim_Geography d ON f.DestinationCountryKey = d.CountryKey;
 
 
--- Test3: check facts uniqueness
--- run task here (LoadFacts) TWICE or more with overlapping intervals
+-- Test4: check facts uniqueness
+-- run task here (LoadFacts) twice or more, with overlapping intervals
 SELECT 'All facts', COUNT(*) as 'Count' 
 FROM Fact_Expenditures
 UNION ALL
@@ -41,7 +57,7 @@ FROM (
 ) AS f;
 
 
--- Test4: check data validity
+-- Test5: check data validity
 -- run task here (LoadFacts)
 SELECT 'source', COUNT(*) AS 'Count', 
 	MAX(et.OBS_VALUE) AS MaxAvgExpendPerTrip, 

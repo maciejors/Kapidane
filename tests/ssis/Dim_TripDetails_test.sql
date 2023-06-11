@@ -18,6 +18,5 @@ SELECT * FROM Dim_TripDetails;
 -- Test2: check if data is updated correctly
 DELETE FROM Dim_TripDetails
 WHERE TripDetailsKey = 'PERN1-3';
-SELECT * FROM Dim_TripDetails;
 -- run task here (LoadDimensions)
 SELECT * FROM Dim_TripDetails;
