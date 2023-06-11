@@ -8,19 +8,31 @@ SELECT * FROM Dim_Geography;
 
 -- Test2: check if no data was lost
 -- run task here (LoadDimensions)
-SELECT 'Countries', 'Source', COUNT(*), MAX(Income_Group), MIN(Region)
+SELECT 'Countries', 'Source', 
+	COUNT(*) AS 'CountriesCount', 
+	MAX(Income_Group) AS 'Max(IncomeGroup)', 
+	MIN(Region) AS 'Min(Region)'
 FROM kapidane_raw.dbo.countries
 WHERE Country_Code IS NOT NULL AND Region IS NOT NULL
 UNION ALL
-SELECT 'Countries', 'Target', COUNT(*), MAX(IncomeGroup), MIN(Region)
+SELECT 'Countries', 'Target', 
+	COUNT(*) AS 'CountriesCount', 
+	MAX(IncomeGroup) AS 'Max(IncomeGroup)', 
+	MIN(Region) AS 'Min(Region)'
 FROM Dim_Geography
 WHERE CountryCode NOT LIKE '%OTH'
 	AND IsCurrent = 'Yes'
 UNION ALL
-SELECT 'Country groups', 'Source', COUNT(*), MAX(IncomeGroup), MIN(Region)
+SELECT 'Country groups', 'Source', 
+	COUNT(*) AS 'CountriesCount', 
+	MAX(IncomeGroup) AS 'Max(IncomeGroup)', 
+	MIN(Region) AS 'Min(Region)'
 FROM GeoSuppl
 UNION ALL
-SELECT 'Country groups', 'Target', COUNT(*), MAX(IncomeGroup), MIN(Region)
+SELECT 'Country groups', 'Target', 
+	COUNT(*) AS 'CountriesCount', 
+	MAX(IncomeGroup) AS 'Max(IncomeGroup)', 
+	MIN(Region) AS 'Min(Region)'
 FROM Dim_Geography
 WHERE CountryCode LIKE '%OTH'
 	AND IsCurrent = 'Yes';
