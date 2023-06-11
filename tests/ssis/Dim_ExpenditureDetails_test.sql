@@ -2,9 +2,15 @@ USE kapidane_dwh
 GO
 
 -- Test1: check if data is loaded correctly
-SELECT DISTINCT expend FROM kapidane_raw.dbo.expenditures WHERE expend != 'TOTXDUR';
 -- run task here (LoadDimensions)
-SELECT * FROM Dim_ExpenditureDetails;
+SELECT DISTINCT s.expend AS 'source', ExpenditureDetailsKey AS 'target', ExpenditureType 
+FROM (
+	SELECT expend 
+	FROM kapidane_raw.dbo.expenditures 
+	WHERE expend != 'TOTXDUR'
+) AS s
+FULL OUTER JOIN Dim_ExpenditureDetails t
+ON expend = t.ExpenditureDetailsKey
 
 
 -- Test2: check if data is updated correctly
