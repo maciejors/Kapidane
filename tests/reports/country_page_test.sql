@@ -1,3 +1,6 @@
+USE [kapidane_dwh]
+GO
+
 CREATE OR ALTER VIEW Test_CountryPageView AS
 SELECT o.CountryName AS 'OriginCountryName', 
 	d.CountryName AS 'DestinationCountryName',

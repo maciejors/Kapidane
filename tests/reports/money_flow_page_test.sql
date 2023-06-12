@@ -1,3 +1,6 @@
+USE [kapidane_dwh]
+GO
+
 CREATE OR ALTER VIEW Test_MoneyFlowPageView AS
 SELECT d.CountryName, d.Region, d.IncomeGroup,
 	e.YearKey, td.TripPurpose,

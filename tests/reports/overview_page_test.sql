@@ -1,3 +1,6 @@
+USE [kapidane_dwh]
+GO
+
 CREATE OR ALTER VIEW Test_OverviewPageView AS
 SELECT AVG(n.TripsCount) AS TripsCount,
 	AVG(n.NightsSpentCount) AS NightsSpentCount,
