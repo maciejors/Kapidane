@@ -2,6 +2,13 @@
 
 A dashboard for EU tourism data analysis
 
+## Technologies used
+
+- Power BI
+- MS SQL
+- SSIS
+- Python
+
 ## Images
 
 ![Overview](https://firebasestorage.googleapis.com/v0/b/my-projects-showcase.appspot.com/o/app-screenshots%2F7%2F1.png?alt=media&token=e8330d46-3033-4166-8647-7cd4a23fe81f)
